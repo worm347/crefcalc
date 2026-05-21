@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>crefcalc — Math tutoring, made friendlier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF6EC;
+    --cream-deeper: #F4ECDC;
+    --ink: #2B2520;
+    --ink-soft: #6B635C;
+    --peach: #FFD0BC;
+    --peach-deep: #F08A6A;
+    --mint: #BFE6D2;
+    --mint-deep: #5BB089;
+    --lilac: #DDD2F2;
+    --lilac-deep: #8A72D4;
+    --butter: #FFE39B;
+    --butter-deep: #E0A82E;
+    --sky: #C2DDF2;
+    --sky-deep: #3F86C2;
+    --coral: #FF6B5A;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Decorative floating blobs */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.55;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .blob-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: var(--peach); animation: float 14s ease-in-out infinite; }
+  .blob-2 { top: 240px; left: -160px; width: 420px; height: 420px; background: var(--lilac); animation: float 18s ease-in-out infinite reverse; }
+  .blob-3 { top: 700px; right: -120px; width: 320px; height: 320px; background: var(--mint); animation: float 16s ease-in-out infinite; }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -40px) scale(1.08); }
+  }
+
+  /* Header */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--ink);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--butter);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    align-items: center;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: background 0.2s ease;
+  }
+
+  nav a:hover { background: var(--cream-deeper); }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--cream) !important;
+    padding: 12px 22px !important;
+  }
+  .nav-cta:hover { background: var(--coral) !important; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: 80px 48px 120px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid var(--cream-deeper);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(43, 37, 32, 0.04);
+  }
+
+  .eyebrow .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--mint-deep);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin-bottom: 28px;
+  }
+
+  h1 .italic {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--coral);
+  }
+
+  h1 .underline-wave {
+    position: relative;
+    display: inline-block;
+  }
+  h1 .underline-wave::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0,7 Q25,0 50,7 T100,7' stroke='%23FFE39B' stroke-width='6' fill='none' stroke-linecap='round'/></svg>") no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    box-shadow: 0 8px 20px rgba(43, 37, 32, 0.18);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(43, 37, 32, 0.25); }
+
+  .btn-ghost {
+    background: white;
+    color: var(--ink);
+    border: 1.5px solid var(--cream-deeper);
+  }
+  .btn-ghost:hover { transform: translateY(-2px); background: var(--cream-deeper); }
+
+  .inline-link {
+    color: var(--coral);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--butter);
+    transition: border-color 0.2s ease;
+  }
+  .inline-link:hover { border-bottom-color: var(--coral); }
+
+  /* Floating math symbols around hero */
+  .float-sym {
+    position: absolute;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .sym-1 { top: 140px; left: 8%; font-size: 120px; transform: rotate(-12deg); }
+  .sym-2 { top: 220px; right: 10%; font-size: 90px; transform: rotate(15deg); }
+  .sym-3 { bottom: 60px; left: 12%; font-size: 110px; transform: rotate(8deg); }
+  .sym-4 { bottom: 100px; right: 6%; font-size: 100px; transform: rotate(-18deg); }
+
+  /* Subjects section */
+  .subjects {
+    position: relative;
+    z-index: 1;
+    padding: 60px 48px 100px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    max-width: 560px;
+  }
+
+  .section-head h2 .italic { font-style: italic; color: var(--lilac-deep); }
+
+  .section-head p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    max-width: 380px;
+  }
+
+  .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  .subject {
+    border-radius: 32px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .subject:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(43, 37, 32, 0.12);
+  }
+
+  .subject-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .subject h3 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .subject p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    opacity: 0.78;
+  }
+
+  .subject-symbol {
+    position: absolute;
+    bottom: -30px;
+    right: -10px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 180px;
+    opacity: 0.15;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .subject-arrow {
+    align-self: flex-start;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .subject:hover .subject-arrow {
+    transform: translate(4px, -4px);
+    background: white;
+  }
+
+  /* Spans for grid */
+  .subj-alg1   { grid-column: span 2; background: var(--peach); }
+  .subj-alg2   { grid-column: span 2; background: var(--mint); }
+  .subj-geom   { grid-column: span 2; background: var(--lilac); }
+  .subj-precal { grid-column: span 3; background: var(--butter); }
+  .subj-apcal  { grid-column: span 3; background: var(--sky); }
+
+  .ap-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--sky-deep);
+  }
+
+  .ap-note {
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  /* Why section */
+  .why {
+    position: relative;
+    z-index: 1;
+    background: white;
+    margin: 80px 24px;
+    padding: 80px 48px;
+    border-radius: 48px;
+    max-width: 1252px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 30px rgba(43, 37, 32, 0.05);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .why-item h4 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .why-item p { color: var(--ink-soft); font-size: 15.5px; }
+
+  .why-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 28px;
+  }
+  .icon-a { background: var(--peach); color: var(--peach-deep); }
+  .icon-b { background: var(--mint); color: var(--mint-deep); }
+  .icon-c { background: var(--lilac); color: var(--lilac-deep); }
+
+  /* CTA strip */
+  .cta-strip {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 48px 80px;
+    text-align: center;
+  }
+
+  .cta-strip-inner {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 70px 40px;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-strip h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 52px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-strip h2 .italic { font-style: italic; color: var(--butter); }
+
+  .cta-strip p {
+    font-size: 17px;
+    opacity: 0.75;
+    max-width: 460px;
+    margin: 0 auto 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-strip .btn-primary {
+    background: var(--coral);
+    position: relative;
+    z-index: 2;
+  }
+  .cta-strip .btn-primary:hover { background: white; color: var(--ink); }
+
+  .sh-badge {
+    display: inline-block;
+    background: rgba(255, 227, 155, 0.2);
+    color: var(--butter);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(255, 227, 155, 0.3);
+  }
+
+  /* Booking section */
+  .booking {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 48px 100px;
+  }
+
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .book-card {
+    border-radius: 40px;
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .book-card--dark {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .book-card--light {
+    background: white;
+    color: var(--ink);
+    box-shadow: 0 8px 30px rgba(43, 37, 32, 0.05);
+  }
+
+  .book-card-top { position: relative; z-index: 2; }
+
+  .book-card h3 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 38px);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .book-card h3 .italic { font-style: italic; }
+  .book-card--dark h3 .italic { color: var(--butter); }
+  .book-card--light h3 .italic { color: var(--coral); }
+
+  .book-card p {
+    font-size: 16px;
+    line-height: 1.55;
+    opacity: 0.8;
+  }
+
+  .book-card--dark p { color: rgba(251, 246, 236, 0.85); }
+  .book-card--dark strong { color: var(--butter); font-weight: 700; }
+
+  .sh-badge--light {
+    background: var(--peach);
+    color: var(--peach-deep);
+    border: 1px solid var(--peach-deep);
+  }
+
+  .book-btn-coral { background: var(--coral); align-self: flex-start; position: relative; z-index: 2; }
+  .book-btn-coral:hover { background: white; color: var(--ink); }
+
+  /* Form */
+  .book-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .book-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .book-form label span em {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+
+  .book-form input,
+  .book-form select,
+  .book-form textarea {
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--cream);
+    border: 1.5px solid transparent;
+    border-radius: 16px;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    width: 100%;
+  }
+
+  .book-form textarea { resize: vertical; min-height: 100px; font-family: 'Nunito', sans-serif; }
+
+  .book-form input:focus,
+  .book-form select:focus,
+  .book-form textarea:focus {
+    border-color: var(--coral);
+    background: white;
+  }
+
+  .book-form input::placeholder,
+  .book-form textarea::placeholder { color: var(--ink-soft); opacity: 0.5; }
+
+  .book-form-btn {
+    align-self: flex-start;
+    margin-top: 8px;
+    background: var(--ink);
+  }
+  .book-form-btn:hover { background: var(--coral); }
+
+  .form-note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .form-note.success { color: var(--mint-deep); font-weight: 700; }
+
+  .cta-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+  .cta-circle-1 { top: -60px; left: -60px; width: 240px; height: 240px; background: var(--coral); }
+  .cta-circle-2 { bottom: -80px; right: -40px; width: 280px; height: 280px; background: var(--butter); }
+
+  /* Footer */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 60px 48px 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    border-top: 1px solid var(--cream-deeper);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .footer-brand .logo { margin-bottom: 16px; }
+  .footer-brand p { color: var(--ink-soft); font-size: 14.5px; max-width: 320px; }
+
+  .footer-col h5 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .footer-col a:hover { color: var(--coral); }
+
+  .disclaimer {
+    background: var(--cream-deeper);
+    border-radius: 20px;
+    padding: 22px 28px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .disclaimer strong { color: var(--ink); font-weight: 700; }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 20px;
+    color: var(--ink-soft);
+    font-size: 13px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .subject-grid { grid-template-columns: 1fr; }
+    .subj-alg1, .subj-alg2, .subj-geom, .subj-precal, .subj-apcal { grid-column: span 1; }
+    .why-grid { grid-template-columns: 1fr; }
+    .booking-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    header { padding: 20px 24px; }
+    nav ul { gap: 0; }
+    nav li:not(:last-child) { display: none; }
+    .hero, .subjects, .booking, footer { padding-left: 24px; padding-right: 24px; }
+    .why { padding: 50px 28px; margin: 60px 16px; border-radius: 32px; }
+    .book-card { padding: 36px 28px; border-radius: 32px; }
+    .float-sym { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 52px; }
+    .section-head { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <header>
+    <a href="#" class="logo">
+      <span class="logo-mark">c</span>
+      crefcalc
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#why">How I work</a></li>
+        <li><a href="#book">Book</a></li>
+        <li><a href="#book" class="nav-cta">Book free →</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="float-sym sym-1">π</span>
+    <span class="float-sym sym-2">∫</span>
+    <span class="float-sym sym-3">√</span>
+    <span class="float-sym sym-4">∑</span>
+
+    <div class="eyebrow">
+      <span class="dot"></span>
+      100% free · tutored through Schoolhouse.world
+    </div>
+
+    <h1>
+      Math, made <span class="italic">friendlier.</span><br>
+      One <span class="underline-wave">problem</span> at a time.
+    </h1>
+
+    <p class="hero-sub">
+      Hi — I tutor middle and high schoolers in math, completely free.
+      From first equations all the way to AP-level calculus. Book through
+      <a href="https://schoolhouse.world/" target="_blank" rel="noopener" class="inline-link">Schoolhouse</a>
+      or send me a message — your pick.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-primary">Book a session →</a>
+      <a href="#subjects" class="btn btn-ghost">See what I cover</a>
+    </div>
+  </section>
+
+  <section class="subjects" id="subjects">
+    <div class="section-head">
+      <h2>What I <span class="italic">cover.</span></h2>
+      <p>Five courses I tutor. Pick the one you're working on — or start where you got lost.</p>
+    </div>
+
+    <div class="subject-grid">
+      <div class="subject subj-alg1">
+        <div>
+          <span class="subject-num">01</span>
+          <h3>Algebra 1</h3>
+          <p>Variables, equations, linear functions. The foundation everything else stands on.</p>
+        </div>
+        <div class="subject-arrow">→</div>
+        <span class="subject-symbol">x</span>
+      </div>
+
+      <div class="subject subj-alg2">
+        <div>
+          <span class="subject-num">02</span>
+          <h3>Algebra 2</h3>
+          <p>Quadratics, polynomials, logs, and the patterns that connect them all.</p>
+        </div>
+        <div class="subject-arrow">→</div>
+        <span class="subject-symbol">x²</span>
+      </div>
+
+      <div class="subject subj-geom">
+        <div>
+          <span class="subject-num">03</span>
+          <h3>Geometry</h3>
+          <p>Shapes, proofs, trig basics. Where intuition meets rigor.</p>
+        </div>
+        <div class="subject-arrow">→</div>
+        <span class="subject-symbol">△</span>
+      </div>
+
+      <div class="subject subj-precal">
+        <div>
+          <span class="subject-num">04</span>
+          <h3>Precalculus</h3>
+          <p>Functions, trig, vectors, limits at the edge. The on-ramp to calculus — taught so you arrive ready, not rattled.</p>
+        </div>
+        <div class="subject-arrow">→</div>
+        <span class="subject-symbol">ƒ</span>
+      </div>
+
+      <div class="subject subj-apcal">
+        <span class="ap-badge">AB &amp; BC</span>
+        <div>
+          <span class="subject-num">05</span>
+          <h3>AP Calculus</h3>
+          <p>Limits, derivatives, integrals, series. Exam prep that actually builds understanding, not just memorized rules.</p>
+          <p class="ap-note">"AP" is used here only to identify the course — crefcalc is not affiliated with, endorsed by, or sponsored by the College Board.</p>
+        </div>
+        <div class="subject-arrow">→</div>
+        <span class="subject-symbol">∫</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="section-head" style="margin-bottom: 48px;">
+      <h2>How I <span class="italic">work.</span></h2>
+      <p>Just me, just you. No platform-speak, no upsells.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon icon-a">a</div>
+        <h4>One-on-one, always</h4>
+        <p>Every session is just you and me. No group calls, no juggling, no falling behind quietly in the back.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon icon-b">b</div>
+        <h4>Patient by default</h4>
+        <p>I move at your pace. If a concept doesn't click, we stay on it — not the next slide, not the next chapter.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon icon-c">c</div>
+        <h4>Built around your class</h4>
+        <p>Bring your homework, your notes, your upcoming test. I meet your curriculum where it is.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="book">
+    <div class="section-head">
+      <h2>Two ways to <span class="italic">book.</span></h2>
+      <p>Both are free. Pick whichever feels easier.</p>
+    </div>
+
+    <div class="booking-grid">
+
+      <!-- Schoolhouse card -->
+      <div class="book-card book-card--dark">
+        <div class="cta-circle cta-circle-1"></div>
+        <div class="cta-circle cta-circle-2"></div>
+
+        <div class="book-card-top">
+          <span class="sh-badge">Option 1 · Schoolhouse</span>
+          <h3>Register for a <span class="italic">session</span> with me on Schoolhouse.</h3>
+          <p>I tutor through <strong>Schoolhouse.world</strong>, a free nonprofit platform founded by Sal Khan. Make a free account, find my profile, and grab a slot from my open sessions.</p>
+        </div>
+
+        <a href="https://schoolhouse.world/" target="_blank" rel="noopener" class="btn btn-primary book-btn-coral">Find me on Schoolhouse →</a>
+      </div>
+
+      <!-- Personal form card -->
+      <div class="book-card book-card--light">
+        <div class="book-card-top">
+          <span class="sh-badge sh-badge--light">Option 2 · Direct</span>
+          <h3>Or, request a <span class="italic">personal</span> free session.</h3>
+          <p>Prefer to skip the platform? Drop your info below and I'll reach out to set up a time that works for both of us.</p>
+        </div>
+
+        <form class="book-form" id="booking-form">
+          <div class="form-row">
+            <label>
+              <span>Your name</span>
+              <input type="text" name="name" required placeholder="Alex Rivera" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required placeholder="you@example.com" />
+            </label>
+          </div>
+
+          <label>
+            <span>What do you need help with?</span>
+            <select name="subject" required>
+              <option value="">Pick a subject…</option>
+              <option>Algebra 1</option>
+              <option>Algebra 2</option>
+              <option>Geometry</option>
+              <option>Precalculus</option>
+              <option>AP Calculus (AB)</option>
+              <option>AP Calculus (BC)</option>
+              <option>Not sure / something else</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Tell me a bit more <em>(optional)</em></span>
+            <textarea name="message" rows="4" placeholder="What topic are you stuck on? Any upcoming tests? Best times to meet?"></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary book-form-btn">Send request →</button>
+          <p class="form-note" id="form-note">I'll get back to you within a day or two. No spam, ever.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark">c</span>
+          crefcalc
+        </a>
+        <p>Free 1-on-1 math tutoring for middle and high schoolers. Just me, patient and paced for you. Hosted through Schoolhouse — or by direct request.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Subjects</h5>
+        <ul>
+          <li><a href="#">Algebra 1</a></li>
+          <li><a href="#">Algebra 2</a></li>
+          <li><a href="#">Geometry</a></li>
+          <li><a href="#">Precalculus</a></li>
+          <li><a href="#">AP Calculus</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Book a session</h5>
+        <ul>
+          <li><a href="https://schoolhouse.world/" target="_blank" rel="noopener">Schoolhouse ↗</a></li>
+          <li><a href="#book">Request directly</a></li>
+          <li><a href="#why">How I work</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>A note on AP®:</strong> crefcalc is an independent tutoring effort run by one person and is <strong>not affiliated with, endorsed by, or sponsored by the College Board</strong> in any way. References to "AP Calculus," "AP," or related course names are used solely for identification — to help students find tutoring matched to the curriculum they're studying. AP® and Advanced Placement® are trademarks registered by the College Board.
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 crefcalc · a free tutoring project.</span>
+      <span>Made with care for math learners.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Booking form handler — opens user's email client with prefilled message
+    // ↓ REPLACE this with your real email address ↓
+    const TUTOR_EMAIL = "crefcalc@gmail.com";
+
+    const form = document.getElementById('booking-form');
+    const note = document.getElementById('form-note');
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = data.get('name') || '';
+        const email = data.get('email') || '';
+        const subject = data.get('subject') || '';
+        const message = data.get('message') || '';
+
+        const body = [
+          `Hi! I'd like to request a free session.`,
+          ``,
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Subject: ${subject}`,
+          ``,
+          `Details:`,
+          message || '(none provided)'
+        ].join('\n');
+
+        const mailUrl =
+          `mailto:${TUTOR_EMAIL}` +
+          `?subject=${encodeURIComponent('crefcalc session request from ' + name)}` +
+          `&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailUrl;
+
+        note.textContent = "Opening your email app… if nothing happened, email me directly at " + TUTOR_EMAIL;
+        note.classList.add('success');
+      });
+    }
+  </script>
+</body>
+</html>
