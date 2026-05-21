@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>crefcalc — Math tutoring, made friendlier</title>
+<title>crefcalc — free math tutoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #FBF6EC;
@@ -14,24 +14,14 @@
     --ink: #2B2520;
     --ink-soft: #6B635C;
     --peach: #FFD0BC;
-    --peach-deep: #F08A6A;
     --mint: #BFE6D2;
-    --mint-deep: #5BB089;
     --lilac: #DDD2F2;
-    --lilac-deep: #8A72D4;
     --butter: #FFE39B;
-    --butter-deep: #E0A82E;
     --sky: #C2DDF2;
-    --sky-deep: #3F86C2;
     --coral: #FF6B5A;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
 
   body {
@@ -43,15 +33,8 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Decorative floating blobs */
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.55;
-    z-index: 0;
-    pointer-events: none;
-  }
+  /* Decorative floating blobs (soft round, no cursive) */
+  .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.5; z-index: 0; pointer-events: none; }
   .blob-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: var(--peach); animation: float 14s ease-in-out infinite; }
   .blob-2 { top: 240px; left: -160px; width: 420px; height: 420px; background: var(--lilac); animation: float 18s ease-in-out infinite reverse; }
   .blob-3 { top: 700px; right: -120px; width: 320px; height: 320px; background: var(--mint); animation: float 16s ease-in-out infinite; }
@@ -63,61 +46,42 @@
 
   /* Header */
   header {
-    position: relative;
-    z-index: 10;
+    position: relative; z-index: 10;
     padding: 28px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1300px; margin: 0 auto;
   }
 
   .logo {
     font-family: 'Fraunces', serif;
     font-variation-settings: "SOFT" 100, "opsz" 144;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 26px;
     letter-spacing: -0.02em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
   }
 
   .logo-mark {
-    width: 38px;
-    height: 38px;
+    width: 36px; height: 36px;
     background: var(--ink);
     border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-flex; align-items: center; justify-content: center;
     color: var(--butter);
     font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 22px;
+    font-weight: 600;
+    font-size: 20px;
   }
 
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 8px;
-    align-items: center;
-  }
-
+  nav ul { display: flex; list-style: none; gap: 4px; align-items: center; }
   nav a {
-    text-decoration: none;
-    color: var(--ink);
-    font-weight: 500;
-    font-size: 15px;
-    padding: 10px 18px;
-    border-radius: 999px;
+    text-decoration: none; color: var(--ink);
+    font-weight: 500; font-size: 15px;
+    padding: 10px 18px; border-radius: 999px;
     transition: background 0.2s ease;
   }
-
   nav a:hover { background: var(--cream-deeper); }
-
   .nav-cta {
     background: var(--ink);
     color: var(--cream) !important;
@@ -127,119 +91,76 @@
 
   /* Hero */
   .hero {
-    position: relative;
-    z-index: 1;
-    padding: 80px 48px 120px;
-    max-width: 1300px;
-    margin: 0 auto;
+    position: relative; z-index: 1;
+    padding: 80px 48px 100px;
+    max-width: 1100px; margin: 0 auto;
     text-align: center;
   }
 
   .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    display: inline-flex; align-items: center; gap: 10px;
     background: white;
     border: 1px solid var(--cream-deeper);
-    padding: 8px 20px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 600;
+    padding: 8px 20px; border-radius: 999px;
+    font-size: 14px; font-weight: 600;
     color: var(--ink-soft);
     margin-bottom: 28px;
     box-shadow: 0 4px 12px rgba(43, 37, 32, 0.04);
   }
 
   .eyebrow .dot {
-    width: 8px;
-    height: 8px;
-    background: var(--mint-deep);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.3); }
+    width: 8px; height: 8px;
+    background: var(--mint); border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(91, 176, 137, 0.18);
   }
 
   h1 {
     font-family: 'Fraunces', serif;
     font-variation-settings: "SOFT" 100, "opsz" 144;
     font-weight: 500;
-    font-size: clamp(48px, 8vw, 96px);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-    margin-bottom: 28px;
-  }
-
-  h1 .italic {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--coral);
-  }
-
-  h1 .underline-wave {
-    position: relative;
-    display: inline-block;
-  }
-  h1 .underline-wave::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 14px;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0,7 Q25,0 50,7 T100,7' stroke='%23FFE39B' stroke-width='6' fill='none' stroke-linecap='round'/></svg>") no-repeat;
-    background-size: 100% 100%;
+    font-size: clamp(44px, 7vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
   }
 
   .hero-sub {
-    font-size: 19px;
+    font-size: 18px;
     color: var(--ink-soft);
-    max-width: 580px;
-    margin: 0 auto 40px;
+    max-width: 560px;
+    margin: 0 auto 36px;
     line-height: 1.6;
   }
 
   .hero-ctas {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex; gap: 12px;
+    justify-content: center; flex-wrap: wrap;
   }
 
   .btn {
     font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 16px 32px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
+    font-weight: 700; font-size: 15px;
+    padding: 15px 28px; border-radius: 999px;
+    border: none; cursor: pointer;
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
 
   .btn-primary {
-    background: var(--ink);
-    color: var(--cream);
-    box-shadow: 0 8px 20px rgba(43, 37, 32, 0.18);
+    background: var(--ink); color: var(--cream);
+    box-shadow: 0 6px 16px rgba(43, 37, 32, 0.15);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(43, 37, 32, 0.25); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(43, 37, 32, 0.22); }
 
   .btn-ghost {
-    background: white;
-    color: var(--ink);
+    background: white; color: var(--ink);
     border: 1.5px solid var(--cream-deeper);
   }
   .btn-ghost:hover { transform: translateY(-2px); background: var(--cream-deeper); }
 
   .inline-link {
-    color: var(--coral);
+    color: var(--ink);
     font-weight: 700;
     text-decoration: none;
     border-bottom: 2px solid var(--butter);
@@ -247,89 +168,59 @@
   }
   .inline-link:hover { border-bottom-color: var(--coral); }
 
-  /* Floating math symbols around hero */
-  .float-sym {
-    position: absolute;
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--ink);
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .sym-1 { top: 140px; left: 8%; font-size: 120px; transform: rotate(-12deg); }
-  .sym-2 { top: 220px; right: 10%; font-size: 90px; transform: rotate(15deg); }
-  .sym-3 { bottom: 60px; left: 12%; font-size: 110px; transform: rotate(8deg); }
-  .sym-4 { bottom: 100px; right: 6%; font-size: 100px; transform: rotate(-18deg); }
-
-  /* Subjects section */
-  .subjects {
-    position: relative;
-    z-index: 1;
-    padding: 60px 48px 100px;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-
+  /* Section heads */
   .section-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 56px;
-    gap: 40px;
-    flex-wrap: wrap;
+    margin-bottom: 48px;
+    max-width: 720px;
   }
-
   .section-head h2 {
     font-family: 'Fraunces', serif;
     font-variation-settings: "SOFT" 100, "opsz" 144;
     font-weight: 500;
-    font-size: clamp(36px, 5vw, 56px);
+    font-size: clamp(34px, 4.5vw, 48px);
     letter-spacing: -0.03em;
-    line-height: 1.05;
-    max-width: 560px;
+    line-height: 1.1;
+    margin-bottom: 12px;
   }
-
-  .section-head h2 .italic { font-style: italic; color: var(--lilac-deep); }
-
   .section-head p {
     color: var(--ink-soft);
     font-size: 17px;
-    max-width: 380px;
+  }
+
+  /* Subjects */
+  .subjects {
+    position: relative; z-index: 1;
+    padding: 40px 48px 80px;
+    max-width: 1300px; margin: 0 auto;
   }
 
   .subject-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+    gap: 18px;
   }
 
   .subject {
-    border-radius: 32px;
-    padding: 36px 32px;
+    border-radius: 28px;
+    padding: 32px 28px;
     position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    min-height: 220px;
+    display: flex; flex-direction: column; justify-content: space-between;
   }
 
   .subject:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(43, 37, 32, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(43, 37, 32, 0.08);
   }
 
-  .subject-num {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
-    opacity: 0.6;
-    margin-bottom: 12px;
+  .subject-tag {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.65;
+    margin-bottom: 14px;
     display: block;
   }
 
@@ -337,420 +228,240 @@
     font-family: 'Fraunces', serif;
     font-variation-settings: "SOFT" 100, "opsz" 144;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 26px;
     letter-spacing: -0.02em;
-    line-height: 1.05;
-    margin-bottom: 16px;
+    line-height: 1.1;
+    margin-bottom: 12px;
   }
 
   .subject p {
     font-size: 14.5px;
     line-height: 1.5;
-    opacity: 0.78;
+    opacity: 0.8;
   }
 
-  .subject-symbol {
-    position: absolute;
-    bottom: -30px;
-    right: -10px;
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 180px;
-    opacity: 0.15;
-    line-height: 1;
-    pointer-events: none;
+  .ap-note {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.65;
   }
 
-  .subject-arrow {
-    align-self: flex-start;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    transition: transform 0.3s ease, background 0.3s ease;
-  }
-
-  .subject:hover .subject-arrow {
-    transform: translate(4px, -4px);
-    background: white;
-  }
-
-  /* Spans for grid */
   .subj-alg1   { grid-column: span 2; background: var(--peach); }
   .subj-alg2   { grid-column: span 2; background: var(--mint); }
   .subj-geom   { grid-column: span 2; background: var(--lilac); }
   .subj-precal { grid-column: span 3; background: var(--butter); }
   .subj-apcal  { grid-column: span 3; background: var(--sky); }
 
-  .ap-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(8px);
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--sky-deep);
-  }
-
-  .ap-note {
-    margin-top: 14px;
-    font-size: 12px;
-    line-height: 1.5;
-    opacity: 0.7;
-    font-style: italic;
-  }
-
-  /* Why section */
-  .why {
-    position: relative;
-    z-index: 1;
+  /* About */
+  .about {
+    position: relative; z-index: 1;
     background: white;
-    margin: 80px 24px;
-    padding: 80px 48px;
-    border-radius: 48px;
+    margin: 60px 24px;
+    padding: 70px 48px;
+    border-radius: 40px;
     max-width: 1252px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 8px 30px rgba(43, 37, 32, 0.05);
+    margin-left: auto; margin-right: auto;
+    box-shadow: 0 8px 30px rgba(43, 37, 32, 0.04);
   }
 
-  .why-grid {
+  .about-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 36px;
   }
 
-  .why-item h4 {
+  .about-item h4 {
     font-family: 'Fraunces', serif;
     font-variation-settings: "SOFT" 100;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
-  .why-item p { color: var(--ink-soft); font-size: 15.5px; }
+  .about-item p { color: var(--ink-soft); font-size: 15.5px; }
 
-  .why-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+  .about-num {
+    width: 44px; height: 44px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
     font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 28px;
+    font-weight: 600;
+    font-size: 20px;
   }
-  .icon-a { background: var(--peach); color: var(--peach-deep); }
-  .icon-b { background: var(--mint); color: var(--mint-deep); }
-  .icon-c { background: var(--lilac); color: var(--lilac-deep); }
+  .num-a { background: var(--peach); color: var(--ink); }
+  .num-b { background: var(--mint); color: var(--ink); }
+  .num-c { background: var(--lilac); color: var(--ink); }
 
-  /* CTA strip */
-  .cta-strip {
-    position: relative;
-    z-index: 1;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 60px 48px 80px;
-    text-align: center;
-  }
-
-  .cta-strip-inner {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 70px 40px;
-    border-radius: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-strip h2 {
-    font-family: 'Fraunces', serif;
-    font-variation-settings: "SOFT" 100, "opsz" 144;
-    font-weight: 500;
-    font-size: clamp(34px, 5vw, 52px);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .cta-strip h2 .italic { font-style: italic; color: var(--butter); }
-
-  .cta-strip p {
-    font-size: 17px;
-    opacity: 0.75;
-    max-width: 460px;
-    margin: 0 auto 28px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .cta-strip .btn-primary {
-    background: var(--coral);
-    position: relative;
-    z-index: 2;
-  }
-  .cta-strip .btn-primary:hover { background: white; color: var(--ink); }
-
-  .sh-badge {
-    display: inline-block;
-    background: rgba(255, 227, 155, 0.2);
-    color: var(--butter);
-    padding: 8px 18px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
-    border: 1px solid rgba(255, 227, 155, 0.3);
-  }
-
-  /* Booking section */
+  /* Booking */
   .booking {
-    position: relative;
-    z-index: 1;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 40px 48px 100px;
+    position: relative; z-index: 1;
+    max-width: 1300px; margin: 0 auto;
+    padding: 40px 48px 90px;
   }
 
   .booking-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 22px;
     align-items: stretch;
   }
 
   .book-card {
-    border-radius: 40px;
-    padding: 48px 40px;
+    border-radius: 36px;
+    padding: 44px 36px;
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 32px;
+    display: flex; flex-direction: column;
+    gap: 28px;
   }
 
-  .book-card--dark {
-    background: var(--ink);
-    color: var(--cream);
-  }
+  .book-card--dark { background: var(--ink); color: var(--cream); justify-content: space-between; }
+  .book-card--light { background: white; color: var(--ink); box-shadow: 0 8px 30px rgba(43, 37, 32, 0.05); }
 
-  .book-card--light {
-    background: white;
-    color: var(--ink);
-    box-shadow: 0 8px 30px rgba(43, 37, 32, 0.05);
+  .book-card-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
   }
-
-  .book-card-top { position: relative; z-index: 2; }
+  .book-card--dark .book-card-tag { background: rgba(255, 227, 155, 0.15); color: var(--butter); border: 1px solid rgba(255, 227, 155, 0.25); }
+  .book-card--light .book-card-tag { background: var(--peach); color: var(--ink); }
 
   .book-card h3 {
     font-family: 'Fraunces', serif;
     font-variation-settings: "SOFT" 100, "opsz" 144;
     font-weight: 500;
-    font-size: clamp(28px, 3vw, 38px);
+    font-size: clamp(26px, 2.8vw, 32px);
     letter-spacing: -0.025em;
-    line-height: 1.1;
-    margin-bottom: 16px;
+    line-height: 1.15;
+    margin-bottom: 14px;
   }
 
-  .book-card h3 .italic { font-style: italic; }
-  .book-card--dark h3 .italic { color: var(--butter); }
-  .book-card--light h3 .italic { color: var(--coral); }
-
-  .book-card p {
-    font-size: 16px;
-    line-height: 1.55;
-    opacity: 0.8;
-  }
-
-  .book-card--dark p { color: rgba(251, 246, 236, 0.85); }
+  .book-card p { font-size: 15.5px; line-height: 1.55; opacity: 0.8; }
+  .book-card--dark p { color: rgba(251, 246, 236, 0.8); }
   .book-card--dark strong { color: var(--butter); font-weight: 700; }
 
-  .sh-badge--light {
-    background: var(--peach);
-    color: var(--peach-deep);
-    border: 1px solid var(--peach-deep);
-  }
-
-  .book-btn-coral { background: var(--coral); align-self: flex-start; position: relative; z-index: 2; }
+  .book-btn-coral { background: var(--coral); align-self: flex-start; }
   .book-btn-coral:hover { background: white; color: var(--ink); }
 
   /* Form */
-  .book-form { display: flex; flex-direction: column; gap: 16px; }
+  .book-form { display: flex; flex-direction: column; gap: 14px; }
 
   .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
   }
 
   .book-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 600;
+    display: flex; flex-direction: column; gap: 6px;
+    font-size: 13px; font-weight: 600;
     color: var(--ink-soft);
-  }
-
-  .book-form label span em {
-    font-weight: 400;
-    font-style: italic;
-    color: var(--ink-soft);
-    opacity: 0.7;
   }
 
   .book-form input,
   .book-form select,
   .book-form textarea {
     font-family: 'Nunito', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 15px; font-weight: 500;
     color: var(--ink);
     background: var(--cream);
     border: 1.5px solid transparent;
-    border-radius: 16px;
-    padding: 14px 18px;
+    border-radius: 14px;
+    padding: 13px 16px;
     outline: none;
     transition: border-color 0.2s ease, background 0.2s ease;
     width: 100%;
   }
 
-  .book-form textarea { resize: vertical; min-height: 100px; font-family: 'Nunito', sans-serif; }
-
-  .book-form input:focus,
-  .book-form select:focus,
-  .book-form textarea:focus {
-    border-color: var(--coral);
-    background: white;
+  .book-form textarea { resize: vertical; min-height: 90px; font-family: 'Nunito', sans-serif; }
+  .book-form input:focus, .book-form select:focus, .book-form textarea:focus {
+    border-color: var(--coral); background: white;
+  }
+  .book-form input::placeholder, .book-form textarea::placeholder {
+    color: var(--ink-soft); opacity: 0.5;
   }
 
-  .book-form input::placeholder,
-  .book-form textarea::placeholder { color: var(--ink-soft); opacity: 0.5; }
-
-  .book-form-btn {
-    align-self: flex-start;
-    margin-top: 8px;
-    background: var(--ink);
-  }
+  .book-form-btn { align-self: flex-start; margin-top: 6px; background: var(--ink); }
   .book-form-btn:hover { background: var(--coral); }
 
-  .form-note {
-    font-size: 13px;
-    color: var(--ink-soft);
-    margin-top: 4px;
-  }
-  .form-note.success { color: var(--mint-deep); font-weight: 700; }
-
-  .cta-circle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.15;
-  }
-  .cta-circle-1 { top: -60px; left: -60px; width: 240px; height: 240px; background: var(--coral); }
-  .cta-circle-2 { bottom: -80px; right: -40px; width: 280px; height: 280px; background: var(--butter); }
+  .form-note { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+  .form-note.success { color: var(--mint); font-weight: 700; }
 
   /* Footer */
   footer {
-    position: relative;
-    z-index: 1;
-    padding: 60px 48px 40px;
-    max-width: 1300px;
-    margin: 0 auto;
+    position: relative; z-index: 1;
+    padding: 50px 48px 36px;
+    max-width: 1300px; margin: 0 auto;
     border-top: 1px solid var(--cream-deeper);
   }
 
   .footer-top {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 50px;
+    gap: 36px;
+    margin-bottom: 40px;
   }
 
-  .footer-brand .logo { margin-bottom: 16px; }
+  .footer-brand .logo { margin-bottom: 14px; }
   .footer-brand p { color: var(--ink-soft); font-size: 14.5px; max-width: 320px; }
 
   .footer-col h5 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700; font-size: 12px;
+    margin-bottom: 14px;
     color: var(--ink-soft);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
   }
 
   .footer-col ul { list-style: none; }
   .footer-col li { margin-bottom: 8px; }
   .footer-col a {
-    color: var(--ink);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
+    color: var(--ink); text-decoration: none;
+    font-size: 15px; font-weight: 500;
   }
   .footer-col a:hover { color: var(--coral); }
 
   .disclaimer {
     background: var(--cream-deeper);
-    border-radius: 20px;
-    padding: 22px 28px;
+    border-radius: 18px;
+    padding: 20px 24px;
     font-size: 13px;
     color: var(--ink-soft);
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
-
   .disclaimer strong { color: var(--ink); font-weight: 700; }
 
   .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding-top: 20px;
-    color: var(--ink-soft);
-    font-size: 13px;
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    padding-top: 16px;
+    color: var(--ink-soft); font-size: 13px;
   }
 
   /* Responsive */
   @media (max-width: 900px) {
     .subject-grid { grid-template-columns: 1fr; }
     .subj-alg1, .subj-alg2, .subj-geom, .subj-precal, .subj-apcal { grid-column: span 1; }
-    .why-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
     .booking-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
     header { padding: 20px 24px; }
-    nav ul { gap: 0; }
     nav li:not(:last-child) { display: none; }
     .hero, .subjects, .booking, footer { padding-left: 24px; padding-right: 24px; }
-    .why { padding: 50px 28px; margin: 60px 16px; border-radius: 32px; }
-    .book-card { padding: 36px 28px; border-radius: 32px; }
-    .float-sym { display: none; }
+    .about { padding: 48px 28px; margin: 50px 16px; border-radius: 28px; }
+    .book-card { padding: 34px 26px; border-radius: 28px; }
   }
 
   @media (max-width: 600px) {
-    h1 { font-size: 52px; }
-    .section-head { flex-direction: column; align-items: flex-start; }
+    h1 { font-size: 44px; }
   }
 </style>
 </head>
@@ -768,156 +479,130 @@
     <nav>
       <ul>
         <li><a href="#subjects">Subjects</a></li>
-        <li><a href="#why">How I work</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#book">Book</a></li>
-        <li><a href="#book" class="nav-cta">Book free →</a></li>
+        <li><a href="#book" class="nav-cta">Book free</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
-    <span class="float-sym sym-1">π</span>
-    <span class="float-sym sym-2">∫</span>
-    <span class="float-sym sym-3">√</span>
-    <span class="float-sym sym-4">∑</span>
-
     <div class="eyebrow">
       <span class="dot"></span>
-      100% free · tutored through Schoolhouse.world
+      Free · tutored on Schoolhouse
     </div>
 
-    <h1>
-      Math, made <span class="italic">friendlier.</span><br>
-      One <span class="underline-wave">problem</span> at a time.
-    </h1>
+    <h1>Free math tutoring.</h1>
 
     <p class="hero-sub">
-      Hi — I tutor middle and high schoolers in math, completely free.
-      From first equations all the way to AP-level calculus. Book through
-      <a href="https://schoolhouse.world/" target="_blank" rel="noopener" class="inline-link">Schoolhouse</a>
-      or send me a message — your pick.
+      I tutor middle and high schoolers in math, from Algebra 1 through AP Calculus.
+      You can book a session with me on <a href="https://schoolhouse.world/" target="_blank" rel="noopener" class="inline-link">Schoolhouse</a>
+      or request one directly.
     </p>
 
     <div class="hero-ctas">
-      <a href="#book" class="btn btn-primary">Book a session →</a>
-      <a href="#subjects" class="btn btn-ghost">See what I cover</a>
+      <a href="#book" class="btn btn-primary">Book a session</a>
+      <a href="#subjects" class="btn btn-ghost">See subjects</a>
     </div>
   </section>
 
   <section class="subjects" id="subjects">
     <div class="section-head">
-      <h2>What I <span class="italic">cover.</span></h2>
-      <p>Five courses I tutor. Pick the one you're working on — or start where you got lost.</p>
+      <h2>Subjects</h2>
+      <p>Five courses I tutor.</p>
     </div>
 
     <div class="subject-grid">
       <div class="subject subj-alg1">
         <div>
-          <span class="subject-num">01</span>
+          <span class="subject-tag">01</span>
           <h3>Algebra 1</h3>
-          <p>Variables, equations, linear functions. The foundation everything else stands on.</p>
+          <p>Variables, equations, inequalities, linear functions, systems.</p>
         </div>
-        <div class="subject-arrow">→</div>
-        <span class="subject-symbol">x</span>
       </div>
 
       <div class="subject subj-alg2">
         <div>
-          <span class="subject-num">02</span>
+          <span class="subject-tag">02</span>
           <h3>Algebra 2</h3>
-          <p>Quadratics, polynomials, logs, and the patterns that connect them all.</p>
+          <p>Quadratics, polynomials, logarithms, exponential and rational functions.</p>
         </div>
-        <div class="subject-arrow">→</div>
-        <span class="subject-symbol">x²</span>
       </div>
 
       <div class="subject subj-geom">
         <div>
-          <span class="subject-num">03</span>
+          <span class="subject-tag">03</span>
           <h3>Geometry</h3>
-          <p>Shapes, proofs, trig basics. Where intuition meets rigor.</p>
+          <p>Shapes, proofs, coordinate geometry, intro trigonometry.</p>
         </div>
-        <div class="subject-arrow">→</div>
-        <span class="subject-symbol">△</span>
       </div>
 
       <div class="subject subj-precal">
         <div>
-          <span class="subject-num">04</span>
+          <span class="subject-tag">04</span>
           <h3>Precalculus</h3>
-          <p>Functions, trig, vectors, limits at the edge. The on-ramp to calculus — taught so you arrive ready, not rattled.</p>
+          <p>Functions, trigonometry, vectors, sequences, and limits.</p>
         </div>
-        <div class="subject-arrow">→</div>
-        <span class="subject-symbol">ƒ</span>
       </div>
 
       <div class="subject subj-apcal">
-        <span class="ap-badge">AB &amp; BC</span>
         <div>
-          <span class="subject-num">05</span>
-          <h3>AP Calculus</h3>
-          <p>Limits, derivatives, integrals, series. Exam prep that actually builds understanding, not just memorized rules.</p>
-          <p class="ap-note">"AP" is used here only to identify the course — crefcalc is not affiliated with, endorsed by, or sponsored by the College Board.</p>
+          <span class="subject-tag">05</span>
+          <h3>AP Calculus (AB &amp; BC)</h3>
+          <p>Limits, derivatives, integrals, and series.</p>
+          <p class="ap-note">"AP" is used here only to identify the course. crefcalc is not affiliated with the College Board.</p>
         </div>
-        <div class="subject-arrow">→</div>
-        <span class="subject-symbol">∫</span>
       </div>
     </div>
   </section>
 
-  <section class="why" id="why">
-    <div class="section-head" style="margin-bottom: 48px;">
-      <h2>How I <span class="italic">work.</span></h2>
-      <p>Just me, just you. No platform-speak, no upsells.</p>
+  <section class="about" id="about">
+    <div class="section-head">
+      <h2>About</h2>
+      <p>A few things to know.</p>
     </div>
 
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-icon icon-a">a</div>
-        <h4>One-on-one, always</h4>
-        <p>Every session is just you and me. No group calls, no juggling, no falling behind quietly in the back.</p>
+    <div class="about-grid">
+      <div class="about-item">
+        <div class="about-num num-a">1</div>
+        <h4>One-on-one</h4>
+        <p>Every session is just you and me — no groups, no recordings.</p>
       </div>
-      <div class="why-item">
-        <div class="why-icon icon-b">b</div>
-        <h4>Patient by default</h4>
-        <p>I move at your pace. If a concept doesn't click, we stay on it — not the next slide, not the next chapter.</p>
+      <div class="about-item">
+        <div class="about-num num-b">2</div>
+        <h4>At your pace</h4>
+        <p>If something doesn't click, we'll stay on it until it does.</p>
       </div>
-      <div class="why-item">
-        <div class="why-icon icon-c">c</div>
-        <h4>Built around your class</h4>
-        <p>Bring your homework, your notes, your upcoming test. I meet your curriculum where it is.</p>
+      <div class="about-item">
+        <div class="about-num num-c">3</div>
+        <h4>Around your class</h4>
+        <p>Bring your homework, notes, or test prep. We'll work from there.</p>
       </div>
     </div>
   </section>
 
   <section class="booking" id="book">
     <div class="section-head">
-      <h2>Two ways to <span class="italic">book.</span></h2>
-      <p>Both are free. Pick whichever feels easier.</p>
+      <h2>Book a session</h2>
+      <p>Two options. Both free.</p>
     </div>
 
     <div class="booking-grid">
 
-      <!-- Schoolhouse card -->
       <div class="book-card book-card--dark">
-        <div class="cta-circle cta-circle-1"></div>
-        <div class="cta-circle cta-circle-2"></div>
-
-        <div class="book-card-top">
-          <span class="sh-badge">Option 1 · Schoolhouse</span>
-          <h3>Register for a <span class="italic">session</span> with me on Schoolhouse.</h3>
-          <p>I tutor through <strong>Schoolhouse.world</strong>, a free nonprofit platform founded by Sal Khan. Make a free account, find my profile, and grab a slot from my open sessions.</p>
+        <div>
+          <span class="book-card-tag">Option 1 · Schoolhouse</span>
+          <h3>Register with me on Schoolhouse.</h3>
+          <p>I tutor on <strong>Schoolhouse.world</strong>, a free peer-tutoring platform. Make a free account, find my profile, and register for one of my open sessions.</p>
         </div>
-
-        <a href="https://schoolhouse.world/" target="_blank" rel="noopener" class="btn btn-primary book-btn-coral">Find me on Schoolhouse →</a>
+        <a href="https://schoolhouse.world/" target="_blank" rel="noopener" class="btn book-btn-coral">Find me on Schoolhouse</a>
       </div>
 
-      <!-- Personal form card -->
       <div class="book-card book-card--light">
-        <div class="book-card-top">
-          <span class="sh-badge sh-badge--light">Option 2 · Direct</span>
-          <h3>Or, request a <span class="italic">personal</span> free session.</h3>
-          <p>Prefer to skip the platform? Drop your info below and I'll reach out to set up a time that works for both of us.</p>
+        <div>
+          <span class="book-card-tag">Option 2 · Direct</span>
+          <h3>Request a session directly.</h3>
+          <p>Send me your info and I'll reach out to set up a time.</p>
         </div>
 
         <form class="book-form" id="booking-form">
@@ -933,26 +618,26 @@
           </div>
 
           <label>
-            <span>What do you need help with?</span>
+            <span>Subject</span>
             <select name="subject" required>
-              <option value="">Pick a subject…</option>
+              <option value="">Pick one</option>
               <option>Algebra 1</option>
               <option>Algebra 2</option>
               <option>Geometry</option>
               <option>Precalculus</option>
-              <option>AP Calculus (AB)</option>
-              <option>AP Calculus (BC)</option>
-              <option>Not sure / something else</option>
+              <option>AP Calculus AB</option>
+              <option>AP Calculus BC</option>
+              <option>Not sure</option>
             </select>
           </label>
 
           <label>
-            <span>Tell me a bit more <em>(optional)</em></span>
-            <textarea name="message" rows="4" placeholder="What topic are you stuck on? Any upcoming tests? Best times to meet?"></textarea>
+            <span>Notes (optional)</span>
+            <textarea name="message" rows="3" placeholder="Topic you're stuck on, upcoming tests, best times to meet, etc."></textarea>
           </label>
 
-          <button type="submit" class="btn btn-primary book-form-btn">Send request →</button>
-          <p class="form-note" id="form-note">I'll get back to you within a day or two. No spam, ever.</p>
+          <button type="submit" class="btn btn-primary book-form-btn">Send request</button>
+          <p class="form-note" id="form-note">I'll usually reply within a day or two.</p>
         </form>
       </div>
 
@@ -966,41 +651,41 @@
           <span class="logo-mark">c</span>
           crefcalc
         </a>
-        <p>Free 1-on-1 math tutoring for middle and high schoolers. Just me, patient and paced for you. Hosted through Schoolhouse — or by direct request.</p>
+        <p>Free math tutoring for middle and high schoolers.</p>
       </div>
       <div class="footer-col">
         <h5>Subjects</h5>
         <ul>
-          <li><a href="#">Algebra 1</a></li>
-          <li><a href="#">Algebra 2</a></li>
-          <li><a href="#">Geometry</a></li>
-          <li><a href="#">Precalculus</a></li>
-          <li><a href="#">AP Calculus</a></li>
+          <li><a href="#subjects">Algebra 1</a></li>
+          <li><a href="#subjects">Algebra 2</a></li>
+          <li><a href="#subjects">Geometry</a></li>
+          <li><a href="#subjects">Precalculus</a></li>
+          <li><a href="#subjects">AP Calculus</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Book a session</h5>
+        <h5>Book</h5>
         <ul>
-          <li><a href="https://schoolhouse.world/" target="_blank" rel="noopener">Schoolhouse ↗</a></li>
-          <li><a href="#book">Request directly</a></li>
-          <li><a href="#why">How I work</a></li>
+          <li><a href="https://schoolhouse.world/" target="_blank" rel="noopener">Schoolhouse</a></li>
+          <li><a href="#book">Direct request</a></li>
+          <li><a href="#about">About</a></li>
         </ul>
       </div>
     </div>
 
     <div class="disclaimer">
-      <strong>A note on AP®:</strong> crefcalc is an independent tutoring effort run by one person and is <strong>not affiliated with, endorsed by, or sponsored by the College Board</strong> in any way. References to "AP Calculus," "AP," or related course names are used solely for identification — to help students find tutoring matched to the curriculum they're studying. AP® and Advanced Placement® are trademarks registered by the College Board.
+      <strong>Note on AP®:</strong> crefcalc is an independent tutoring effort and is <strong>not affiliated with, endorsed by, or sponsored by the College Board</strong>. References to "AP Calculus" and "AP" are used solely to identify the course curriculum being tutored. AP® and Advanced Placement® are trademarks of the College Board.
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 crefcalc · a free tutoring project.</span>
-      <span>Made with care for math learners.</span>
+      <span>© 2026 crefcalc</span>
+      <span>A free tutoring project.</span>
     </div>
   </footer>
 
   <script>
-    // Booking form handler — opens user's email client with prefilled message
-    // ↓ REPLACE this with your real email address ↓
+    // Booking form — opens user's email client with prefilled message.
+    // ↓ REPLACE this with your real email ↓
     const TUTOR_EMAIL = "crefcalc@gmail.com";
 
     const form = document.getElementById('booking-form');
@@ -1016,14 +701,14 @@
         const message = data.get('message') || '';
 
         const body = [
-          `Hi! I'd like to request a free session.`,
+          `Hi! I'd like to request a session.`,
           ``,
           `Name: ${name}`,
           `Email: ${email}`,
           `Subject: ${subject}`,
           ``,
-          `Details:`,
-          message || '(none provided)'
+          `Notes:`,
+          message || '(none)'
         ].join('\n');
 
         const mailUrl =
@@ -1033,7 +718,7 @@
 
         window.location.href = mailUrl;
 
-        note.textContent = "Opening your email app… if nothing happened, email me directly at " + TUTOR_EMAIL;
+        note.textContent = "Opening your email app. If nothing happens, email me at " + TUTOR_EMAIL;
         note.classList.add('success');
       });
     }
