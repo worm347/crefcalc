@@ -508,8 +508,8 @@
 
   <section class="subjects" id="subjects">
     <div class="section-head">
-      <h2>Subject Study Guides</h2>
-      <p>Study guides for the five courses I tutor.</p>
+      <h2>Subjects</h2>
+      <p>Five courses I tutor.</p>
     </div>
 
     <div class="subject-grid">
@@ -605,7 +605,19 @@
           <p>Send me your info and I'll reach out to set up a time.</p>
         </div>
 
-        <form class="book-form" id="booking-form">
+        <form
+          class="book-form"
+          id="booking-form"
+          action="https://formsubmit.co/crefcalc@gmail.com"
+          method="POST"
+        >
+          <!-- FormSubmit settings — customize these -->
+          <input type="hidden" name="_subject" value="New crefcalc session request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <!-- Honeypot field for bots; leave empty -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
           <div class="form-row">
             <label>
               <span>Your name</span>
@@ -637,7 +649,7 @@
           </label>
 
           <button type="submit" class="btn btn-primary book-form-btn">Send request</button>
-          <p class="form-note" id="form-note">I'll usually reply within a day or two.</p>
+          <p class="form-note">I'll usually reply within a day or two.</p>
         </form>
       </div>
 
@@ -683,45 +695,5 @@
     </div>
   </footer>
 
-  <script>
-    // Booking form — opens user's email client with prefilled message.
-    // ↓ REPLACE this with your real email ↓
-    const TUTOR_EMAIL = "crefcalc@gmail.com";
-
-    const form = document.getElementById('booking-form');
-    const note = document.getElementById('form-note');
-
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const name = data.get('name') || '';
-        const email = data.get('email') || '';
-        const subject = data.get('subject') || '';
-        const message = data.get('message') || '';
-
-        const body = [
-          `Hi! I'd like to request a session.`,
-          ``,
-          `Name: ${name}`,
-          `Email: ${email}`,
-          `Subject: ${subject}`,
-          ``,
-          `Notes:`,
-          message || '(none)'
-        ].join('\n');
-
-        const mailUrl =
-          `mailto:${TUTOR_EMAIL}` +
-          `?subject=${encodeURIComponent('crefcalc session request from ' + name)}` +
-          `&body=${encodeURIComponent(body)}`;
-
-        window.location.href = mailUrl;
-
-        note.textContent = "Opening your email app. If nothing happens, email me at " + TUTOR_EMAIL;
-        note.classList.add('success');
-      });
-    }
-  </script>
 </body>
 </html>
