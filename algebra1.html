@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Algebra 1 · Unit 1 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF6EC;
+    --cream-deeper: #F4ECDC;
+    --ink: #2B2520;
+    --ink-soft: #6B635C;
+    --peach: #FFD0BC;
+    --mint: #BFE6D2;
+    --lilac: #DDD2F2;
+    --butter: #FFE39B;
+    --sky: #C2DDF2;
+    --coral: #FF6B5A;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .blob { position: fixed; border-radius: 50%; filter: blur(60px); opacity: 0.45; z-index: 0; pointer-events: none; }
+  .blob-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: var(--peach); animation: float 14s ease-in-out infinite; }
+  .blob-2 { top: 400px; left: -160px; width: 420px; height: 420px; background: var(--lilac); animation: float 18s ease-in-out infinite reverse; }
+  .blob-3 { bottom: -100px; right: -120px; width: 320px; height: 320px; background: var(--mint); animation: float 16s ease-in-out infinite; }
+  @keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(30px,-40px) scale(1.08); }
+  }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(251,246,236,0.88);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-deeper);
+    padding: 18px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 600; font-size: 21px; letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--ink);
+  }
+  .logo-mark {
+    width: 32px; height: 32px; background: var(--ink); border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--butter); font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px;
+  }
+  .logo-badge {
+    font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--ink-soft); background: var(--cream-deeper);
+    padding: 3px 10px; border-radius: 999px; margin-left: 2px;
+  }
+  nav ul { display: flex; list-style: none; gap: 4px; align-items: center; }
+  nav a {
+    text-decoration: none; color: var(--ink); font-weight: 600; font-size: 13px;
+    padding: 8px 15px; border-radius: 999px; transition: background 0.2s;
+  }
+  nav a:hover { background: var(--cream-deeper); }
+  .nav-cta { background: var(--ink); color: var(--cream) !important; }
+  .nav-cta:hover { background: var(--coral) !important; }
+
+  /* Hero */
+  .hero {
+    position: relative; z-index: 1;
+    padding: 68px 48px 52px; max-width: 860px; margin: 0 auto; text-align: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; border: 1px solid var(--cream-deeper);
+    padding: 7px 18px; border-radius: 999px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft);
+    margin-bottom: 22px; box-shadow: 0 4px 12px rgba(43,37,32,0.04);
+  }
+  .eyebrow .dot { width: 8px; height: 8px; background: var(--mint); border-radius: 50%; box-shadow: 0 0 0 4px rgba(91,176,137,0.18); }
+  h1 {
+    font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500; font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 18px;
+  }
+  .hero-sub { font-size: 16px; color: var(--ink-soft); max-width: 500px; margin: 0 auto 28px; line-height: 1.65; }
+  .hero-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px;
+    padding: 12px 24px; border-radius: 999px; border: none; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .btn-primary { background: var(--ink); color: var(--cream); box-shadow: 0 6px 16px rgba(43,37,32,0.13); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(43,37,32,0.2); }
+  .btn-ghost { background: white; color: var(--ink); border: 1.5px solid var(--cream-deeper); }
+  .btn-ghost:hover { transform: translateY(-2px); background: var(--cream-deeper); }
+
+  /* Score bar */
+  .score-bar {
+    position: sticky; top: 65px; z-index: 90;
+    background: var(--ink); color: var(--cream);
+    padding: 14px 36px; display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .score-bar-inner { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .score-label { font-size: 13px; font-weight: 700; opacity: 0.6; }
+  #score-display {
+    font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100;
+    font-size: 1.5rem; font-weight: 500; color: var(--butter);
+  }
+  #reset-btn {
+    background: transparent; color: rgba(251,246,236,0.55);
+    border: 1.5px solid rgba(251,246,236,0.18); border-radius: 999px;
+    padding: 7px 18px; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+  }
+  #reset-btn:hover { border-color: rgba(251,246,236,0.45); color: var(--cream); }
+
+  /* Main layout */
+  .content-wrap { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; padding: 0 48px 80px; }
+
+  .section-head { margin: 52px 0 28px; }
+  .section-head h2 {
+    font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500; font-size: clamp(28px, 3.5vw, 38px);
+    letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 6px;
+  }
+  .section-head p { color: var(--ink-soft); font-size: 15px; }
+
+  /* Lesson block = card + questions */
+  .lesson-block { margin-bottom: 28px; }
+
+  .lesson-card {
+    border-radius: 28px; padding: 30px 28px;
+    transition: transform 0.22s, box-shadow 0.22s;
+    margin-bottom: 12px;
+  }
+  .lesson-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(43,37,32,0.07); }
+  .c-peach  { background: var(--peach); }
+  .c-mint   { background: var(--mint); }
+  .c-lilac  { background: var(--lilac); }
+  .c-butter { background: var(--butter); }
+  .c-sky    { background: var(--sky); }
+
+  .lesson-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.55; margin-bottom: 12px; display: block; }
+  .lesson-card h3 {
+    font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500; font-size: 22px; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px;
+  }
+  .lesson-card p { font-size: 14px; line-height: 1.65; opacity: 0.85; margin-bottom: 8px; }
+  .lesson-card p:last-child { margin-bottom: 0; }
+
+  .key-list {
+    background: rgba(255,255,255,0.5); border-radius: 14px;
+    padding: 13px 17px; margin: 10px 0; list-style: none;
+  }
+  .key-list li {
+    font-size: 13.5px; line-height: 1.65; padding: 5px 0;
+    border-bottom: 1px solid rgba(43,37,32,0.07);
+  }
+  .key-list li:last-child { border-bottom: none; }
+  .key-list li strong { font-weight: 700; }
+
+  .example-pill {
+    background: rgba(255,255,255,0.6); border-radius: 12px;
+    padding: 11px 15px; font-size: 13px; line-height: 1.65;
+    margin-top: 10px; display: block;
+  }
+  .example-pill strong { font-weight: 700; }
+
+  .sub-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; opacity: 0.55; margin: 14px 0 5px; display: block; }
+
+  /* Two-column layout for cards + questions on wide screens */
+  .lesson-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; align-items: start;
+  }
+  .lesson-row .lesson-card { margin-bottom: 0; }
+
+  /* Practice questions */
+  .practice-block {
+    background: white; border: 1px solid var(--cream-deeper);
+    border-radius: 22px; padding: 24px 26px;
+    box-shadow: 0 2px 8px rgba(43,37,32,0.03);
+  }
+  .practice-block-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .practice-block-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--cream-deeper);
+  }
+
+  .question { margin-bottom: 18px; }
+  .question:last-child { margin-bottom: 0; }
+  .q-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 7px; }
+  .q-text { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.5; }
+
+  .choices { display: flex; flex-direction: column; gap: 7px; }
+  .choice-btn {
+    text-align: left; background: var(--cream);
+    border: 1.5px solid var(--cream-deeper); border-radius: 10px;
+    padding: 9px 14px; cursor: pointer; font-size: 13.5px; font-weight: 500;
+    color: var(--ink); font-family: 'Nunito', sans-serif;
+    transition: all 0.16s; line-height: 1.5;
+  }
+  .choice-btn:hover:not(:disabled) { border-color: var(--ink); background: var(--cream-deeper); }
+  .choice-btn.correct  { border-color: #5bb089; background: #eef8f2; color: #1a5c35; font-weight: 700; }
+  .choice-btn.incorrect { border-color: var(--coral); background: #fff2f0; color: #8b1f13; }
+  .choice-btn.revealed  { border-color: #5bb089; background: #eef8f2; color: #1a5c35; }
+  .choice-btn:disabled  { cursor: default; }
+
+  .input-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .input-row input {
+    font-family: 'Nunito', sans-serif; font-size: 13.5px; font-weight: 500;
+    color: var(--ink); background: var(--cream);
+    border: 1.5px solid var(--cream-deeper); border-radius: 10px;
+    padding: 9px 14px; outline: none; min-width: 140px;
+    transition: border-color 0.16s, background 0.16s;
+  }
+  .input-row input:focus { border-color: var(--coral); background: white; }
+  .input-row input.correct  { border-color: #5bb089; background: #eef8f2; }
+  .input-row input.incorrect { border-color: var(--coral); background: #fff2f0; }
+  .check-btn {
+    background: var(--ink); color: var(--cream); border: none; border-radius: 999px;
+    padding: 9px 20px; font-size: 12px; font-weight: 700;
+    font-family: 'Nunito', sans-serif; cursor: pointer; transition: background 0.2s;
+  }
+  .check-btn:hover { background: var(--coral); }
+
+  .feedback { margin-top: 8px; font-size: 12.5px; font-weight: 700; min-height: 18px; }
+  .feedback.correct  { color: #256b3c; }
+  .feedback.incorrect { color: #8b1f13; }
+
+  /* Video section */
+  .video-section {
+    position: relative; z-index: 1;
+    max-width: 1060px; margin: 0 auto;
+    padding: 0 48px 48px;
+  }
+  .video-card {
+    background: var(--ink); border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 10px 32px rgba(43,37,32,0.12);
+  }
+  .video-card-header {
+    padding: 20px 28px 16px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+  .video-card-header h3 {
+    font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-weight: 500; font-size: 18px; letter-spacing: -0.02em;
+    color: var(--cream);
+  }
+  .video-tag {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--butter); background: rgba(255,227,155,0.12);
+    border: 1px solid rgba(255,227,155,0.2);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .video-wrapper {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  }
+  .video-wrapper iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border: none;
+  }
+
+  /* Divider between lessons */
+  .lesson-divider { height: 1px; background: var(--cream-deeper); margin: 36px 0; }
+
+  /* Footer */
+  footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--cream-deeper);
+    padding: 32px 48px; max-width: 1060px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; color: var(--ink-soft); font-size: 13px;
+  }
+  footer a { color: var(--ink); font-weight: 700; text-decoration: none; }
+  footer a:hover { color: var(--coral); }
+
+  @media (max-width: 760px) {
+    .lesson-row { grid-template-columns: 1fr; }
+    header { padding: 16px 20px; }
+    nav li:not(:last-child) { display: none; }
+    .hero, .content-wrap, .video-section { padding-left: 20px; padding-right: 20px; }
+    footer { padding: 24px 20px; }
+    .score-bar { padding: 12px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<header>
+  <a href="https://crefcalc.netlify.app" class="logo">
+    <span class="logo-mark">c</span>
+    crefcalc
+    <span class="logo-badge">Algebra 1 · Unit 1</span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="#topic-a">Topic A</a></li>
+      <li><a href="#topic-b">Topic B</a></li>
+      <li><a href="https://crefcalc.netlify.app/#book" class="nav-cta">Book free</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="eyebrow"><span class="dot"></span> Unit 1 · 9th Grade Mathematics</div>
+  <h1>Functions, Graphs<br>& Features.</h1>
+  <p class="hero-sub">Study guide for all 11 lessons — with practice questions after every sub-unit.</p>
+  <div class="hero-ctas">
+    <a href="#topic-a" class="btn btn-primary">Start studying</a>
+    <a href="#topic-b" class="btn btn-ghost">Topic B</a>
+  </div>
+</div>
+
+<!-- VIDEO SECTION -->
+<div class="video-section">
+  <div class="video-card">
+    <div class="video-card-header">
+      <h3>Unit 1 — Lesson Video</h3>
+      <span class="video-tag">Placeholder</span>
+    </div>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Unit 1 Lesson Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY SCORE BAR -->
+<div class="score-bar">
+  <div class="score-bar-inner">
+    <span class="score-label">Score</span>
+    <span id="score-display">0 / 0</span>
+  </div>
+  <button id="reset-btn" onclick="resetAll()">Reset all</button>
+</div>
+
+<div class="content-wrap">
+
+  <!-- ======== TOPIC A ======== -->
+  <div class="section-head" id="topic-a">
+    <h2>Topic A: Features of Functions</h2>
+    <p>Lessons 1–7.</p>
+  </div>
+
+  <!-- L1 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-peach">
+      <span class="lesson-tag">01 — Lesson 1</span>
+      <h3>Modeling Situations Graphically</h3>
+      <p>Represent real-world situations as graphs by choosing the right variables and scale.</p>
+      <ul class="key-list">
+        <li><strong>Independent variable (x-axis):</strong> what you control — usually time.</li>
+        <li><strong>Dependent variable (y-axis):</strong> what changes because of x.</li>
+        <li><strong>Steep:</strong> fast change. <strong>Flat:</strong> no change. <strong>Downward:</strong> decreasing.</li>
+        <li>Identify key events: when does the situation start, change, and end?</li>
+      </ul>
+      <span class="example-pill"><strong>Example:</strong> Sylvia bikes 8 miles home — starts fast, stops at a store (flat section), then finishes slowly. Graph: steep rise → flat → slow rise to 8.</span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 1</div>
+      <div class="question">
+        <div class="q-label">Q1 · Multiple Choice</div>
+        <p class="q-text">Sylvia's bike ride graph has a flat section in the middle. What does the flat section mean?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q1',false)">A) She sped up suddenly</button>
+          <button class="choice-btn" onclick="checkMC(this,'q1',false)">B) She turned around</button>
+          <button class="choice-btn" onclick="checkMC(this,'q1',true)">C) Her distance wasn't changing — she stopped</button>
+          <button class="choice-btn" onclick="checkMC(this,'q1',false)">D) She rode at maximum speed</button>
+        </div>
+        <div class="feedback" id="q1-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q2 · Multiple Choice</div>
+        <p class="q-text">On a distance-vs-time graph, which is the independent variable?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q2',false)">A) Distance, because it's what we're measuring</button>
+          <button class="choice-btn" onclick="checkMC(this,'q2',true)">B) Time, because it controls how far she travels</button>
+          <button class="choice-btn" onclick="checkMC(this,'q2',false)">C) Speed, because it links both variables</button>
+          <button class="choice-btn" onclick="checkMC(this,'q2',false)">D) It doesn't matter which is which</button>
+        </div>
+        <div class="feedback" id="q2-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L2 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-mint">
+      <span class="lesson-tag">02 — Lesson 2</span>
+      <h3>Functions & Function Notation</h3>
+      <p>A function assigns <em>exactly one output</em> to every input.</p>
+      <ul class="key-list">
+        <li><strong>Vertical line test:</strong> if a vertical line hits the graph twice → not a function.</li>
+        <li><strong>f(x)</strong> is read "f of x" — it replaces y in an equation.</li>
+        <li><strong>f(3)</strong> means: substitute x = 3, then calculate.</li>
+      </ul>
+      <span class="example-pill">f(x) = 2x + 1 &nbsp;→&nbsp; f(3) = 2(3)+1 = <strong>7</strong> &nbsp;·&nbsp; f(0) = <strong>1</strong></span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 2</div>
+      <div class="question">
+        <div class="q-label">Q3 · Short Answer</div>
+        <p class="q-text">If f(x) = 3x − 4, what is f(5)?</p>
+        <div class="input-row">
+          <input type="text" id="q3-input" placeholder="Answer" />
+          <button class="check-btn" onclick="checkInput('q3',['11'])">Check</button>
+        </div>
+        <div class="feedback" id="q3-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q4 · Multiple Choice</div>
+        <p class="q-text">Which of the following is NOT a function?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q4',false)">A) A graph that passes the vertical line test</button>
+          <button class="choice-btn" onclick="checkMC(this,'q4',true)">B) A graph where x = 2 gives both y = 3 and y = 5</button>
+          <button class="choice-btn" onclick="checkMC(this,'q4',false)">C) f(x) = x² (a parabola)</button>
+          <button class="choice-btn" onclick="checkMC(this,'q4',false)">D) A table where each input has one output</button>
+        </div>
+        <div class="feedback" id="q4-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L3 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-lilac">
+      <span class="lesson-tag">03 — Lesson 3</span>
+      <h3>Intercepts in Context</h3>
+      <ul class="key-list">
+        <li><strong>Y-intercept = f(0):</strong> the output when input is zero — usually the starting value.</li>
+        <li><strong>X-intercept:</strong> when f(x) = 0 — when the output hits zero (runs out, ends, lands).</li>
+      </ul>
+      <span class="example-pill">Candle: f(t) = 8 − 2t<br>f(0) = 8 → starts 8 in. tall &nbsp;·&nbsp; 8−2t=0 → t=4 → burns out at 4 hrs</span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 3</div>
+      <div class="question">
+        <div class="q-label">Q5 · Short Answer</div>
+        <p class="q-text">Using f(t) = 10 − 2t, at what hour does the candle burn out? (Find the x-intercept.)</p>
+        <div class="input-row">
+          <input type="text" id="q5-input" placeholder="t = ?" />
+          <button class="check-btn" onclick="checkInput('q5',['5','t=5','t = 5'])">Check</button>
+        </div>
+        <div class="feedback" id="q5-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q6 · Multiple Choice</div>
+        <p class="q-text">For f(t) = 10 − 2t, what does f(0) = 10 tell us in context?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q6',false)">A) The candle burns for 10 hours</button>
+          <button class="choice-btn" onclick="checkMC(this,'q6',true)">B) The candle starts at 10 inches tall</button>
+          <button class="choice-btn" onclick="checkMC(this,'q6',false)">C) The candle shrinks 10 inches per hour</button>
+          <button class="choice-btn" onclick="checkMC(this,'q6',false)">D) The candle is 10 inches at t = 2</button>
+        </div>
+        <div class="feedback" id="q6-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L4 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-butter">
+      <span class="lesson-tag">04 — Lesson 4</span>
+      <h3>Domain & Range</h3>
+      <p>Domain = all valid <strong>inputs</strong> (x). Range = all possible <strong>outputs</strong> (y).</p>
+      <ul class="key-list">
+        <li>On a graph: domain = left-to-right; range = bottom-to-top.</li>
+        <li>In context: ask if negatives make sense (can't have −3 hours).</li>
+        <li>Written as inequalities, e.g. <strong>0 ≤ x ≤ 40</strong>.</li>
+      </ul>
+      <span class="example-pill">Student works 0–40 hrs/week at $10/hr:<br>Domain: 0 ≤ x ≤ 40 &nbsp;·&nbsp; Range: 0 ≤ y ≤ 400</span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 4</div>
+      <div class="question">
+        <div class="q-label">Q7 · Multiple Choice</div>
+        <p class="q-text">A fundraiser earns money only from 8am to 3pm. If x = hours since midnight, what is the domain?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q7',false)">A) 0 ≤ x ≤ 24</button>
+          <button class="choice-btn" onclick="checkMC(this,'q7',true)">B) 8 ≤ x ≤ 15</button>
+          <button class="choice-btn" onclick="checkMC(this,'q7',false)">C) x ≥ 0</button>
+          <button class="choice-btn" onclick="checkMC(this,'q7',false)">D) 0 ≤ x ≤ 7</button>
+        </div>
+        <div class="feedback" id="q7-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q8 · Multiple Choice</div>
+        <p class="q-text">Which best describes the range of a function?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q8',false)">A) All valid x-values (inputs)</button>
+          <button class="choice-btn" onclick="checkMC(this,'q8',true)">B) All possible y-values (outputs) the function can produce</button>
+          <button class="choice-btn" onclick="checkMC(this,'q8',false)">C) The slope of the function</button>
+          <button class="choice-btn" onclick="checkMC(this,'q8',false)">D) The x-intercept of the function</button>
+        </div>
+        <div class="feedback" id="q8-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L5 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-sky">
+      <span class="lesson-tag">05 — Lesson 5</span>
+      <h3>Rate of Change</h3>
+      <p>How fast the output changes per unit of input — the slope between two points.</p>
+      <ul class="key-list">
+        <li><strong>Formula:</strong> (y₂ − y₁) ÷ (x₂ − x₁)</li>
+        <li><strong>With notation:</strong> [f(b) − f(a)] ÷ (b − a)</li>
+        <li><strong>Positive:</strong> increasing &nbsp;·&nbsp; <strong>Negative:</strong> decreasing &nbsp;·&nbsp; <strong>Zero:</strong> flat</li>
+      </ul>
+      <span class="example-pill">Car at mile 100 (t=2) and mile 160 (t=4):<br>(160−100)÷(4−2) = 60÷2 = <strong>30 mph</strong></span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 5</div>
+      <div class="question">
+        <div class="q-label">Q9 · Multiple Choice</div>
+        <p class="q-text">A runner is at mile 2 at t = 20 min and mile 6 at t = 44 min. What is her average rate of change?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q9',false)">A) 4 miles per minute</button>
+          <button class="choice-btn" onclick="checkMC(this,'q9',true)">B) 1/6 miles per minute</button>
+          <button class="choice-btn" onclick="checkMC(this,'q9',false)">C) 24 miles per minute</button>
+          <button class="choice-btn" onclick="checkMC(this,'q9',false)">D) 6 miles per minute</button>
+        </div>
+        <div class="feedback" id="q9-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q10 · Short Answer</div>
+        <p class="q-text">If f(x) = 2x + 6, what is the x-intercept? (Set f(x) = 0 and solve.)</p>
+        <div class="input-row">
+          <input type="text" id="q10-input" placeholder="x = ?" />
+          <button class="check-btn" onclick="checkInput('q10',['-3','x=-3','x = -3'])">Check</button>
+        </div>
+        <div class="feedback" id="q10-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L6 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-peach">
+      <span class="lesson-tag">06 — Lesson 6</span>
+      <h3>Describing & Sketching Functions</h3>
+      <p>Use all features together to fully describe what a function is doing.</p>
+      <ul class="key-list">
+        <li>Domain & Range</li>
+        <li>Y-intercept & X-intercept(s)</li>
+        <li>Increasing / Decreasing intervals</li>
+        <li>Maximum / Minimum values</li>
+        <li>Where f(x) &gt; 0 or f(x) &lt; 0 (above/below x-axis)</li>
+      </ul>
+      <span class="example-pill">"Increases on 0 ≤ x ≤ 3, max at f(3)=9, decreases on 3 ≤ x ≤ 6. X-intercepts at x=0 and x=6."</span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 6</div>
+      <div class="question">
+        <div class="q-label">Q11 · Multiple Choice</div>
+        <p class="q-text">A function increases on 1 ≤ x ≤ 5, then decreases on 5 ≤ x ≤ 9. Where is the maximum?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q11',false)">A) x = 1</button>
+          <button class="choice-btn" onclick="checkMC(this,'q11',false)">B) x = 9</button>
+          <button class="choice-btn" onclick="checkMC(this,'q11',true)">C) x = 5</button>
+          <button class="choice-btn" onclick="checkMC(this,'q11',false)">D) x = 3</button>
+        </div>
+        <div class="feedback" id="q11-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q12 · Multiple Choice</div>
+        <p class="q-text">When is a function f(x) positive?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q12',false)">A) When the graph is going upward (increasing)</button>
+          <button class="choice-btn" onclick="checkMC(this,'q12',true)">B) When the graph is above the x-axis</button>
+          <button class="choice-btn" onclick="checkMC(this,'q12',false)">C) When x is a positive number</button>
+          <button class="choice-btn" onclick="checkMC(this,'q12',false)">D) When the slope is positive</button>
+        </div>
+        <div class="feedback" id="q12-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L7 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-mint">
+      <span class="lesson-tag">07 — Lesson 7</span>
+      <h3>Analyzing & Modeling Situations</h3>
+      <p>Apply all Topic A skills to build or interpret a graph from a real-world description.</p>
+      <span class="sub-label">Step-by-step process</span>
+      <ul class="key-list">
+        <li><strong>1.</strong> Identify the quantities (what varies, what causes it).</li>
+        <li><strong>2.</strong> Label axes with variables and units.</li>
+        <li><strong>3.</strong> Choose a sensible scale for the data range.</li>
+        <li><strong>4.</strong> Identify key events: start, changes, end.</li>
+        <li><strong>5.</strong> Sketch the shape. &nbsp;<strong>6.</strong> Label key points.</li>
+      </ul>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 7</div>
+      <div class="question">
+        <div class="q-label">Q13 · Multiple Choice</div>
+        <p class="q-text">You're graphing the temperature of coffee as it cools over 30 minutes. What should go on the x-axis?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q13',false)">A) Temperature (°F), because it's what we care about</button>
+          <button class="choice-btn" onclick="checkMC(this,'q13',true)">B) Time (minutes), because it's the independent variable</button>
+          <button class="choice-btn" onclick="checkMC(this,'q13',false)">C) Either works — it doesn't matter</button>
+          <button class="choice-btn" onclick="checkMC(this,'q13',false)">D) The starting temperature</button>
+        </div>
+        <div class="feedback" id="q13-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q14 · Multiple Choice</div>
+        <p class="q-text">When sketching the coffee cooling graph, what shape would you expect?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q14',false)">A) A flat horizontal line — temperature stays the same</button>
+          <button class="choice-btn" onclick="checkMC(this,'q14',false)">B) A straight line going up — temperature increases steadily</button>
+          <button class="choice-btn" onclick="checkMC(this,'q14',true)">C) A curve going down and leveling off — cools quickly then slowly</button>
+          <button class="choice-btn" onclick="checkMC(this,'q14',false)">D) A V-shape — cools then warms back up</button>
+        </div>
+        <div class="feedback" id="q14-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== TOPIC B ======== -->
+  <div class="section-head" id="topic-b" style="margin-top:60px;">
+    <h2>Topic B: Nonlinear Functions</h2>
+    <p>Lessons 8–11.</p>
+  </div>
+
+  <!-- L8 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-lilac">
+      <span class="lesson-tag">08 — Lesson 8</span>
+      <h3>Quadratic Functions</h3>
+      <p>Creates a U-shaped curve called a <strong>parabola</strong>. Models situations that rise then fall (or vice versa).</p>
+      <ul class="key-list">
+        <li><strong>Opens up (∪):</strong> has a minimum. <strong>Opens down (∩):</strong> has a maximum.</li>
+        <li><strong>Vertex:</strong> the highest or lowest point of the parabola.</li>
+        <li><strong>Axis of symmetry:</strong> vertical line through the vertex.</li>
+        <li><strong>X-intercepts (zeros/roots):</strong> 0, 1, or 2 crossings.</li>
+        <li>Grows faster than linear as x gets large.</li>
+      </ul>
+      <span class="example-pill"><strong>Example:</strong> A kicked ball rises to a peak (vertex = max height), then falls to the ground (x-intercept).</span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 8</div>
+      <div class="question">
+        <div class="q-label">Q15 · Multiple Choice</div>
+        <p class="q-text">A ball is kicked into the air. Which function type best models its height over time?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q15',false)">A) Linear — height increases at a constant rate</button>
+          <button class="choice-btn" onclick="checkMC(this,'q15',true)">B) Quadratic — rises to a peak then falls, forming a parabola</button>
+          <button class="choice-btn" onclick="checkMC(this,'q15',false)">C) Exponential — height doubles every second</button>
+          <button class="choice-btn" onclick="checkMC(this,'q15',false)">D) None — height can't be graphed</button>
+        </div>
+        <div class="feedback" id="q15-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q16 · Multiple Choice</div>
+        <p class="q-text">A parabola opens downward (∩). What does this tell us?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q16',false)">A) The function has no x-intercepts</button>
+          <button class="choice-btn" onclick="checkMC(this,'q16',false)">B) The vertex is at the origin</button>
+          <button class="choice-btn" onclick="checkMC(this,'q16',true)">C) The vertex is a maximum — the highest point</button>
+          <button class="choice-btn" onclick="checkMC(this,'q16',false)">D) The function is exponential</button>
+        </div>
+        <div class="feedback" id="q16-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L9 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-butter">
+      <span class="lesson-tag">09 — Lesson 9</span>
+      <h3>Exponential Functions</h3>
+      <p>Grows or shrinks by a constant <strong>multiplying factor</strong> — not by adding. Faster than linear or quadratic.</p>
+      <ul class="key-list">
+        <li><strong>Form:</strong> f(x) = a · bˣ &nbsp;(a = start, b = growth/decay factor)</li>
+        <li><strong>b &gt; 1:</strong> growth — curves steeply upward</li>
+        <li><strong>0 &lt; b &lt; 1:</strong> decay — falls toward zero, never reaches it</li>
+        <li><strong>Y-intercept:</strong> always f(0) = a (the starting value)</li>
+        <li>No x-intercept for standard exponential functions</li>
+      </ul>
+      <span class="example-pill">100 bacteria doubling each hour: f(t) = 100·2ᵗ<br>After 3 hrs: f(3) = 100·8 = <strong>800</strong></span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 9</div>
+      <div class="question">
+        <div class="q-label">Q17 · Multiple Choice</div>
+        <p class="q-text">A bacteria colony starts with 50 and doubles every hour. Which function models this?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q17',false)">A) f(t) = 50 + 2t</button>
+          <button class="choice-btn" onclick="checkMC(this,'q17',false)">B) f(t) = 2t + 50</button>
+          <button class="choice-btn" onclick="checkMC(this,'q17',true)">C) f(t) = 50 · 2ᵗ</button>
+          <button class="choice-btn" onclick="checkMC(this,'q17',false)">D) f(t) = 50t²</button>
+        </div>
+        <div class="feedback" id="q17-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q18 · Short Answer</div>
+        <p class="q-text">Using f(t) = 50 · 2ᵗ, how many bacteria are there after 3 hours?</p>
+        <div class="input-row">
+          <input type="text" id="q18-input" placeholder="Answer" />
+          <button class="check-btn" onclick="checkInput('q18',['400'])">Check</button>
+        </div>
+        <div class="feedback" id="q18-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L10 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-sky">
+      <span class="lesson-tag">10 — Lesson 10</span>
+      <h3>Systems of Functions</h3>
+      <p>Two or more functions on the same graph. Where they meet = the <strong>solution</strong>.</p>
+      <ul class="key-list">
+        <li><strong>Solution:</strong> (x, y) where f(x) = g(x) — same output for the same input.</li>
+        <li><strong>Graphically:</strong> the intersection point(s).</li>
+        <li><strong>In context:</strong> the moment two quantities are equal.</li>
+        <li>Can mix any function types: linear + quadratic, linear + exponential, etc.</li>
+      </ul>
+      <span class="example-pill">f(x) = 3x and g(x) = x + 4:<br>3x = x + 4 → 2x = 4 → <strong>x = 2</strong>, point (2, 6)</span>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 10</div>
+      <div class="question">
+        <div class="q-label">Q19 · Short Answer</div>
+        <p class="q-text">Find the x-value where f(x) = 2x and g(x) = x + 5 intersect. (Set them equal and solve.)</p>
+        <div class="input-row">
+          <input type="text" id="q19-input" placeholder="x = ?" />
+          <button class="check-btn" onclick="checkInput('q19',['5','x=5','x = 5'])">Check</button>
+        </div>
+        <div class="feedback" id="q19-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q20 · Multiple Choice</div>
+        <p class="q-text">What does the intersection point of two function graphs represent in context?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q20',false)">A) The maximum of both functions</button>
+          <button class="choice-btn" onclick="checkMC(this,'q20',true)">B) The moment when both quantities are equal</button>
+          <button class="choice-btn" onclick="checkMC(this,'q20',false)">C) Where both functions equal zero</button>
+          <button class="choice-btn" onclick="checkMC(this,'q20',false)">D) The average of the two functions</button>
+        </div>
+        <div class="feedback" id="q20-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-divider"></div>
+
+  <!-- L11 -->
+  <div class="lesson-row">
+    <div class="lesson-card c-peach">
+      <span class="lesson-tag">11 — Lesson 11</span>
+      <h3>Parent Functions & Representing Situations</h3>
+      <p>The simplest version of each function family — the "base model" before any changes.</p>
+      <ul class="key-list">
+        <li><strong>Linear f(x) = x:</strong> straight line, constant rate of change.</li>
+        <li><strong>Quadratic f(x) = x²:</strong> parabola, rate of change increases.</li>
+        <li><strong>Exponential f(x) = 2ˣ:</strong> rapid growth curve, multiplies by factor.</li>
+      </ul>
+      <span class="sub-label">How to identify</span>
+      <ul class="key-list">
+        <li>Constant rate of change → <strong>Linear</strong></li>
+        <li>Goes up then down / has a vertex → <strong>Quadratic</strong></li>
+        <li>Output multiplies repeatedly → <strong>Exponential</strong></li>
+      </ul>
+    </div>
+    <div class="practice-block">
+      <div class="practice-block-title">Practice — Lesson 11</div>
+      <div class="question">
+        <div class="q-label">Q21 · Multiple Choice</div>
+        <p class="q-text">Which parent function has a constant rate of change?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q21',true)">A) Linear: f(x) = x</button>
+          <button class="choice-btn" onclick="checkMC(this,'q21',false)">B) Quadratic: f(x) = x²</button>
+          <button class="choice-btn" onclick="checkMC(this,'q21',false)">C) Exponential: f(x) = 2ˣ</button>
+          <button class="choice-btn" onclick="checkMC(this,'q21',false)">D) All three have constant rates</button>
+        </div>
+        <div class="feedback" id="q21-feedback"></div>
+      </div>
+      <div class="question">
+        <div class="q-label">Q22 · Multiple Choice</div>
+        <p class="q-text">A town's population triples every 10 years. Which parent function best models this?</p>
+        <div class="choices">
+          <button class="choice-btn" onclick="checkMC(this,'q22',false)">A) Linear — grows by the same amount each year</button>
+          <button class="choice-btn" onclick="checkMC(this,'q22',false)">B) Quadratic — grows faster and faster in a curved way</button>
+          <button class="choice-btn" onclick="checkMC(this,'q22',true)">C) Exponential — multiplies by a factor repeatedly</button>
+          <button class="choice-btn" onclick="checkMC(this,'q22',false)">D) None of the above</button>
+        </div>
+        <div class="feedback" id="q22-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end content-wrap -->
+
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; Algebra 1, Unit 1 Study Guide</span>
+  <span>Based on <a href="https://www.fishtanklearning.org/curriculum/math/algebra-1/" target="_blank">Fishtank Learning</a> 9th Grade Curriculum</span>
+</footer>
+
+<script>
+  let answered = {}, correct = 0, total = 0;
+  function updateScore() {
+    document.getElementById('score-display').textContent = correct + ' / ' + total;
+  }
+  function checkMC(btn, qId, isCorrect) {
+    if (answered[qId]) return;
+    answered[qId] = true; total++;
+    const allBtns = btn.closest('.choices').querySelectorAll('.choice-btn');
+    allBtns.forEach(b => b.disabled = true);
+    const fb = document.getElementById(qId + '-feedback');
+    if (isCorrect) {
+      btn.classList.add('correct');
+      fb.textContent = '✓ Correct!'; fb.className = 'feedback correct'; correct++;
+    } else {
+      btn.classList.add('incorrect');
+      fb.textContent = '✗ Not quite — review the section on the left!'; fb.className = 'feedback incorrect';
+      allBtns.forEach(b => { if (b.getAttribute('onclick') && b.getAttribute('onclick').includes('true')) b.classList.add('revealed'); });
+    }
+    updateScore();
+  }
+  function checkInput(qId, accepted) {
+    if (answered[qId]) return;
+    const inputEl = document.getElementById(qId + '-input');
+    const fb = document.getElementById(qId + '-feedback');
+    const val = inputEl.value.trim().toLowerCase().replace(/\s/g,'');
+    const norm = accepted.map(a => a.toLowerCase().replace(/\s/g,''));
+    answered[qId] = true; total++;
+    if (norm.includes(val)) {
+      inputEl.classList.add('correct'); fb.textContent = '✓ Correct!'; fb.className = 'feedback correct'; correct++;
+    } else {
+      inputEl.classList.add('incorrect'); fb.textContent = '✗ Correct answer: ' + accepted[0]; fb.className = 'feedback incorrect';
+    }
+    inputEl.disabled = true; updateScore();
+  }
+  function resetAll() {
+    answered = {}; correct = 0; total = 0; updateScore();
+    document.querySelectorAll('.choice-btn').forEach(b => { b.classList.remove('correct','incorrect','revealed'); b.disabled = false; });
+    document.querySelectorAll('.feedback').forEach(el => { el.textContent = ''; el.className = 'feedback'; });
+    document.querySelectorAll('.input-row input').forEach(el => { el.value = ''; el.classList.remove('correct','incorrect'); el.disabled = false; });
+  }
+</script>
+</body>
+</html>
