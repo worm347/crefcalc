@@ -106,26 +106,7 @@
   .btn-ghost { background: white; color: var(--ink); border: 1.5px solid var(--cream-deeper); }
   .btn-ghost:hover { transform: translateY(-2px); background: var(--cream-deeper); }
 
-  /* Score bar */
-  .score-bar {
-    position: sticky; top: 65px; z-index: 90;
-    background: var(--ink); color: var(--cream);
-    padding: 14px 36px; display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .score-bar-inner { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .score-label { font-size: 13px; font-weight: 700; opacity: 0.6; }
-  #score-display {
-    font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100;
-    font-size: 1.5rem; font-weight: 500; color: var(--butter);
-  }
-  #reset-btn {
-    background: transparent; color: rgba(251,246,236,0.55);
-    border: 1.5px solid rgba(251,246,236,0.18); border-radius: 999px;
-    padding: 7px 18px; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700;
-    cursor: pointer; transition: all 0.2s;
-  }
-  #reset-btn:hover { border-color: rgba(251,246,236,0.45); color: var(--cream); }
+  
 
   /* Main layout */
   .content-wrap { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; padding: 0 48px 80px; }
@@ -350,14 +331,7 @@
   </div>
 </div>
 
-<!-- STICKY SCORE BAR -->
-<div class="score-bar">
-  <div class="score-bar-inner">
-    <span class="score-label">Score</span>
-    <span id="score-display">0 / 0</span>
-  </div>
-  <button id="reset-btn" onclick="resetAll()">Reset all</button>
-</div>
+
 
 <div class="content-wrap">
 
