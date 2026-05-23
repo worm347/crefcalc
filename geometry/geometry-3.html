@@ -1,1 +1,149 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Geometry · Unit 3 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--cream:#FBF6EC;--cream-deeper:#F4ECDC;--ink:#2B2520;--ink-soft:#6B635C;--peach:#FFD0BC;--mint:#BFE6D2;--lilac:#DDD2F2;--butter:#FFE39B;--sky:#C2DDF2;--coral:#FF6B5A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;z-index:0;pointer-events:none;}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-40px) scale(1.08);}}
+header{position:sticky;top:0;z-index:100;background:rgba(251,246,236,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-deeper);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:600;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+.logo-mark{width:32px;height:32px;background:var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--butter);font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.logo-badge{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ink-soft);background:var(--cream-deeper);padding:3px 10px;border-radius:999px;margin-left:2px;}
+nav ul{display:flex;list-style:none;gap:4px;align-items:center;}nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;transition:background .2s;}nav a:hover{background:var(--cream-deeper);}.nav-cta{background:var(--ink);color:var(--cream)!important;}.nav-cta:hover{background:var(--coral)!important;}
+.hero{position:relative;z-index:1;padding:68px 48px 52px;max-width:860px;margin:0 auto;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:white;border:1px solid var(--cream-deeper);padding:7px 18px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:22px;box-shadow:0 4px 12px rgba(43,37,32,.04);}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;}
+h1{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px;}
+.hero-sub{font-size:16px;color:var(--ink-soft);max-width:500px;margin:0 auto 28px;line-height:1.65;}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-primary{background:var(--ink);color:var(--cream);box-shadow:0 6px 16px rgba(43,37,32,.13);}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(43,37,32,.2);}
+.btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--cream-deeper);}.btn-ghost:hover{transform:translateY(-2px);background:var(--cream-deeper);}
+.content-wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 80px;}
+.section-head{margin:52px 0 28px;}.section-head h2{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(28px,3.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:6px;}.section-head p{color:var(--ink-soft);font-size:15px;}
+.lesson-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;align-items:start;}
+.lesson-card{border-radius:28px;padding:30px 28px;transition:transform .22s,box-shadow .22s;}.lesson-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,37,32,.07);}
+.c-peach{background:var(--peach);}.c-mint{background:var(--mint);}.c-lilac{background:var(--lilac);}.c-butter{background:var(--butter);}.c-sky{background:var(--sky);}
+.lesson-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.55;margin-bottom:12px;display:block;}
+.lesson-card h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px;}
+.lesson-card p{font-size:14px;line-height:1.65;opacity:.85;margin-bottom:8px;}.lesson-card p:last-child{margin-bottom:0;}
+.key-list{background:rgba(255,255,255,.5);border-radius:14px;padding:13px 17px;margin:10px 0;list-style:none;}
+.key-list li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(43,37,32,.07);}.key-list li:last-child{border-bottom:none;}.key-list li strong{font-weight:700;}
+.example-pill{background:rgba(255,255,255,.6);border-radius:12px;padding:11px 15px;font-size:13px;line-height:1.65;margin-top:10px;display:block;}.example-pill strong{font-weight:700;}
+.practice-block{background:white;border:1px solid var(--cream-deeper);border-radius:22px;padding:24px 26px;box-shadow:0 2px 8px rgba(43,37,32,.03);}
+.practice-block-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.practice-block-title::after{content:'';flex:1;height:1px;background:var(--cream-deeper);}
+.question{margin-bottom:18px;}.question:last-child{margin-bottom:0;}
+.q-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:7px;}
+.q-text{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.5;}
+.choices{display:flex;flex-direction:column;gap:7px;}
+.choice-btn{text-align:left;background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--ink);font-family:'Nunito',sans-serif;transition:all .16s;line-height:1.5;}
+.choice-btn:hover:not(:disabled){border-color:var(--ink);background:var(--cream-deeper);}
+.choice-btn.correct{border-color:#5bb089;background:#eef8f2;color:#1a5c35;font-weight:700;}.choice-btn.incorrect{border-color:var(--coral);background:#fff2f0;color:#8b1f13;}.choice-btn.revealed{border-color:#5bb089;background:#eef8f2;color:#1a5c35;}.choice-btn:disabled{cursor:default;}
+.input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.input-row input{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;outline:none;min-width:140px;transition:border-color .16s,background .16s;}
+.input-row input:focus{border-color:var(--coral);background:white;}.input-row input.correct{border-color:#5bb089;background:#eef8f2;}.input-row input.incorrect{border-color:var(--coral);background:#fff2f0;}
+.check-btn{background:var(--ink);color:var(--cream);border:none;border-radius:999px;padding:9px 20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;cursor:pointer;transition:background .2s;}.check-btn:hover{background:var(--coral);}
+.feedback{margin-top:8px;font-size:12.5px;font-weight:700;min-height:18px;}.feedback.correct{color:#256b3c;}.feedback.incorrect{color:#8b1f13;}
+.video-section{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 48px;}
+.video-card{background:var(--ink);border-radius:28px;overflow:hidden;box-shadow:0 10px 32px rgba(43,37,32,.12);}
+.video-card-header{padding:20px 28px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.video-card-header h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:18px;letter-spacing:-.02em;color:var(--cream);}
+.video-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--butter);background:rgba(255,227,155,.12);border:1px solid rgba(255,227,155,.2);padding:4px 12px;border-radius:999px;}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.lesson-divider{height:1px;background:var(--cream-deeper);margin:36px 0;}
+footer{position:relative;z-index:1;border-top:1px solid var(--cream-deeper);padding:32px 48px;max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--ink-soft);font-size:13px;}
+footer a{color:var(--ink);font-weight:700;text-decoration:none;}footer a:hover{color:var(--coral);}
+@media(max-width:760px){.lesson-row{grid-template-columns:1fr;}header{padding:16px 20px;}nav li:not(:last-child){display:none;}.hero,.content-wrap,.video-section{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;}}</style>
+</head>
+<body>
+<div class="blob" style="top:-120px;right:-80px;width:380px;height:380px;background:var(--peach);animation:float 14s ease-in-out infinite;"></div>
+<div class="blob" style="top:400px;left:-160px;width:420px;height:420px;background:var(--sky);animation:float 18s ease-in-out infinite reverse;"></div>
+<div class="blob" style="bottom:-100px;right:-120px;width:320px;height:320px;background:var(--butter);animation:float 16s ease-in-out infinite;"></div>
+<header>
+  <a href="https://crefcalc.netlify.app" class="logo"><span class="logo-mark">c</span>crefcalc<span class="logo-badge">Geometry · Unit 3</span></a>
+  <nav><ul><li><a href="#topic-a">Topic A: Dilations</a></li><li><a href="#topic-b">Topic B: Similarity Criteria</a></li><li><a href="#topic-c">Topic C: Proportional Relationships</a></li><li><a href="https://crefcalc.netlify.app/#book" class="nav-cta">Book free</a></li></ul></nav>
+</header>
+<div class="hero">
+  <div class="eyebrow"><span class="dot" style="background:var(--lilac);box-shadow:0 0 0 4px rgba(0,0,0,0.08);"></span> Unit 3 · 10th Grade Mathematics</div>
+  <h1>Dilations &amp;<br>Similarity.</h1>
+  <p class="hero-sub">Dilations, scale factor, similarity criteria, and solving with similar triangles.</p>
+  <div class="hero-ctas"><a href="#topic-a" class="btn btn-primary">Start studying</a><a href="#topic-a" class="btn btn-ghost">Topic B: Similarity Criteria</a><a href="#topic-b" class="btn btn-ghost">Topic C: Proportional Relationships</a></div>
+</div>
+<div class="video-section">
+  <div class="video-card"><div class="video-card-header"><h3>Unit 3 — Lesson Video</h3><span class="video-tag">Placeholder</span></div>
+  <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Unit 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+</div>
+<div class="content-wrap">
+<div class="section-head" id="topic-a"><h2>Topic A: Dilations</h2><p>Lessons 1–5 · Scale factor, center of dilation, and properties.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-lilac">
+    <span class="lesson-tag">01–03 — Lessons 1–3</span>
+    <h3>Dilations &amp; Scale Factor</h3>
+    <ul class="key-list"><li><strong>Dilation:</strong> a transformation that enlarges or shrinks a figure by a scale factor k, from a center point.</li><li><strong>Scale factor k &gt; 1:</strong> enlargement. <strong>0 &lt; k &lt; 1:</strong> reduction.</li><li>The image is similar (same shape) to the pre-image, not congruent (unless k=1).</li><li>Dilation from origin: multiply both coordinates by k. (x,y) → (kx, ky).</li><li>Distances scale by k; areas scale by k².</li></ul><span class="example-pill">Dilation with k=3 from origin: A(2,4) → A'(6,12). Side length triples; area × 9.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 1–3</div>
+    <div class="question"><div class="q-label">Q1 · Multiple Choice</div><p class="q-text">A dilation with scale factor 1/2 from the origin maps (8, 6) to:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q1',false)">A) (16, 12)</button><button class="choice-btn" onclick="checkMC(this,'q1',true)">B) (4, 3)</button><button class="choice-btn" onclick="checkMC(this,'q1',false)">C) (8, 3)</button><button class="choice-btn" onclick="checkMC(this,'q1',false)">D) (4, 6)</button></div><div class="feedback" id="q1-feedback"></div></div><div class="question"><div class="q-label">Q2 · Multiple Choice</div><p class="q-text">If a dilation has scale factor k = 3, how does the area change?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q2',false)">A) Triples</button><button class="choice-btn" onclick="checkMC(this,'q2',true)">B) Multiplies by 9</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">C) Stays the same</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">D) Doubles</button></div><div class="feedback" id="q2-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">04–05 — Lessons 4–5</span>
+    <h3>Properties of Dilations</h3>
+    <ul class="key-list"><li>A dilation maps a line through the center of dilation to itself.</li><li>A line NOT through the center maps to a parallel line.</li><li>Angle measures are preserved under dilation.</li><li>The ratio of any two corresponding lengths = k (the scale factor).</li><li>Dilations produce similar figures: same shape, different (or equal) size.</li></ul><span class="example-pill">△ABC dilated by k=2 to △A'B'C'. All angles equal; all sides doubled. Perimeter doubles; area ×4.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 4–5</div>
+    <div class="question"><div class="q-label">Q3 · Multiple Choice</div><p class="q-text">After a dilation, which is preserved?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q3',false)">A) Side lengths</button><button class="choice-btn" onclick="checkMC(this,'q3',true)">B) Angle measures</button><button class="choice-btn" onclick="checkMC(this,'q3',false)">C) Area</button><button class="choice-btn" onclick="checkMC(this,'q3',false)">D) Perimeter</button></div><div class="feedback" id="q3-feedback"></div></div><div class="question"><div class="q-label">Q4 · Multiple Choice</div><p class="q-text">A line through the center of dilation maps to:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q4',false)">A) A parallel line</button><button class="choice-btn" onclick="checkMC(this,'q4',true)">B) Itself</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">C) A perpendicular line</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">D) A point</button></div><div class="feedback" id="q4-feedback"></div></div>
+  </div>
+</div><div class="section-head" id="topic-b" style="margin-top:60px;"><h2>Topic B: Similarity Criteria</h2><p>Lessons 6–11 · AA, SAS~, SSS~ and proving similarity.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">06–08 — Lessons 6–8</span>
+    <h3>Triangle Similarity Shortcuts</h3>
+    <ul class="key-list"><li><strong>AA (Angle-Angle):</strong> two pairs of congruent angles → triangles similar.</li><li><strong>SAS~ (Side-Angle-Side):</strong> two sides proportional and included angle ≅ → similar.</li><li><strong>SSS~ (Side-Side-Side):</strong> all three pairs of sides proportional → similar.</li><li>Similar triangles: ∠s congruent, sides proportional (ratio = scale factor).</li><li>Notation: △ABC ∼ △DEF (order matters — corresponding vertices listed).</li></ul><span class="example-pill">△ABC ∼ △DEF with k = 2: if AB = 4, then DE = 8. If ∠A = 50°, then ∠D = 50°.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 6–8</div>
+    <div class="question"><div class="q-label">Q5 · Multiple Choice</div><p class="q-text">Two triangles each have angles 40° and 70°. By AA, they are:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q5',false)">A) Congruent</button><button class="choice-btn" onclick="checkMC(this,'q5',true)">B) Similar</button><button class="choice-btn" onclick="checkMC(this,'q5',false)">C) Neither — you need 3 angles</button><button class="choice-btn" onclick="checkMC(this,'q5',false)">D) Congruent only if they are right triangles</button></div><div class="feedback" id="q5-feedback"></div></div><div class="question"><div class="q-label">Q6 · Multiple Choice</div><p class="q-text">For SAS~ similarity, you need:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q6',false)">A) Two congruent angles</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">B) Two congruent sides and any angle</button><button class="choice-btn" onclick="checkMC(this,'q6',true)">C) Two proportional sides and the included angle congruent</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">D) All three sides proportional</button></div><div class="feedback" id="q6-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">09–11 — Lessons 9–11</span>
+    <h3>Applying Similar Triangles</h3>
+    <ul class="key-list"><li>Set up proportions using corresponding sides of similar triangles.</li><li><strong>Cross-multiply</strong> to solve for unknown lengths.</li><li><strong>Altitude to hypotenuse:</strong> creates two smaller triangles, each similar to the original.</li><li><strong>Geometric mean:</strong> altitude h = √(p·q), where p, q are the two segments of the hypotenuse.</li><li>Use similar triangles to find indirect measurements (shadow, mirror methods).</li></ul><span class="example-pill">△ABC ∼ △DEF. AB/DE = BC/EF = AC/DF. If AB=6, DE=9, BC=8 → EF = 8·(9/6) = 12.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 9–11</div>
+    <div class="question"><div class="q-label">Q7 · Short Answer</div><p class="q-text">△ABC ∼ △DEF. AB = 4, DE = 10, BC = 6. Find EF.</p><div class="input-row"><input type="text" id="q7-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q7',["15"])">Check</button></div><div class="feedback" id="q7-feedback"></div></div><div class="question"><div class="q-label">Q8 · Multiple Choice</div><p class="q-text">You use a mirror on the ground to find a tree's height. The similar triangles method relies on:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q8',false)">A) ASA congruence</button><button class="choice-btn" onclick="checkMC(this,'q8',true)">B) AA similarity (equal angles of incidence and reflection)</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">C) SAS congruence</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">D) SSS similarity</button></div><div class="feedback" id="q8-feedback"></div></div>
+  </div>
+</div><div class="section-head" id="topic-c" style="margin-top:60px;"><h2>Topic C: Proportional Relationships</h2><p>Lessons 12–18 · Triangle proportionality theorem and other results.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-butter">
+    <span class="lesson-tag">12–18 — Lessons 12–18</span>
+    <h3>Proportionality Theorems</h3>
+    <ul class="key-list"><li><strong>Triangle Proportionality Theorem:</strong> a line parallel to one side of a triangle divides the other two sides proportionally.</li><li><strong>Converse:</strong> if a line divides two sides proportionally, it is parallel to the third.</li><li><strong>Midsegment:</strong> connects midpoints of two sides; parallel to the third side and half as long.</li><li><strong>Angle bisector theorem:</strong> the bisector of an angle divides the opposite side proportionally.</li><li><strong>Side-splitter:</strong> if two triangles share a common angle and their sides are proportional, they are similar.</li></ul><span class="example-pill">In △ABC, midsegment MN (M on AB, N on AC): MN ∥ BC and MN = BC/2.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 12–18</div>
+    <div class="question"><div class="q-label">Q9 · Multiple Choice</div><p class="q-text">The midsegment of a triangle is:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q9',false)">A) Half the perimeter</button><button class="choice-btn" onclick="checkMC(this,'q9',true)">B) Parallel to the third side and half its length</button><button class="choice-btn" onclick="checkMC(this,'q9',false)">C) Congruent to the altitude</button><button class="choice-btn" onclick="checkMC(this,'q9',false)">D) Equal to the median</button></div><div class="feedback" id="q9-feedback"></div></div><div class="question"><div class="q-label">Q10 · Short Answer</div><p class="q-text">In a triangle, a midsegment is 7 cm. How long is the parallel base?</p><div class="input-row"><input type="text" id="q10-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q10',["14", "14 cm"])">Check</button></div><div class="feedback" id="q10-feedback"></div></div>
+  </div>
+</div>
+</div>
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; Geometry, Unit 3 Study Guide</span>
+  <span>Based on <a href="https://www.fishtanklearning.org/curriculum/math/geometry/" target="_blank">Fishtank Learning</a></span>
+</footer>
+<script>let answered={},correct=0,total=0;
+function checkMC(btn,qId,isCorrect){if(answered[qId])return;answered[qId]=true;total++;const allBtns=btn.closest('.choices').querySelectorAll('.choice-btn');allBtns.forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-feedback');if(isCorrect){btn.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{btn.classList.add('incorrect');fb.textContent='✗ Not quite — review the section on the left!';fb.className='feedback incorrect';allBtns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('true'))b.classList.add('revealed');});}}
+function checkInput(qId,accepted){if(answered[qId])return;const inputEl=document.getElementById(qId+'-input');const fb=document.getElementById(qId+'-feedback');const val=inputEl.value.trim().toLowerCase().replace(/\s/g,'');const norm=accepted.map(a=>a.toLowerCase().replace(/\s/g,''));answered[qId]=true;total++;if(norm.includes(val)){inputEl.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{inputEl.classList.add('incorrect');fb.textContent='✗ Correct answer: '+accepted[0];fb.className='feedback incorrect';}inputEl.disabled=true;}</script>
+</body>
+</html>

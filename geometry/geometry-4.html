@@ -1,1 +1,161 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Geometry · Unit 4 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--cream:#FBF6EC;--cream-deeper:#F4ECDC;--ink:#2B2520;--ink-soft:#6B635C;--peach:#FFD0BC;--mint:#BFE6D2;--lilac:#DDD2F2;--butter:#FFE39B;--sky:#C2DDF2;--coral:#FF6B5A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;z-index:0;pointer-events:none;}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-40px) scale(1.08);}}
+header{position:sticky;top:0;z-index:100;background:rgba(251,246,236,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-deeper);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:600;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+.logo-mark{width:32px;height:32px;background:var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--butter);font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.logo-badge{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ink-soft);background:var(--cream-deeper);padding:3px 10px;border-radius:999px;margin-left:2px;}
+nav ul{display:flex;list-style:none;gap:4px;align-items:center;}nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;transition:background .2s;}nav a:hover{background:var(--cream-deeper);}.nav-cta{background:var(--ink);color:var(--cream)!important;}.nav-cta:hover{background:var(--coral)!important;}
+.hero{position:relative;z-index:1;padding:68px 48px 52px;max-width:860px;margin:0 auto;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:white;border:1px solid var(--cream-deeper);padding:7px 18px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:22px;box-shadow:0 4px 12px rgba(43,37,32,.04);}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;}
+h1{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px;}
+.hero-sub{font-size:16px;color:var(--ink-soft);max-width:500px;margin:0 auto 28px;line-height:1.65;}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-primary{background:var(--ink);color:var(--cream);box-shadow:0 6px 16px rgba(43,37,32,.13);}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(43,37,32,.2);}
+.btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--cream-deeper);}.btn-ghost:hover{transform:translateY(-2px);background:var(--cream-deeper);}
+.content-wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 80px;}
+.section-head{margin:52px 0 28px;}.section-head h2{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(28px,3.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:6px;}.section-head p{color:var(--ink-soft);font-size:15px;}
+.lesson-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;align-items:start;}
+.lesson-card{border-radius:28px;padding:30px 28px;transition:transform .22s,box-shadow .22s;}.lesson-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,37,32,.07);}
+.c-peach{background:var(--peach);}.c-mint{background:var(--mint);}.c-lilac{background:var(--lilac);}.c-butter{background:var(--butter);}.c-sky{background:var(--sky);}
+.lesson-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.55;margin-bottom:12px;display:block;}
+.lesson-card h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px;}
+.lesson-card p{font-size:14px;line-height:1.65;opacity:.85;margin-bottom:8px;}.lesson-card p:last-child{margin-bottom:0;}
+.key-list{background:rgba(255,255,255,.5);border-radius:14px;padding:13px 17px;margin:10px 0;list-style:none;}
+.key-list li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(43,37,32,.07);}.key-list li:last-child{border-bottom:none;}.key-list li strong{font-weight:700;}
+.example-pill{background:rgba(255,255,255,.6);border-radius:12px;padding:11px 15px;font-size:13px;line-height:1.65;margin-top:10px;display:block;}.example-pill strong{font-weight:700;}
+.practice-block{background:white;border:1px solid var(--cream-deeper);border-radius:22px;padding:24px 26px;box-shadow:0 2px 8px rgba(43,37,32,.03);}
+.practice-block-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.practice-block-title::after{content:'';flex:1;height:1px;background:var(--cream-deeper);}
+.question{margin-bottom:18px;}.question:last-child{margin-bottom:0;}
+.q-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:7px;}
+.q-text{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.5;}
+.choices{display:flex;flex-direction:column;gap:7px;}
+.choice-btn{text-align:left;background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--ink);font-family:'Nunito',sans-serif;transition:all .16s;line-height:1.5;}
+.choice-btn:hover:not(:disabled){border-color:var(--ink);background:var(--cream-deeper);}
+.choice-btn.correct{border-color:#5bb089;background:#eef8f2;color:#1a5c35;font-weight:700;}.choice-btn.incorrect{border-color:var(--coral);background:#fff2f0;color:#8b1f13;}.choice-btn.revealed{border-color:#5bb089;background:#eef8f2;color:#1a5c35;}.choice-btn:disabled{cursor:default;}
+.input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.input-row input{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;outline:none;min-width:140px;transition:border-color .16s,background .16s;}
+.input-row input:focus{border-color:var(--coral);background:white;}.input-row input.correct{border-color:#5bb089;background:#eef8f2;}.input-row input.incorrect{border-color:var(--coral);background:#fff2f0;}
+.check-btn{background:var(--ink);color:var(--cream);border:none;border-radius:999px;padding:9px 20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;cursor:pointer;transition:background .2s;}.check-btn:hover{background:var(--coral);}
+.feedback{margin-top:8px;font-size:12.5px;font-weight:700;min-height:18px;}.feedback.correct{color:#256b3c;}.feedback.incorrect{color:#8b1f13;}
+.video-section{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 48px;}
+.video-card{background:var(--ink);border-radius:28px;overflow:hidden;box-shadow:0 10px 32px rgba(43,37,32,.12);}
+.video-card-header{padding:20px 28px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.video-card-header h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:18px;letter-spacing:-.02em;color:var(--cream);}
+.video-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--butter);background:rgba(255,227,155,.12);border:1px solid rgba(255,227,155,.2);padding:4px 12px;border-radius:999px;}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.lesson-divider{height:1px;background:var(--cream-deeper);margin:36px 0;}
+footer{position:relative;z-index:1;border-top:1px solid var(--cream-deeper);padding:32px 48px;max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--ink-soft);font-size:13px;}
+footer a{color:var(--ink);font-weight:700;text-decoration:none;}footer a:hover{color:var(--coral);}
+@media(max-width:760px){.lesson-row{grid-template-columns:1fr;}header{padding:16px 20px;}nav li:not(:last-child){display:none;}.hero,.content-wrap,.video-section{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;}}</style>
+</head>
+<body>
+<div class="blob" style="top:-120px;right:-80px;width:380px;height:380px;background:var(--butter);animation:float 14s ease-in-out infinite;"></div>
+<div class="blob" style="top:400px;left:-160px;width:420px;height:420px;background:var(--lilac);animation:float 18s ease-in-out infinite reverse;"></div>
+<div class="blob" style="bottom:-100px;right:-120px;width:320px;height:320px;background:var(--peach);animation:float 16s ease-in-out infinite;"></div>
+<header>
+  <a href="https://crefcalc.netlify.app" class="logo"><span class="logo-mark">c</span>crefcalc<span class="logo-badge">Geometry · Unit 4</span></a>
+  <nav><ul><li><a href="#topic-a">Topic A: Pythagorean Theorem</a></li><li><a href="#topic-b">Topic B: Special Right Triangles</a></li><li><a href="#topic-c">Topic C: Trigonometric Ratios</a></li><li><a href="https://crefcalc.netlify.app/#book" class="nav-cta">Book free</a></li></ul></nav>
+</header>
+<div class="hero">
+  <div class="eyebrow"><span class="dot" style="background:var(--sky);box-shadow:0 0 0 4px rgba(0,0,0,0.08);"></span> Unit 4 · 10th Grade Mathematics</div>
+  <h1>Right Triangles &amp;<br>Trigonometry.</h1>
+  <p class="hero-sub">Pythagorean theorem, special right triangles, and trigonometric ratios.</p>
+  <div class="hero-ctas"><a href="#topic-a" class="btn btn-primary">Start studying</a><a href="#topic-a" class="btn btn-ghost">Topic B: Special Right Triangles</a><a href="#topic-b" class="btn btn-ghost">Topic C: Trigonometric Ratios</a></div>
+</div>
+<div class="video-section">
+  <div class="video-card"><div class="video-card-header"><h3>Unit 4 — Lesson Video</h3><span class="video-tag">Placeholder</span></div>
+  <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Unit 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+</div>
+<div class="content-wrap">
+<div class="section-head" id="topic-a"><h2>Topic A: Pythagorean Theorem</h2><p>Lessons 1–6 · Proof, Pythagorean triples, and distance in coordinates.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">01–03 — Lessons 1–3</span>
+    <h3>The Pythagorean Theorem</h3>
+    <ul class="key-list"><li><strong>Theorem:</strong> in a right triangle, a² + b² = c² (c = hypotenuse).</li><li><strong>Converse:</strong> if a² + b² = c², the triangle is a right triangle.</li><li><strong>Pythagorean triples:</strong> 3-4-5, 5-12-13, 8-15-17, and their multiples.</li><li><strong>Acute triangle:</strong> a² + b² &gt; c². <strong>Obtuse:</strong> a² + b² &lt; c².</li><li>Used to find missing sides in right triangles.</li></ul><span class="example-pill">a=5, b=12: c = √(25+144) = √169 = <strong>13</strong>. It's a 5-12-13 triple.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 1–3</div>
+    <div class="question"><div class="q-label">Q1 · Short Answer</div><p class="q-text">Find the hypotenuse of a right triangle with legs 9 and 12.</p><div class="input-row"><input type="text" id="q1-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q1',["15"])">Check</button></div><div class="feedback" id="q1-feedback"></div></div><div class="question"><div class="q-label">Q2 · Multiple Choice</div><p class="q-text">Triangle sides are 7, 10, and 12. Is it acute, right, or obtuse?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q2',false)">A) Right — 7²+10² = 12²</button><button class="choice-btn" onclick="checkMC(this,'q2',true)">B) Obtuse — 7²+10² &lt; 12²</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">C) Acute — 7²+10² &gt; 12²</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">D) Can't determine without an angle</button></div><div class="feedback" id="q2-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">04–06 — Lessons 4–6</span>
+    <h3>Distance Formula &amp; Coordinate Geometry</h3>
+    <ul class="key-list"><li><strong>Distance formula:</strong> d = √[(x₂−x₁)² + (y₂−y₁)²] — derived from Pythagorean theorem.</li><li><strong>Midpoint formula:</strong> ((x₁+x₂)/2, (y₁+y₂)/2).</li><li>Use to prove figures are squares, rectangles, parallelograms, etc., on a coordinate plane.</li><li>Show perpendicular by: slopes are negative reciprocals (m₁ · m₂ = −1).</li><li>Show parallel by: slopes are equal.</li></ul><span class="example-pill">Distance from (1, 2) to (4, 6): d = √[(3)²+(4)²] = √25 = 5.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 4–6</div>
+    <div class="question"><div class="q-label">Q3 · Short Answer</div><p class="q-text">Find the distance from (0, 0) to (5, 12).</p><div class="input-row"><input type="text" id="q3-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q3',["13"])">Check</button></div><div class="feedback" id="q3-feedback"></div></div><div class="question"><div class="q-label">Q4 · Multiple Choice</div><p class="q-text">The midpoint of (2, 8) and (6, 4) is:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q4',true)">A) (4, 6)</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">B) (3, 5)</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">C) (8, 12)</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">D) (2, 4)</button></div><div class="feedback" id="q4-feedback"></div></div>
+  </div>
+</div><div class="section-head" id="topic-b" style="margin-top:60px;"><h2>Topic B: Special Right Triangles</h2><p>Lessons 7–12 · 45-45-90 and 30-60-90 triangles.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">07–09 — Lessons 7–9</span>
+    <h3>45-45-90 Triangles</h3>
+    <ul class="key-list"><li><strong>45-45-90 triangle:</strong> an isosceles right triangle.</li><li>Leg : Leg : Hypotenuse = <strong>x : x : x√2</strong></li><li>Hypotenuse = leg × √2. Leg = hypotenuse / √2.</li><li>Formed by cutting a square diagonally.</li><li>Memorize the ratio — it speeds up many geometry problems.</li></ul><span class="example-pill">Leg = 5: hypotenuse = 5√2. &nbsp;·&nbsp; Hypotenuse = 8: leg = 8/√2 = 4√2.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 7–9</div>
+    <div class="question"><div class="q-label">Q5 · Short Answer</div><p class="q-text">A 45-45-90 triangle has legs of length 6. What is the hypotenuse?</p><div class="input-row"><input type="text" id="q5-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q5',["6√2", "6 root 2"])">Check</button></div><div class="feedback" id="q5-feedback"></div></div><div class="question"><div class="q-label">Q6 · Multiple Choice</div><p class="q-text">In a 45-45-90 triangle, the hypotenuse is 10. What is each leg?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q6',false)">A) 5</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">B) 10√2</button><button class="choice-btn" onclick="checkMC(this,'q6',true)">C) 5√2</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">D) 10/√2 = 5√2</button></div><div class="feedback" id="q6-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-lilac">
+    <span class="lesson-tag">10–12 — Lessons 10–12</span>
+    <h3>30-60-90 Triangles</h3>
+    <ul class="key-list"><li><strong>30-60-90 triangle:</strong> Short leg : Long leg : Hypotenuse = <strong>x : x√3 : 2x</strong></li><li>Short leg (opp 30°) = hypotenuse / 2.</li><li>Long leg (opp 60°) = short leg × √3.</li><li>Hypotenuse = 2 × short leg.</li><li>Formed by cutting an equilateral triangle in half.</li></ul><span class="example-pill">Short leg = 4: long leg = 4√3, hypotenuse = 8. &nbsp;·&nbsp; Hypotenuse = 12: short leg = 6, long leg = 6√3.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 10–12</div>
+    <div class="question"><div class="q-label">Q7 · Short Answer</div><p class="q-text">In a 30-60-90 triangle, the short leg is 7. What is the hypotenuse?</p><div class="input-row"><input type="text" id="q7-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q7',["14"])">Check</button></div><div class="feedback" id="q7-feedback"></div></div><div class="question"><div class="q-label">Q8 · Multiple Choice</div><p class="q-text">In a 30-60-90 triangle, which side is the longest?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q8',false)">A) The side opposite 30°</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">B) The side opposite 60°</button><button class="choice-btn" onclick="checkMC(this,'q8',true)">C) The hypotenuse (opposite 90°)</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">D) They are all equal</button></div><div class="feedback" id="q8-feedback"></div></div>
+  </div>
+</div><div class="section-head" id="topic-c" style="margin-top:60px;"><h2>Topic C: Trigonometric Ratios</h2><p>Lessons 13–19 · SOH-CAH-TOA, inverse trig, and applications.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-butter">
+    <span class="lesson-tag">13–16 — Lessons 13–16</span>
+    <h3>SOH-CAH-TOA</h3>
+    <ul class="key-list"><li><strong>sin θ</strong> = opposite / hypotenuse</li><li><strong>cos θ</strong> = adjacent / hypotenuse</li><li><strong>tan θ</strong> = opposite / adjacent</li><li>Memory aid: <strong>SOH-CAH-TOA</strong>.</li><li>Use a calculator in degree mode to find decimal values.</li><li><strong>Pythagorean identity:</strong> sin²θ + cos²θ = 1.</li></ul><span class="example-pill">In a right △ with θ = 30°, hyp = 10: opp = 10·sin30° = 5, adj = 10·cos30° = 5√3.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 13–16</div>
+    <div class="question"><div class="q-label">Q9 · Multiple Choice</div><p class="q-text">In a right triangle, sin(θ) = 7/25. What is cos(θ)?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q9',false)">A) 7/24</button><button class="choice-btn" onclick="checkMC(this,'q9',true)">B) 24/25</button><button class="choice-btn" onclick="checkMC(this,'q9',false)">C) 25/7</button><button class="choice-btn" onclick="checkMC(this,'q9',false)">D) 7/25</button></div><div class="feedback" id="q9-feedback"></div></div><div class="question"><div class="q-label">Q10 · Short Answer</div><p class="q-text">A ladder leans against a wall, making a 60° angle with the ground. The ladder is 20 ft. How high up the wall? (sin60°=√3/2)</p><div class="input-row"><input type="text" id="q10-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q10',["10√3", "10 root 3"])">Check</button></div><div class="feedback" id="q10-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">17–19 — Lessons 17–19</span>
+    <h3>Inverse Trig &amp; Angle of Elevation/Depression</h3>
+    <ul class="key-list"><li><strong>Inverse trig:</strong> sin⁻¹(x), cos⁻¹(x), tan⁻¹(x) — find the angle given a ratio.</li><li><strong>Angle of elevation:</strong> measured upward from horizontal.</li><li><strong>Angle of depression:</strong> measured downward from horizontal.</li><li>Elevation and depression angles are alternate interior angles — they are equal.</li><li>Draw a diagram, label, then write the trig ratio.</li></ul><span class="example-pill">tan(θ) = 40/30 → θ = tan⁻¹(4/3) ≈ 53.1°.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 17–19</div>
+    <div class="question"><div class="q-label">Q11 · Multiple Choice</div><p class="q-text">You're standing 50 m from a tower. The angle of elevation to the top is 35°. Which equation finds the height h?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q11',false)">A) h = 50·cos(35°)</button><button class="choice-btn" onclick="checkMC(this,'q11',true)">B) h = 50·tan(35°)</button><button class="choice-btn" onclick="checkMC(this,'q11',false)">C) h = 50/sin(35°)</button><button class="choice-btn" onclick="checkMC(this,'q11',false)">D) h = 50/tan(35°)</button></div><div class="feedback" id="q11-feedback"></div></div><div class="question"><div class="q-label">Q12 · Multiple Choice</div><p class="q-text">The angle of depression from a cliff to a boat is 28°. The angle of elevation from the boat to the cliff is:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q12',false)">A) 62°</button><button class="choice-btn" onclick="checkMC(this,'q12',true)">B) 28°</button><button class="choice-btn" onclick="checkMC(this,'q12',false)">C) 90°</button><button class="choice-btn" onclick="checkMC(this,'q12',false)">D) Cannot be determined</button></div><div class="feedback" id="q12-feedback"></div></div>
+  </div>
+</div>
+</div>
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; Geometry, Unit 4 Study Guide</span>
+  <span>Based on <a href="https://www.fishtanklearning.org/curriculum/math/geometry/" target="_blank">Fishtank Learning</a></span>
+</footer>
+<script>let answered={},correct=0,total=0;
+function checkMC(btn,qId,isCorrect){if(answered[qId])return;answered[qId]=true;total++;const allBtns=btn.closest('.choices').querySelectorAll('.choice-btn');allBtns.forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-feedback');if(isCorrect){btn.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{btn.classList.add('incorrect');fb.textContent='✗ Not quite — review the section on the left!';fb.className='feedback incorrect';allBtns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('true'))b.classList.add('revealed');});}}
+function checkInput(qId,accepted){if(answered[qId])return;const inputEl=document.getElementById(qId+'-input');const fb=document.getElementById(qId+'-feedback');const val=inputEl.value.trim().toLowerCase().replace(/\s/g,'');const norm=accepted.map(a=>a.toLowerCase().replace(/\s/g,''));answered[qId]=true;total++;if(norm.includes(val)){inputEl.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{inputEl.classList.add('incorrect');fb.textContent='✗ Correct answer: '+accepted[0];fb.className='feedback incorrect';}inputEl.disabled=true;}</script>
+</body>
+</html>

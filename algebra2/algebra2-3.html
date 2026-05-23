@@ -1,1 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Algebra 2 · Unit 3 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FBF6EC;--cream-deeper:#F4ECDC;--ink:#2B2520;--ink-soft:#6B635C;--peach:#FFD0BC;--mint:#BFE6D2;--lilac:#DDD2F2;--butter:#FFE39B;--sky:#C2DDF2;--coral:#FF6B5A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;z-index:0;pointer-events:none;}
+.blob-1{top:-120px;right:-80px;width:380px;height:380px;background:var(--mint);animation:float 14s ease-in-out infinite;}
+.blob-2{top:400px;left:-160px;width:420px;height:420px;background:var(--butter);animation:float 18s ease-in-out infinite reverse;}
+.blob-3{bottom:-100px;right:-120px;width:320px;height:320px;background:var(--sky);animation:float 16s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-40px) scale(1.08);}}
+header{position:sticky;top:0;z-index:100;background:rgba(251,246,236,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-deeper);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:600;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+.logo-mark{width:32px;height:32px;background:var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--butter);font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.logo-badge{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ink-soft);background:var(--cream-deeper);padding:3px 10px;border-radius:999px;margin-left:2px;}
+nav ul{display:flex;list-style:none;gap:4px;align-items:center;}
+nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;transition:background .2s;}
+nav a:hover{background:var(--cream-deeper);}.nav-cta{background:var(--ink);color:var(--cream)!important;}.nav-cta:hover{background:var(--coral)!important;}
+.hero{position:relative;z-index:1;padding:68px 48px 52px;max-width:860px;margin:0 auto;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:white;border:1px solid var(--cream-deeper);padding:7px 18px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:22px;box-shadow:0 4px 12px rgba(43,37,32,.04);}
+.eyebrow .dot{width:8px;height:8px;background:var(--mint);border-radius:50%;box-shadow:0 0 0 4px rgba(91,176,137,.18);}
+h1{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px;}
+.hero-sub{font-size:16px;color:var(--ink-soft);max-width:500px;margin:0 auto 28px;line-height:1.65;}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-primary{background:var(--ink);color:var(--cream);box-shadow:0 6px 16px rgba(43,37,32,.13);}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(43,37,32,.2);}
+.btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--cream-deeper);}.btn-ghost:hover{transform:translateY(-2px);background:var(--cream-deeper);}
+.content-wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 80px;}
+.section-head{margin:52px 0 28px;}.section-head h2{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(28px,3.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:6px;}.section-head p{color:var(--ink-soft);font-size:15px;}
+.lesson-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;align-items:start;}
+.lesson-card{border-radius:28px;padding:30px 28px;transition:transform .22s,box-shadow .22s;}.lesson-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,37,32,.07);}
+.c-peach{background:var(--peach);}.c-mint{background:var(--mint);}.c-lilac{background:var(--lilac);}.c-butter{background:var(--butter);}.c-sky{background:var(--sky);}
+.lesson-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.55;margin-bottom:12px;display:block;}
+.lesson-card h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px;}
+.lesson-card p{font-size:14px;line-height:1.65;opacity:.85;margin-bottom:8px;}.lesson-card p:last-child{margin-bottom:0;}
+.key-list{background:rgba(255,255,255,.5);border-radius:14px;padding:13px 17px;margin:10px 0;list-style:none;}
+.key-list li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(43,37,32,.07);}.key-list li:last-child{border-bottom:none;}.key-list li strong{font-weight:700;}
+.example-pill{background:rgba(255,255,255,.6);border-radius:12px;padding:11px 15px;font-size:13px;line-height:1.65;margin-top:10px;display:block;}.example-pill strong{font-weight:700;}
+.practice-block{background:white;border:1px solid var(--cream-deeper);border-radius:22px;padding:24px 26px;box-shadow:0 2px 8px rgba(43,37,32,.03);}
+.practice-block-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.practice-block-title::after{content:'';flex:1;height:1px;background:var(--cream-deeper);}
+.question{margin-bottom:18px;}.question:last-child{margin-bottom:0;}
+.q-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:7px;}
+.q-text{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.5;}
+.choices{display:flex;flex-direction:column;gap:7px;}
+.choice-btn{text-align:left;background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--ink);font-family:'Nunito',sans-serif;transition:all .16s;line-height:1.5;}
+.choice-btn:hover:not(:disabled){border-color:var(--ink);background:var(--cream-deeper);}
+.choice-btn.correct{border-color:#5bb089;background:#eef8f2;color:#1a5c35;font-weight:700;}
+.choice-btn.incorrect{border-color:var(--coral);background:#fff2f0;color:#8b1f13;}
+.choice-btn.revealed{border-color:#5bb089;background:#eef8f2;color:#1a5c35;}.choice-btn:disabled{cursor:default;}
+.input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.input-row input{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;outline:none;min-width:140px;transition:border-color .16s,background .16s;}
+.input-row input:focus{border-color:var(--coral);background:white;}.input-row input.correct{border-color:#5bb089;background:#eef8f2;}.input-row input.incorrect{border-color:var(--coral);background:#fff2f0;}
+.check-btn{background:var(--ink);color:var(--cream);border:none;border-radius:999px;padding:9px 20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;cursor:pointer;transition:background .2s;}.check-btn:hover{background:var(--coral);}
+.feedback{margin-top:8px;font-size:12.5px;font-weight:700;min-height:18px;}.feedback.correct{color:#256b3c;}.feedback.incorrect{color:#8b1f13;}
+.video-section{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 48px;}
+.video-card{background:var(--ink);border-radius:28px;overflow:hidden;box-shadow:0 10px 32px rgba(43,37,32,.12);}
+.video-card-header{padding:20px 28px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.video-card-header h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:18px;letter-spacing:-.02em;color:var(--cream);}
+.video-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--butter);background:rgba(255,227,155,.12);border:1px solid rgba(255,227,155,.2);padding:4px 12px;border-radius:999px;}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.lesson-divider{height:1px;background:var(--cream-deeper);margin:36px 0;}
+footer{position:relative;z-index:1;border-top:1px solid var(--cream-deeper);padding:32px 48px;max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--ink-soft);font-size:13px;}
+footer a{color:var(--ink);font-weight:700;text-decoration:none;}footer a:hover{color:var(--coral);}
+@media(max-width:760px){.lesson-row{grid-template-columns:1fr;}header{padding:16px 20px;}nav li:not(:last-child){display:none;}.hero,.content-wrap,.video-section{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;}}
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
+<header>
+  <a href="https://crefcalc.netlify.app" class="logo"><span class="logo-mark">c</span>crefcalc<span class="logo-badge">Algebra 2 · Unit 3</span></a>
+  <nav><ul><li><a href="#topic-a">Topic A</a></li><li><a href="#topic-b">Topic B</a></li><li><a href="#topic-c">Topic C</a></li><li><a href="https://crefcalc.netlify.app/#book" class="nav-cta">Book free</a></li></ul></nav>
+</header>
+<div class="hero">
+  <div class="eyebrow"><span class="dot"></span> Unit 3 · 11th Grade Mathematics</div>
+  <h1>Polynomials.</h1>
+  <p class="hero-sub">Features, operations, identities, and the factor/remainder theorems — all in one guide.</p>
+  <div class="hero-ctas"><a href="#topic-a" class="btn btn-primary">Start studying</a><a href="#topic-b" class="btn btn-ghost">Topic B</a><a href="#topic-c" class="btn btn-ghost">Topic C</a></div>
+</div>
+<div class="video-section">
+  <div class="video-card"><div class="video-card-header"><h3>Unit 3 — Lesson Video</h3><span class="video-tag">Placeholder</span></div>
+  <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Unit 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+</div>
+<div class="content-wrap">
 
+<div class="section-head" id="topic-a"><h2>Topic A: Features of Polynomial Functions</h2><p>Lessons 1–5 · Degree, end behavior, zeros, and graphs.</p></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">01–02 — Lessons 1–2</span>
+    <h3>Degree, Leading Term &amp; End Behavior</h3>
+    <p>The degree and leading coefficient determine how a polynomial behaves at the far left and right.</p>
+    <ul class="key-list">
+      <li><strong>Degree:</strong> highest exponent in the polynomial.</li>
+      <li><strong>Leading coefficient:</strong> coefficient of the highest-degree term.</li>
+      <li><strong>Even degree, + leading:</strong> both ends go up (↑↑).</li>
+      <li><strong>Even degree, − leading:</strong> both ends go down (↓↓).</li>
+      <li><strong>Odd degree, + leading:</strong> left down, right up (↓↑).</li>
+      <li><strong>Odd degree, − leading:</strong> left up, right down (↑↓).</li>
+    </ul>
+    <span class="example-pill">f(x) = −2x³ + 5x → degree 3 (odd), leading −2 (negative) → ↑↓ end behavior.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 1–2</div>
+    <div class="question">
+      <div class="q-label">Q1 · Multiple Choice</div>
+      <p class="q-text">For f(x) = 4x⁴ − 3x² + 1, describe end behavior.</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q1',false)">A) Left ↑, Right ↓</button>
+        <button class="choice-btn" onclick="checkMC(this,'q1',true)">B) Both ends ↑ (even degree, positive leading)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q1',false)">C) Left ↓, Right ↑</button>
+        <button class="choice-btn" onclick="checkMC(this,'q1',false)">D) Both ends ↓</button>
+      </div>
+      <div class="feedback" id="q1-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q2 · Short Answer</div>
+      <p class="q-text">What is the degree of p(x) = 7x⁵ − 3x³ + x − 2?</p>
+      <div class="input-row"><input type="text" id="q2-input" placeholder="degree = ?"/><button class="check-btn" onclick="checkInput('q2',['5'])">Check</button></div>
+      <div class="feedback" id="q2-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-divider"></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-butter">
+    <span class="lesson-tag">03–05 — Lessons 3–5</span>
+    <h3>Zeros, Multiplicity &amp; Graphs</h3>
+    <p>The zeros of a polynomial correspond to x-intercepts. Multiplicity affects how the graph behaves at each zero.</p>
+    <ul class="key-list">
+      <li><strong>Zero of multiplicity 1:</strong> graph crosses the x-axis.</li>
+      <li><strong>Zero of multiplicity 2 (even):</strong> graph touches and bounces off x-axis.</li>
+      <li><strong>Zero of multiplicity 3 (odd &gt; 1):</strong> graph crosses but flattens.</li>
+      <li><strong>Max # of zeros = degree</strong> of the polynomial.</li>
+      <li>Use factored form to identify zeros: f(x) = a(x−r₁)(x−r₂)…</li>
+    </ul>
+    <span class="example-pill">f(x) = (x−2)²(x+1) → zero at x=2 (mult. 2, bounce), x=−1 (mult. 1, cross).</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 3–5</div>
+    <div class="question">
+      <div class="q-label">Q3 · Multiple Choice</div>
+      <p class="q-text">At a zero of even multiplicity, the graph of a polynomial...</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q3',false)">A) Crosses through the x-axis</button>
+        <button class="choice-btn" onclick="checkMC(this,'q3',true)">B) Touches the x-axis and bounces back</button>
+        <button class="choice-btn" onclick="checkMC(this,'q3',false)">C) Has a vertical asymptote</button>
+        <button class="choice-btn" onclick="checkMC(this,'q3',false)">D) Goes to infinity</button>
+      </div>
+      <div class="feedback" id="q3-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q4 · Multiple Choice</div>
+      <p class="q-text">How many zeros (real or complex) does a degree-5 polynomial have?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q4',false)">A) At most 4</button>
+        <button class="choice-btn" onclick="checkMC(this,'q4',true)">B) Exactly 5 (counting multiplicity)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q4',false)">C) At least 5</button>
+        <button class="choice-btn" onclick="checkMC(this,'q4',false)">D) It depends on the leading coefficient</button>
+      </div>
+      <div class="feedback" id="q4-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-head" id="topic-b" style="margin-top:60px;"><h2>Topic B: Operating with Polynomials</h2><p>Lessons 6–9 · Addition, multiplication, and division of polynomials.</p></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-lilac">
+    <span class="lesson-tag">06–07 — Lessons 6–7</span>
+    <h3>Adding, Subtracting &amp; Multiplying Polynomials</h3>
+    <p>Polynomials are closed under addition, subtraction, and multiplication — the result is always a polynomial.</p>
+    <ul class="key-list">
+      <li><strong>Add/Subtract:</strong> combine like terms (same degree).</li>
+      <li><strong>Multiply:</strong> use the distributive property (FOIL for two binomials, then for larger).</li>
+      <li>Degree of product = sum of degrees of the two polynomials.</li>
+    </ul>
+    <span class="example-pill">(x+2)(x²−x+3) = x³−x²+3x + 2x²−2x+6 = <strong>x³ + x² + x + 6</strong></span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 6–7</div>
+    <div class="question">
+      <div class="q-label">Q5 · Short Answer</div>
+      <p class="q-text">Expand (x+3)(x−5). Give the constant term.</p>
+      <div class="input-row"><input type="text" id="q5-input" placeholder="constant = ?"/><button class="check-btn" onclick="checkInput('q5',['-15','−15'])">Check</button></div>
+      <div class="feedback" id="q5-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q6 · Multiple Choice</div>
+      <p class="q-text">What is the degree of the product of a degree-2 and a degree-3 polynomial?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q6',false)">A) 2</button>
+        <button class="choice-btn" onclick="checkMC(this,'q6',false)">B) 3</button>
+        <button class="choice-btn" onclick="checkMC(this,'q6',true)">C) 5</button>
+        <button class="choice-btn" onclick="checkMC(this,'q6',false)">D) 6</button>
+      </div>
+      <div class="feedback" id="q6-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-divider"></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">08–09 — Lessons 8–9</span>
+    <h3>Polynomial Long Division</h3>
+    <p>Divide a polynomial by another using a process similar to numeric long division.</p>
+    <ul class="key-list">
+      <li><strong>Dividend ÷ Divisor = Quotient + Remainder/Divisor</strong></li>
+      <li><strong>Step 1:</strong> Divide the leading term of the dividend by the leading term of the divisor.</li>
+      <li><strong>Step 2:</strong> Multiply, subtract, bring down.</li>
+      <li><strong>Step 3:</strong> Repeat until the remainder has lower degree than the divisor.</li>
+      <li><strong>Synthetic division:</strong> shortcut when dividing by (x − c).</li>
+    </ul>
+    <span class="example-pill">(x³ − 2x + 4) ÷ (x − 1) → quotient x² + x − 1, remainder 3.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 8–9</div>
+    <div class="question">
+      <div class="q-label">Q7 · Multiple Choice</div>
+      <p class="q-text">When can you use synthetic division instead of polynomial long division?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q7',false)">A) Any time you divide two polynomials</button>
+        <button class="choice-btn" onclick="checkMC(this,'q7',true)">B) Only when the divisor is a linear binomial of the form (x − c)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q7',false)">C) Only when there is no remainder</button>
+        <button class="choice-btn" onclick="checkMC(this,'q7',false)">D) When the dividend has degree 2</button>
+      </div>
+      <div class="feedback" id="q7-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q8 · Multiple Choice</div>
+      <p class="q-text">If (x³ + 5x − 6) ÷ (x − 1) has remainder 0, what can you conclude?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q8',false)">A) x = 0 is a zero</button>
+        <button class="choice-btn" onclick="checkMC(this,'q8',true)">B) (x − 1) is a factor, so x = 1 is a zero</button>
+        <button class="choice-btn" onclick="checkMC(this,'q8',false)">C) The quotient is degree 3</button>
+        <button class="choice-btn" onclick="checkMC(this,'q8',false)">D) The polynomial cannot be factored further</button>
+      </div>
+      <div class="feedback" id="q8-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-head" id="topic-c" style="margin-top:60px;"><h2>Topic C: Polynomial Theorems &amp; Identities</h2><p>Lessons 10–14 · Remainder theorem, factor theorem, and polynomial identities.</p></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">10–12 — Lessons 10–12</span>
+    <h3>Remainder &amp; Factor Theorems</h3>
+    <ul class="key-list">
+      <li><strong>Remainder Theorem:</strong> when p(x) is divided by (x − c), the remainder = p(c).</li>
+      <li><strong>Factor Theorem:</strong> (x − c) is a factor of p(x) if and only if p(c) = 0.</li>
+      <li>Use to test potential zeros quickly without full division.</li>
+      <li><strong>Rational Root Theorem:</strong> possible rational zeros are ±(factors of constant) / (factors of leading coefficient).</li>
+    </ul>
+    <span class="example-pill">p(x) = x³ − 6x + 4. Test x = 2: p(2) = 8 − 12 + 4 = 0 → (x−2) is a factor.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 10–12</div>
+    <div class="question">
+      <div class="q-label">Q9 · Multiple Choice</div>
+      <p class="q-text">By the Remainder Theorem, what is the remainder when p(x) = x³ + 2x − 5 is divided by (x − 1)?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q9',false)">A) 0</button>
+        <button class="choice-btn" onclick="checkMC(this,'q9',true)">B) p(1) = 1 + 2 − 5 = −2</button>
+        <button class="choice-btn" onclick="checkMC(this,'q9',false)">C) 5</button>
+        <button class="choice-btn" onclick="checkMC(this,'q9',false)">D) 1</button>
+      </div>
+      <div class="feedback" id="q9-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q10 · Multiple Choice</div>
+      <p class="q-text">If p(3) = 0, what can you conclude by the Factor Theorem?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q10',true)">A) (x − 3) is a factor of p(x)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q10',false)">B) (x + 3) is a factor of p(x)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q10',false)">C) p(x) has no other zeros</button>
+        <button class="choice-btn" onclick="checkMC(this,'q10',false)">D) p(x) is a linear polynomial</button>
+      </div>
+      <div class="feedback" id="q10-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-divider"></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">13–14 — Lessons 13–14</span>
+    <h3>Polynomial Identities</h3>
+    <p>Polynomial identities are equations that are true for all values of the variable.</p>
+    <ul class="key-list">
+      <li><strong>(a + b)² = a² + 2ab + b²</strong></li>
+      <li><strong>(a − b)² = a² − 2ab + b²</strong></li>
+      <li><strong>(a + b)(a − b) = a² − b²</strong> (difference of squares)</li>
+      <li><strong>(a + b)³ = a³ + 3a²b + 3ab² + b³</strong></li>
+      <li>Use identities to factor, simplify, and solve problems efficiently.</li>
+    </ul>
+    <span class="example-pill">Factor: x² − 25 = (x+5)(x−5) using difference of squares identity.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 13–14</div>
+    <div class="question">
+      <div class="q-label">Q11 · Multiple Choice</div>
+      <p class="q-text">Which identity factored x² − 49?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q11',false)">A) (x − 49)(x + 1)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q11',true)">B) (x − 7)(x + 7)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q11',false)">C) (x − 7)²</button>
+        <button class="choice-btn" onclick="checkMC(this,'q11',false)">D) (x + 7)²</button>
+      </div>
+      <div class="feedback" id="q11-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q12 · Short Answer</div>
+      <p class="q-text">Expand (x + 4)² using the perfect square identity. Give the middle term coefficient.</p>
+      <div class="input-row"><input type="text" id="q12-input" placeholder="middle coeff = ?"/><button class="check-btn" onclick="checkInput('q12',['8'])">Check</button></div>
+      <div class="feedback" id="q12-feedback"></div>
+    </div>
+  </div>
+</div>
+
+</div>
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; Algebra 2, Unit 3 Study Guide</span>
+  <span>Based on <a href="https://www.fishtanklearning.org/curriculum/math/algebra-2/" target="_blank">Fishtank Learning</a> 11th Grade Curriculum</span>
+</footer>
+<script>
+let answered={},correct=0,total=0;
+function checkMC(btn,qId,isCorrect){if(answered[qId])return;answered[qId]=true;total++;const allBtns=btn.closest('.choices').querySelectorAll('.choice-btn');allBtns.forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-feedback');if(isCorrect){btn.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{btn.classList.add('incorrect');fb.textContent='✗ Not quite — review the section on the left!';fb.className='feedback incorrect';allBtns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('true'))b.classList.add('revealed');});}}
+function checkInput(qId,accepted){if(answered[qId])return;const inputEl=document.getElementById(qId+'-input');const fb=document.getElementById(qId+'-feedback');const val=inputEl.value.trim().toLowerCase().replace(/\s/g,'');const norm=accepted.map(a=>a.toLowerCase().replace(/\s/g,''));answered[qId]=true;total++;if(norm.includes(val)){inputEl.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{inputEl.classList.add('incorrect');fb.textContent='✗ Correct answer: '+accepted[0];fb.className='feedback incorrect';}inputEl.disabled=true;}
+</script>
+</body>
+</html>

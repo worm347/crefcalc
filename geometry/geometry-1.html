@@ -1,1 +1,161 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Geometry · Unit 1 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--cream:#FBF6EC;--cream-deeper:#F4ECDC;--ink:#2B2520;--ink-soft:#6B635C;--peach:#FFD0BC;--mint:#BFE6D2;--lilac:#DDD2F2;--butter:#FFE39B;--sky:#C2DDF2;--coral:#FF6B5A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;z-index:0;pointer-events:none;}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-40px) scale(1.08);}}
+header{position:sticky;top:0;z-index:100;background:rgba(251,246,236,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-deeper);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:600;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+.logo-mark{width:32px;height:32px;background:var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--butter);font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.logo-badge{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ink-soft);background:var(--cream-deeper);padding:3px 10px;border-radius:999px;margin-left:2px;}
+nav ul{display:flex;list-style:none;gap:4px;align-items:center;}nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;transition:background .2s;}nav a:hover{background:var(--cream-deeper);}.nav-cta{background:var(--ink);color:var(--cream)!important;}.nav-cta:hover{background:var(--coral)!important;}
+.hero{position:relative;z-index:1;padding:68px 48px 52px;max-width:860px;margin:0 auto;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:white;border:1px solid var(--cream-deeper);padding:7px 18px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:22px;box-shadow:0 4px 12px rgba(43,37,32,.04);}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;}
+h1{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px;}
+.hero-sub{font-size:16px;color:var(--ink-soft);max-width:500px;margin:0 auto 28px;line-height:1.65;}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-primary{background:var(--ink);color:var(--cream);box-shadow:0 6px 16px rgba(43,37,32,.13);}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(43,37,32,.2);}
+.btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--cream-deeper);}.btn-ghost:hover{transform:translateY(-2px);background:var(--cream-deeper);}
+.content-wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 80px;}
+.section-head{margin:52px 0 28px;}.section-head h2{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(28px,3.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:6px;}.section-head p{color:var(--ink-soft);font-size:15px;}
+.lesson-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;align-items:start;}
+.lesson-card{border-radius:28px;padding:30px 28px;transition:transform .22s,box-shadow .22s;}.lesson-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,37,32,.07);}
+.c-peach{background:var(--peach);}.c-mint{background:var(--mint);}.c-lilac{background:var(--lilac);}.c-butter{background:var(--butter);}.c-sky{background:var(--sky);}
+.lesson-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.55;margin-bottom:12px;display:block;}
+.lesson-card h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px;}
+.lesson-card p{font-size:14px;line-height:1.65;opacity:.85;margin-bottom:8px;}.lesson-card p:last-child{margin-bottom:0;}
+.key-list{background:rgba(255,255,255,.5);border-radius:14px;padding:13px 17px;margin:10px 0;list-style:none;}
+.key-list li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(43,37,32,.07);}.key-list li:last-child{border-bottom:none;}.key-list li strong{font-weight:700;}
+.example-pill{background:rgba(255,255,255,.6);border-radius:12px;padding:11px 15px;font-size:13px;line-height:1.65;margin-top:10px;display:block;}.example-pill strong{font-weight:700;}
+.practice-block{background:white;border:1px solid var(--cream-deeper);border-radius:22px;padding:24px 26px;box-shadow:0 2px 8px rgba(43,37,32,.03);}
+.practice-block-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.practice-block-title::after{content:'';flex:1;height:1px;background:var(--cream-deeper);}
+.question{margin-bottom:18px;}.question:last-child{margin-bottom:0;}
+.q-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:7px;}
+.q-text{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.5;}
+.choices{display:flex;flex-direction:column;gap:7px;}
+.choice-btn{text-align:left;background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--ink);font-family:'Nunito',sans-serif;transition:all .16s;line-height:1.5;}
+.choice-btn:hover:not(:disabled){border-color:var(--ink);background:var(--cream-deeper);}
+.choice-btn.correct{border-color:#5bb089;background:#eef8f2;color:#1a5c35;font-weight:700;}.choice-btn.incorrect{border-color:var(--coral);background:#fff2f0;color:#8b1f13;}.choice-btn.revealed{border-color:#5bb089;background:#eef8f2;color:#1a5c35;}.choice-btn:disabled{cursor:default;}
+.input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.input-row input{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;outline:none;min-width:140px;transition:border-color .16s,background .16s;}
+.input-row input:focus{border-color:var(--coral);background:white;}.input-row input.correct{border-color:#5bb089;background:#eef8f2;}.input-row input.incorrect{border-color:var(--coral);background:#fff2f0;}
+.check-btn{background:var(--ink);color:var(--cream);border:none;border-radius:999px;padding:9px 20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;cursor:pointer;transition:background .2s;}.check-btn:hover{background:var(--coral);}
+.feedback{margin-top:8px;font-size:12.5px;font-weight:700;min-height:18px;}.feedback.correct{color:#256b3c;}.feedback.incorrect{color:#8b1f13;}
+.video-section{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 48px;}
+.video-card{background:var(--ink);border-radius:28px;overflow:hidden;box-shadow:0 10px 32px rgba(43,37,32,.12);}
+.video-card-header{padding:20px 28px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.video-card-header h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:18px;letter-spacing:-.02em;color:var(--cream);}
+.video-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--butter);background:rgba(255,227,155,.12);border:1px solid rgba(255,227,155,.2);padding:4px 12px;border-radius:999px;}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.lesson-divider{height:1px;background:var(--cream-deeper);margin:36px 0;}
+footer{position:relative;z-index:1;border-top:1px solid var(--cream-deeper);padding:32px 48px;max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--ink-soft);font-size:13px;}
+footer a{color:var(--ink);font-weight:700;text-decoration:none;}footer a:hover{color:var(--coral);}
+@media(max-width:760px){.lesson-row{grid-template-columns:1fr;}header{padding:16px 20px;}nav li:not(:last-child){display:none;}.hero,.content-wrap,.video-section{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;}}</style>
+</head>
+<body>
+<div class="blob" style="top:-120px;right:-80px;width:380px;height:380px;background:var(--mint);animation:float 14s ease-in-out infinite;"></div>
+<div class="blob" style="top:400px;left:-160px;width:420px;height:420px;background:var(--butter);animation:float 18s ease-in-out infinite reverse;"></div>
+<div class="blob" style="bottom:-100px;right:-120px;width:320px;height:320px;background:var(--sky);animation:float 16s ease-in-out infinite;"></div>
+<header>
+  <a href="https://crefcalc.netlify.app" class="logo"><span class="logo-mark">c</span>crefcalc<span class="logo-badge">Geometry · Unit 1</span></a>
+  <nav><ul><li><a href="#topic-a">Topic A: Compass &amp; Straightedge Constructions</a></li><li><a href="#topic-b">Topic B: Formal Proof</a></li><li><a href="#topic-c">Topic C: Rigid Motions</a></li><li><a href="https://crefcalc.netlify.app/#book" class="nav-cta">Book free</a></li></ul></nav>
+</header>
+<div class="hero">
+  <div class="eyebrow"><span class="dot" style="background:var(--mint);box-shadow:0 0 0 4px rgba(0,0,0,0.08);"></span> Unit 1 · 10th Grade Mathematics</div>
+  <h1>Constructions, Proof<br>&amp; Rigid Motion.</h1>
+  <p class="hero-sub">Compass-and-straightedge constructions, formal geometric proofs, and an introduction to rigid motions.</p>
+  <div class="hero-ctas"><a href="#topic-a" class="btn btn-primary">Start studying</a><a href="#topic-a" class="btn btn-ghost">Topic B: Formal Proof</a><a href="#topic-b" class="btn btn-ghost">Topic C: Rigid Motions</a></div>
+</div>
+<div class="video-section">
+  <div class="video-card"><div class="video-card-header"><h3>Unit 1 — Lesson Video</h3><span class="video-tag">Placeholder</span></div>
+  <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Unit 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+</div>
+<div class="content-wrap">
+<div class="section-head" id="topic-a"><h2>Topic A: Compass &amp; Straightedge Constructions</h2><p>Lessons 1–6 · Basic constructions using only compass and straightedge.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">01–03 — Lessons 1–3</span>
+    <h3>Basic Constructions</h3>
+    <p>Geometric constructions use only a compass (for circles/arcs) and a straightedge (for lines — no measurements).</p><ul class="key-list"><li><strong>Copy a segment:</strong> use compass to transfer length.</li><li><strong>Copy an angle:</strong> reproduce the angle's arc and chord at a new vertex.</li><li><strong>Perpendicular bisector:</strong> find midpoint of segment; line perpendicular to it.</li><li><strong>Angle bisector:</strong> divide an angle into two equal halves.</li><li>Constructions are exact — no measuring with rulers or protractors.</li></ul><span class="example-pill">Perpendicular bisector of AB: set compass &gt; AB/2, draw arcs from A and B, connect the intersections.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 1–3</div>
+    <div class="question"><div class="q-label">Q1 · Multiple Choice</div><p class="q-text">What is the purpose of the perpendicular bisector of a segment?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q1',false)">A) It extends the segment</button><button class="choice-btn" onclick="checkMC(this,'q1',true)">B) It finds the midpoint and is perpendicular to the segment</button><button class="choice-btn" onclick="checkMC(this,'q1',false)">C) It copies the segment</button><button class="choice-btn" onclick="checkMC(this,'q1',false)">D) It measures the segment's length</button></div><div class="feedback" id="q1-feedback"></div></div><div class="question"><div class="q-label">Q2 · Multiple Choice</div><p class="q-text">In a construction, a 'straightedge' is used to:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q2',false)">A) Measure lengths</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">B) Draw arcs</button><button class="choice-btn" onclick="checkMC(this,'q2',true)">C) Draw straight lines through points</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">D) Mark right angles</button></div><div class="feedback" id="q2-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-butter">
+    <span class="lesson-tag">04–06 — Lessons 4–6</span>
+    <h3>Circle Constructions &amp; Special Figures</h3>
+    <ul class="key-list"><li>Inscribed circle: tangent to all sides of a triangle (incircle) — constructed using angle bisectors.</li><li>Circumscribed circle: passes through all vertices (circumcircle) — constructed using perpendicular bisectors.</li><li><strong>Equilateral triangle:</strong> set compass = side length, draw arcs from endpoints.</li><li><strong>Regular hexagon:</strong> radius = side length, mark 6 points around center circle.</li><li><strong>Square:</strong> use perpendicular bisectors and circle.</li></ul><span class="example-pill">To construct an equilateral triangle: draw segment AB, arc from A (radius AB), arc from B — their intersection is C.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 4–6</div>
+    <div class="question"><div class="q-label">Q3 · Multiple Choice</div><p class="q-text">The circumscribed circle of a triangle passes through:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q3',false)">A) The midpoints of each side</button><button class="choice-btn" onclick="checkMC(this,'q3',false)">B) The feet of each altitude</button><button class="choice-btn" onclick="checkMC(this,'q3',true)">C) All three vertices</button><button class="choice-btn" onclick="checkMC(this,'q3',false)">D) The centroid</button></div><div class="feedback" id="q3-feedback"></div></div><div class="question"><div class="q-label">Q4 · Multiple Choice</div><p class="q-text">Which center is found using angle bisectors?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q4',false)">A) Circumcenter</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">B) Centroid</button><button class="choice-btn" onclick="checkMC(this,'q4',true)">C) Incenter</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">D) Orthocenter</button></div><div class="feedback" id="q4-feedback"></div></div>
+  </div>
+</div><div class="section-head" id="topic-b" style="margin-top:60px;"><h2>Topic B: Formal Proof</h2><p>Lessons 7–12 · Two-column proofs, paragraph proofs, and geometric reasoning.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-lilac">
+    <span class="lesson-tag">07–09 — Lessons 7–9</span>
+    <h3>Introduction to Geometric Proof</h3>
+    <p>Geometric proof uses definitions, postulates, and previously proven theorems to establish that a statement is always true.</p><ul class="key-list"><li><strong>Given:</strong> information you are told is true.</li><li><strong>Prove:</strong> the statement you must show is true.</li><li><strong>Two-column proof:</strong> statements on left, reasons on right.</li><li><strong>Reasons:</strong> definition, postulate, theorem, or given.</li><li>Each step follows logically from what came before.</li></ul><span class="example-pill">Given: AB ≅ CD, CD ≅ EF. Prove: AB ≅ EF. Reason: Transitive Property of Congruence.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 7–9</div>
+    <div class="question"><div class="q-label">Q5 · Multiple Choice</div><p class="q-text">In a two-column proof, the right column lists:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q5',false)">A) The conclusion</button><button class="choice-btn" onclick="checkMC(this,'q5',false)">B) The given information only</button><button class="choice-btn" onclick="checkMC(this,'q5',true)">C) Reasons (definitions, postulates, theorems)</button><button class="choice-btn" onclick="checkMC(this,'q5',false)">D) The diagram labels</button></div><div class="feedback" id="q5-feedback"></div></div><div class="question"><div class="q-label">Q6 · Multiple Choice</div><p class="q-text">If AB = BC and BC = CD, then AB = CD by the:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q6',false)">A) Reflexive Property</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">B) Symmetric Property</button><button class="choice-btn" onclick="checkMC(this,'q6',true)">C) Transitive Property</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">D) Substitution Property</button></div><div class="feedback" id="q6-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">10–12 — Lessons 10–12</span>
+    <h3>Angle Relationships &amp; Proofs</h3>
+    <ul class="key-list"><li><strong>Vertical angles:</strong> congruent. (Formed by two intersecting lines, across from each other.)</li><li><strong>Linear pair:</strong> supplementary (add to 180°).</li><li><strong>Complementary:</strong> two angles adding to 90°.</li><li><strong>Transversal + parallel lines:</strong> alternate interior angles ≅, corresponding angles ≅, co-interior angles supplementary.</li><li>Use these theorems as reasons in proofs.</li></ul><span class="example-pill">Given: ∠1 and ∠2 are vertical angles. Prove: ∠1 ≅ ∠2. Reason: Vertical Angles Theorem.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 10–12</div>
+    <div class="question"><div class="q-label">Q7 · Multiple Choice</div><p class="q-text">Two parallel lines are cut by a transversal. Alternate interior angles are:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q7',false)">A) Supplementary</button><button class="choice-btn" onclick="checkMC(this,'q7',false)">B) Complementary</button><button class="choice-btn" onclick="checkMC(this,'q7',true)">C) Congruent</button><button class="choice-btn" onclick="checkMC(this,'q7',false)">D) Not necessarily related</button></div><div class="feedback" id="q7-feedback"></div></div><div class="question"><div class="q-label">Q8 · Short Answer</div><p class="q-text">If ∠A and ∠B are supplementary and ∠A = 65°, what is ∠B?</p><div class="input-row"><input type="text" id="q8-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q8',["115", "115°"])">Check</button></div><div class="feedback" id="q8-feedback"></div></div>
+  </div>
+</div><div class="section-head" id="topic-c" style="margin-top:60px;"><h2>Topic C: Rigid Motions</h2><p>Lessons 13–19 · Translations, reflections, rotations, and composites.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">13–15 — Lessons 13–15</span>
+    <h3>Translations &amp; Reflections</h3>
+    <ul class="key-list"><li><strong>Rigid motion (isometry):</strong> a transformation that preserves distance and angle measure.</li><li><strong>Translation:</strong> slides a figure. Vector notation (a, b): move right a, up b.</li><li><strong>Reflection:</strong> flips a figure over a line of reflection.</li><li>Reflect over x-axis: (x, y) → (x, −y).</li><li>Reflect over y-axis: (x, y) → (−x, y).</li><li>Reflect over y = x: (x, y) → (y, x).</li></ul><span class="example-pill">Point A(3, 5) reflected over x-axis → A'(3, −5). Reflected over y-axis → A'(−3, 5).</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 13–15</div>
+    <div class="question"><div class="q-label">Q9 · Multiple Choice</div><p class="q-text">A translation moves a figure 3 right and 2 down. Point (5, 7) maps to:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q9',true)">A) (8, 5)</button><button class="choice-btn" onclick="checkMC(this,'q9',false)">B) (2, 9)</button><button class="choice-btn" onclick="checkMC(this,'q9',false)">C) (8, 9)</button><button class="choice-btn" onclick="checkMC(this,'q9',false)">D) (3, 2)</button></div><div class="feedback" id="q9-feedback"></div></div><div class="question"><div class="q-label">Q10 · Short Answer</div><p class="q-text">Reflect (4, −3) over the y-axis. Give the x-coordinate of the image.</p><div class="input-row"><input type="text" id="q10-input" placeholder="Answer"/><button class="check-btn" onclick="checkInput('q10',["−4", "-4"])">Check</button></div><div class="feedback" id="q10-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">16–19 — Lessons 16–19</span>
+    <h3>Rotations &amp; Composition</h3>
+    <ul class="key-list"><li><strong>Rotation:</strong> turns a figure around a center point by an angle.</li><li>Rotate 90° CCW about origin: (x, y) → (−y, x).</li><li>Rotate 180° about origin: (x, y) → (−x, −y).</li><li>Rotate 270° CCW (= 90° CW): (x, y) → (y, −x).</li><li><strong>Composition:</strong> apply two or more transformations in sequence.</li><li>A glide reflection = translation + reflection.</li></ul><span class="example-pill">Rotate (2, 3) by 90° CCW about origin: (2, 3) → (−3, 2).</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 16–19</div>
+    <div class="question"><div class="q-label">Q11 · Multiple Choice</div><p class="q-text">Point (5, −2) is rotated 180° about the origin. The image is:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q11',false)">A) (2, 5)</button><button class="choice-btn" onclick="checkMC(this,'q11',true)">B) (−5, 2)</button><button class="choice-btn" onclick="checkMC(this,'q11',false)">C) (−2, −5)</button><button class="choice-btn" onclick="checkMC(this,'q11',false)">D) (5, 2)</button></div><div class="feedback" id="q11-feedback"></div></div><div class="question"><div class="q-label">Q12 · Multiple Choice</div><p class="q-text">A composition of two reflections over parallel lines is equivalent to a:</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q12',false)">A) Rotation</button><button class="choice-btn" onclick="checkMC(this,'q12',true)">B) Translation</button><button class="choice-btn" onclick="checkMC(this,'q12',false)">C) Reflection</button><button class="choice-btn" onclick="checkMC(this,'q12',false)">D) Dilation</button></div><div class="feedback" id="q12-feedback"></div></div>
+  </div>
+</div>
+</div>
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; Geometry, Unit 1 Study Guide</span>
+  <span>Based on <a href="https://www.fishtanklearning.org/curriculum/math/geometry/" target="_blank">Fishtank Learning</a></span>
+</footer>
+<script>let answered={},correct=0,total=0;
+function checkMC(btn,qId,isCorrect){if(answered[qId])return;answered[qId]=true;total++;const allBtns=btn.closest('.choices').querySelectorAll('.choice-btn');allBtns.forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-feedback');if(isCorrect){btn.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{btn.classList.add('incorrect');fb.textContent='✗ Not quite — review the section on the left!';fb.className='feedback incorrect';allBtns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('true'))b.classList.add('revealed');});}}
+function checkInput(qId,accepted){if(answered[qId])return;const inputEl=document.getElementById(qId+'-input');const fb=document.getElementById(qId+'-feedback');const val=inputEl.value.trim().toLowerCase().replace(/\s/g,'');const norm=accepted.map(a=>a.toLowerCase().replace(/\s/g,''));answered[qId]=true;total++;if(norm.includes(val)){inputEl.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{inputEl.classList.add('incorrect');fb.textContent='✗ Correct answer: '+accepted[0];fb.className='feedback incorrect';}inputEl.disabled=true;}</script>
+</body>
+</html>

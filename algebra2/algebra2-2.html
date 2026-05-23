@@ -1,1 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Algebra 2 · Unit 2 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --cream: #FBF6EC; --cream-deeper: #F4ECDC; --ink: #2B2520; --ink-soft: #6B635C; --peach: #FFD0BC; --mint: #BFE6D2; --lilac: #DDD2F2; --butter: #FFE39B; --sky: #C2DDF2; --coral: #FF6B5A; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.blob { position: fixed; border-radius: 50%; filter: blur(60px); opacity: 0.45; z-index: 0; pointer-events: none; }
+.blob-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: var(--peach); animation: float 14s ease-in-out infinite; }
+.blob-2 { top: 400px; left: -160px; width: 420px; height: 420px; background: var(--lilac); animation: float 18s ease-in-out infinite reverse; }
+.blob-3 { bottom: -100px; right: -120px; width: 320px; height: 320px; background: var(--butter); animation: float 16s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-40px) scale(1.08); } }
+header { position: sticky; top: 0; z-index: 100; background: rgba(251,246,236,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--cream-deeper); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 600; font-size: 21px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.logo-mark { width: 32px; height: 32px; background: var(--ink); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--butter); font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px; }
+.logo-badge { font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700; color: var(--ink-soft); background: var(--cream-deeper); padding: 3px 10px; border-radius: 999px; margin-left: 2px; }
+nav ul { display: flex; list-style: none; gap: 4px; align-items: center; }
+nav a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 13px; padding: 8px 15px; border-radius: 999px; transition: background 0.2s; }
+nav a:hover { background: var(--cream-deeper); }
+.nav-cta { background: var(--ink); color: var(--cream) !important; }
+.nav-cta:hover { background: var(--coral) !important; }
+.hero { position: relative; z-index: 1; padding: 68px 48px 52px; max-width: 860px; margin: 0 auto; text-align: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; background: white; border: 1px solid var(--cream-deeper); padding: 7px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-bottom: 22px; box-shadow: 0 4px 12px rgba(43,37,32,0.04); }
+.eyebrow .dot { width: 8px; height: 8px; background: var(--peach); border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,180,140,0.25); }
+h1 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 500; font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 18px; }
+.hero-sub { font-size: 16px; color: var(--ink-soft); max-width: 500px; margin: 0 auto 28px; line-height: 1.65; }
+.hero-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
+.btn-primary { background: var(--ink); color: var(--cream); box-shadow: 0 6px 16px rgba(43,37,32,0.13); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(43,37,32,0.2); }
+.btn-ghost { background: white; color: var(--ink); border: 1.5px solid var(--cream-deeper); }
+.btn-ghost:hover { transform: translateY(-2px); background: var(--cream-deeper); }
+.content-wrap { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; padding: 0 48px 80px; }
+.section-head { margin: 52px 0 28px; }
+.section-head h2 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 500; font-size: clamp(28px, 3.5vw, 38px); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 6px; }
+.section-head p { color: var(--ink-soft); font-size: 15px; }
+.lesson-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; align-items: start; }
+.lesson-card { border-radius: 28px; padding: 30px 28px; transition: transform 0.22s, box-shadow 0.22s; margin-bottom: 0; }
+.lesson-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(43,37,32,0.07); }
+.c-peach { background: var(--peach); } .c-mint { background: var(--mint); } .c-lilac { background: var(--lilac); } .c-butter { background: var(--butter); } .c-sky { background: var(--sky); }
+.lesson-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.55; margin-bottom: 12px; display: block; }
+.lesson-card h3 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; }
+.lesson-card p { font-size: 14px; line-height: 1.65; opacity: 0.85; margin-bottom: 8px; }
+.key-list { background: rgba(255,255,255,0.5); border-radius: 14px; padding: 13px 17px; margin: 10px 0; list-style: none; }
+.key-list li { font-size: 13.5px; line-height: 1.65; padding: 5px 0; border-bottom: 1px solid rgba(43,37,32,0.07); }
+.key-list li:last-child { border-bottom: none; }
+.key-list li strong { font-weight: 700; }
+.example-pill { background: rgba(255,255,255,0.6); border-radius: 12px; padding: 11px 15px; font-size: 13px; line-height: 1.65; margin-top: 10px; display: block; }
+.example-pill strong { font-weight: 700; }
+.practice-block { background: white; border: 1px solid var(--cream-deeper); border-radius: 22px; padding: 24px 26px; box-shadow: 0 2px 8px rgba(43,37,32,0.03); }
+.practice-block-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+.practice-block-title::after { content: ''; flex: 1; height: 1px; background: var(--cream-deeper); }
+.question { margin-bottom: 18px; } .question:last-child { margin-bottom: 0; }
+.q-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 7px; }
+.q-text { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.5; }
+.choices { display: flex; flex-direction: column; gap: 7px; }
+.choice-btn { text-align: left; background: var(--cream); border: 1.5px solid var(--cream-deeper); border-radius: 10px; padding: 9px 14px; cursor: pointer; font-size: 13.5px; font-weight: 500; color: var(--ink); font-family: 'Nunito', sans-serif; transition: all 0.16s; line-height: 1.5; }
+.choice-btn:hover:not(:disabled) { border-color: var(--ink); background: var(--cream-deeper); }
+.choice-btn.correct { border-color: #5bb089; background: #eef8f2; color: #1a5c35; font-weight: 700; }
+.choice-btn.incorrect { border-color: var(--coral); background: #fff2f0; color: #8b1f13; }
+.choice-btn.revealed { border-color: #5bb089; background: #eef8f2; color: #1a5c35; }
+.choice-btn:disabled { cursor: default; }
+.input-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.input-row input { font-family: 'Nunito', sans-serif; font-size: 13.5px; font-weight: 500; color: var(--ink); background: var(--cream); border: 1.5px solid var(--cream-deeper); border-radius: 10px; padding: 9px 14px; outline: none; min-width: 140px; transition: border-color 0.16s, background 0.16s; }
+.input-row input:focus { border-color: var(--coral); background: white; }
+.input-row input.correct { border-color: #5bb089; background: #eef8f2; }
+.input-row input.incorrect { border-color: var(--coral); background: #fff2f0; }
+.check-btn { background: var(--ink); color: var(--cream); border: none; border-radius: 999px; padding: 9px 20px; font-size: 12px; font-weight: 700; font-family: 'Nunito', sans-serif; cursor: pointer; transition: background 0.2s; }
+.check-btn:hover { background: var(--coral); }
+.feedback { margin-top: 8px; font-size: 12.5px; font-weight: 700; min-height: 18px; }
+.feedback.correct { color: #256b3c; } .feedback.incorrect { color: #8b1f13; }
+.video-section { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; padding: 0 48px 48px; }
+.video-card { background: var(--ink); border-radius: 28px; overflow: hidden; box-shadow: 0 10px 32px rgba(43,37,32,0.12); }
+.video-card-header { padding: 20px 28px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.video-card-header h3 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 500; font-size: 18px; letter-spacing: -0.02em; color: var(--cream); }
+.video-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--butter); background: rgba(255,227,155,0.12); border: 1px solid rgba(255,227,155,0.2); padding: 4px 12px; border-radius: 999px; }
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.lesson-divider { height: 1px; background: var(--cream-deeper); margin: 36px 0; }
+footer { position: relative; z-index: 1; border-top: 1px solid var(--cream-deeper); padding: 32px 48px; max-width: 1060px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; color: var(--ink-soft); font-size: 13px; }
+footer a { color: var(--ink); font-weight: 700; text-decoration: none; }
+footer a:hover { color: var(--coral); }
+@media (max-width: 760px) { .lesson-row { grid-template-columns: 1fr; } header { padding: 16px 20px; } nav li:not(:last-child) { display: none; } .hero, .content-wrap, .video-section { padding-left: 20px; padding-right: 20px; } footer { padding: 24px 20px; } }
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
 
+<header>
+  <a href="https://crefcalc.netlify.app" class="logo"><span class="logo-mark">c</span>crefcalc<span class="logo-badge">Algebra 2 · Unit 2</span></a>
+  <nav><ul>
+    <li><a href="#topic-a">Topic A</a></li>
+    <li><a href="#topic-b">Topic B</a></li>
+    <li><a href="#topic-c">Topic C</a></li>
+    <li><a href="https://crefcalc.netlify.app/#book" class="nav-cta">Book free</a></li>
+  </ul></nav>
+</header>
+
+<div class="hero">
+  <div class="eyebrow"><span class="dot"></span> Unit 2 · 11th Grade Mathematics</div>
+  <h1>Quadratic<br>Functions.</h1>
+  <p class="hero-sub">Features, forms, complex numbers, and solving quadratic equations — all in one guide.</p>
+  <div class="hero-ctas">
+    <a href="#topic-a" class="btn btn-primary">Start studying</a>
+    <a href="#topic-b" class="btn btn-ghost">Topic B</a>
+    <a href="#topic-c" class="btn btn-ghost">Topic C</a>
+  </div>
+</div>
+
+<div class="video-section">
+  <div class="video-card">
+    <div class="video-card-header"><h3>Unit 2 — Lesson Video</h3><span class="video-tag">Placeholder</span></div>
+    <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Unit 2 Lesson Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+<div class="section-head" id="topic-a">
+  <h2>Topic A: Features of Quadratic Functions</h2>
+  <p>Lessons 1–4 · Vertex, axis of symmetry, zeros, and forms of quadratics.</p>
+</div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">01 — Lesson 1</span>
+    <h3>Key Features of Parabolas</h3>
+    <p>A quadratic function creates a U-shaped parabola with distinct features.</p>
+    <ul class="key-list">
+      <li><strong>Vertex:</strong> the highest or lowest point — (h, k).</li>
+      <li><strong>Axis of symmetry:</strong> vertical line x = h through the vertex.</li>
+      <li><strong>Opens up (a &gt; 0):</strong> minimum at vertex. <strong>Opens down (a &lt; 0):</strong> maximum.</li>
+      <li><strong>Zeros/roots:</strong> x-intercepts where f(x) = 0.</li>
+      <li><strong>Y-intercept:</strong> f(0) = the constant term c in ax² + bx + c.</li>
+    </ul>
+    <span class="example-pill">f(x) = −(x−3)² + 9 → vertex (3, 9) is a maximum; axis: x = 3; opens down.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lesson 1</div>
+    <div class="question">
+      <div class="q-label">Q1 · Multiple Choice</div>
+      <p class="q-text">For f(x) = 2(x−1)² − 4, what is the vertex?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q1',false)">A) (−1, −4)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q1',true)">B) (1, −4)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q1',false)">C) (2, 1)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q1',false)">D) (1, 2)</button>
+      </div>
+      <div class="feedback" id="q1-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q2 · Multiple Choice</div>
+      <p class="q-text">f(x) = −3x² + 6x − 1. Does this parabola have a maximum or minimum?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q2',true)">A) Maximum — the coefficient of x² is negative</button>
+        <button class="choice-btn" onclick="checkMC(this,'q2',false)">B) Minimum — the coefficient of x² is negative</button>
+        <button class="choice-btn" onclick="checkMC(this,'q2',false)">C) Maximum — the constant is negative</button>
+        <button class="choice-btn" onclick="checkMC(this,'q2',false)">D) Neither — quadratics don't have max/min</button>
+      </div>
+      <div class="feedback" id="q2-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-divider"></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">02–03 — Lessons 2–3</span>
+    <h3>Forms of Quadratic Functions</h3>
+    <p>Quadratics can be written in three equivalent forms, each revealing different features.</p>
+    <ul class="key-list">
+      <li><strong>Standard form:</strong> f(x) = ax² + bx + c → y-intercept = c.</li>
+      <li><strong>Vertex form:</strong> f(x) = a(x−h)² + k → vertex = (h, k).</li>
+      <li><strong>Factored/Intercept form:</strong> f(x) = a(x−p)(x−q) → zeros at x = p and x = q.</li>
+      <li>Convert between forms by expanding or completing the square.</li>
+    </ul>
+    <span class="example-pill">f(x) = (x−2)(x−6) → zeros: x = 2, x = 6; axis: x = 4; vertex: (4, −4)</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 2–3</div>
+    <div class="question">
+      <div class="q-label">Q3 · Multiple Choice</div>
+      <p class="q-text">Which form of a quadratic most easily reveals its x-intercepts?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q3',false)">A) Standard form: ax² + bx + c</button>
+        <button class="choice-btn" onclick="checkMC(this,'q3',false)">B) Vertex form: a(x−h)² + k</button>
+        <button class="choice-btn" onclick="checkMC(this,'q3',true)">C) Factored form: a(x−p)(x−q)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q3',false)">D) All three forms reveal intercepts equally</button>
+      </div>
+      <div class="feedback" id="q3-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q4 · Short Answer</div>
+      <p class="q-text">What is the y-intercept of f(x) = 3x² − 5x + 7?</p>
+      <div class="input-row">
+        <input type="text" id="q4-input" placeholder="y = ?" />
+        <button class="check-btn" onclick="checkInput('q4',['7'])">Check</button>
+      </div>
+      <div class="feedback" id="q4-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-divider"></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-lilac">
+    <span class="lesson-tag">04 — Lesson 4</span>
+    <h3>Transformations of Quadratics</h3>
+    <p>Transformations shift, stretch, or flip the parent function f(x) = x².</p>
+    <ul class="key-list">
+      <li><strong>f(x) = x² + k:</strong> shifts up k units (down if k &lt; 0).</li>
+      <li><strong>f(x) = (x − h)²:</strong> shifts right h units (left if h &lt; 0).</li>
+      <li><strong>f(x) = ax²:</strong> a &gt; 1 narrows; 0 &lt; a &lt; 1 widens; a &lt; 0 flips.</li>
+    </ul>
+    <span class="example-pill">f(x) = −2(x+1)² + 5 → flipped (a=−2), shifted left 1, up 5. Vertex: (−1, 5).</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lesson 4</div>
+    <div class="question">
+      <div class="q-label">Q5 · Multiple Choice</div>
+      <p class="q-text">Compared to f(x) = x², how is g(x) = (x−4)² + 3 transformed?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q5',false)">A) Shifted left 4, down 3</button>
+        <button class="choice-btn" onclick="checkMC(this,'q5',true)">B) Shifted right 4, up 3</button>
+        <button class="choice-btn" onclick="checkMC(this,'q5',false)">C) Shifted right 4, down 3</button>
+        <button class="choice-btn" onclick="checkMC(this,'q5',false)">D) Shifted left 4, up 3</button>
+      </div>
+      <div class="feedback" id="q5-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q6 · Multiple Choice</div>
+      <p class="q-text">Which quadratic is narrower than f(x) = x²?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q6',false)">A) f(x) = 0.5x²</button>
+        <button class="choice-btn" onclick="checkMC(this,'q6',false)">B) f(x) = x² − 2</button>
+        <button class="choice-btn" onclick="checkMC(this,'q6',true)">C) f(x) = 3x²</button>
+        <button class="choice-btn" onclick="checkMC(this,'q6',false)">D) f(x) = (x−1)²</button>
+      </div>
+      <div class="feedback" id="q6-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPIC B -->
+<div class="section-head" id="topic-b" style="margin-top:60px;">
+  <h2>Topic B: Complex Numbers</h2>
+  <p>Lessons 5–7 · Imaginary numbers, complex number operations, and complex solutions.</p>
+</div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-butter">
+    <span class="lesson-tag">05 — Lesson 5</span>
+    <h3>Imaginary &amp; Complex Numbers</h3>
+    <p>When a quadratic has no real zeros, its solutions involve the imaginary unit <strong>i</strong>.</p>
+    <ul class="key-list">
+      <li><strong>i = √(−1)</strong>, so i² = −1.</li>
+      <li><strong>Complex number:</strong> a + bi, where a is real and bi is imaginary.</li>
+      <li><strong>Pure imaginary:</strong> no real part, e.g. 3i.</li>
+      <li>√(−9) = √9 · √(−1) = <strong>3i</strong></li>
+    </ul>
+    <span class="example-pill">√(−25) = 5i &nbsp;·&nbsp; (2 + 3i) + (1 − i) = <strong>3 + 2i</strong></span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lesson 5</div>
+    <div class="question">
+      <div class="q-label">Q7 · Short Answer</div>
+      <p class="q-text">Simplify √(−16). Write in the form bi.</p>
+      <div class="input-row">
+        <input type="text" id="q7-input" placeholder="Answer" />
+        <button class="check-btn" onclick="checkInput('q7',['4i'])">Check</button>
+      </div>
+      <div class="feedback" id="q7-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q8 · Multiple Choice</div>
+      <p class="q-text">What is i²?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q8',false)">A) 1</button>
+        <button class="choice-btn" onclick="checkMC(this,'q8',true)">B) −1</button>
+        <button class="choice-btn" onclick="checkMC(this,'q8',false)">C) i</button>
+        <button class="choice-btn" onclick="checkMC(this,'q8',false)">D) 2i</button>
+      </div>
+      <div class="feedback" id="q8-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-divider"></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">06–07 — Lessons 6–7</span>
+    <h3>Operating with Complex Numbers</h3>
+    <p>Add, subtract, multiply, and divide complex numbers — treat i like a variable, but replace i² with −1.</p>
+    <ul class="key-list">
+      <li><strong>Addition/Subtraction:</strong> combine real parts and imaginary parts separately.</li>
+      <li><strong>Multiplication:</strong> FOIL, then replace i² = −1.</li>
+      <li><strong>Conjugate of a + bi:</strong> a − bi. Used for division.</li>
+      <li><strong>Division:</strong> multiply numerator and denominator by the conjugate.</li>
+    </ul>
+    <span class="example-pill">(2 + 3i)(1 − 2i) = 2 − 4i + 3i − 6i² = 2 − i + 6 = <strong>8 − i</strong></span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 6–7</div>
+    <div class="question">
+      <div class="q-label">Q9 · Short Answer</div>
+      <p class="q-text">Multiply: (3 + i)(3 − i). (Hint: it's a difference of squares.)</p>
+      <div class="input-row">
+        <input type="text" id="q9-input" placeholder="Answer" />
+        <button class="check-btn" onclick="checkInput('q9',['10'])">Check</button>
+      </div>
+      <div class="feedback" id="q9-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q10 · Multiple Choice</div>
+      <p class="q-text">What is the complex conjugate of 5 − 2i?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q10',false)">A) −5 + 2i</button>
+        <button class="choice-btn" onclick="checkMC(this,'q10',true)">B) 5 + 2i</button>
+        <button class="choice-btn" onclick="checkMC(this,'q10',false)">C) 5 − 2i (unchanged)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q10',false)">D) 2i − 5</button>
+      </div>
+      <div class="feedback" id="q10-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPIC C -->
+<div class="section-head" id="topic-c" style="margin-top:60px;">
+  <h2>Topic C: Solving Quadratic Equations</h2>
+  <p>Lessons 8–11 · Factoring, completing the square, and the quadratic formula.</p>
+</div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">08–09 — Lessons 8–9</span>
+    <h3>Solving by Factoring</h3>
+    <p>Set the quadratic equal to zero, factor it, then use the zero product property.</p>
+    <ul class="key-list">
+      <li><strong>Zero product property:</strong> if AB = 0, then A = 0 or B = 0.</li>
+      <li><strong>Factor:</strong> find two binomials whose product equals the quadratic.</li>
+      <li><strong>GCF first:</strong> always factor out the greatest common factor first.</li>
+      <li>Works cleanly when solutions are rational numbers.</li>
+    </ul>
+    <span class="example-pill">x² − 5x + 6 = 0 → (x−2)(x−3) = 0 → x = <strong>2 or x = 3</strong></span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 8–9</div>
+    <div class="question">
+      <div class="q-label">Q11 · Short Answer</div>
+      <p class="q-text">Solve: x² + 7x + 12 = 0. Give the smaller solution.</p>
+      <div class="input-row">
+        <input type="text" id="q11-input" placeholder="x = ?" />
+        <button class="check-btn" onclick="checkInput('q11',['-4','x=-4','x = -4','−4'])">Check</button>
+      </div>
+      <div class="feedback" id="q11-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q12 · Multiple Choice</div>
+      <p class="q-text">The zero product property says: if (x−5)(x+2) = 0, then...</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q12',false)">A) x = −5 or x = 2</button>
+        <button class="choice-btn" onclick="checkMC(this,'q12',true)">B) x = 5 or x = −2</button>
+        <button class="choice-btn" onclick="checkMC(this,'q12',false)">C) x = −5 and x = −2</button>
+        <button class="choice-btn" onclick="checkMC(this,'q12',false)">D) x = 10</button>
+      </div>
+      <div class="feedback" id="q12-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-divider"></div>
+
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">10–11 — Lessons 10–11</span>
+    <h3>Quadratic Formula &amp; Discriminant</h3>
+    <p>When factoring is difficult, use the quadratic formula to find exact solutions.</p>
+    <ul class="key-list">
+      <li><strong>Formula:</strong> x = [−b ± √(b²−4ac)] / 2a</li>
+      <li><strong>Discriminant (b²−4ac):</strong> determines the number of solutions.</li>
+      <li><strong>&gt; 0:</strong> two real solutions. <strong>= 0:</strong> one real solution. <strong>&lt; 0:</strong> two complex solutions.</li>
+    </ul>
+    <span class="example-pill">x² − 4x + 1 = 0 → discriminant = 16−4 = 12 &gt; 0 → two real solutions:<br>x = (4 ± √12)/2 = 2 ± √3</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Lessons 10–11</div>
+    <div class="question">
+      <div class="q-label">Q13 · Multiple Choice</div>
+      <p class="q-text">For 2x² + 3x + 5 = 0, the discriminant is 9 − 40 = −31. What does this tell us?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q13',false)">A) Two positive real solutions</button>
+        <button class="choice-btn" onclick="checkMC(this,'q13',false)">B) One repeated real solution</button>
+        <button class="choice-btn" onclick="checkMC(this,'q13',true)">C) Two complex (non-real) solutions</button>
+        <button class="choice-btn" onclick="checkMC(this,'q13',false)">D) No solutions at all</button>
+      </div>
+      <div class="feedback" id="q13-feedback"></div>
+    </div>
+    <div class="question">
+      <div class="q-label">Q14 · Multiple Choice</div>
+      <p class="q-text">Using the quadratic formula on x² − 6x + 9 = 0, what is x?</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="checkMC(this,'q14',false)">A) x = 3 and x = −3</button>
+        <button class="choice-btn" onclick="checkMC(this,'q14',true)">B) x = 3 (one repeated solution)</button>
+        <button class="choice-btn" onclick="checkMC(this,'q14',false)">C) x = 6 and x = 0</button>
+        <button class="choice-btn" onclick="checkMC(this,'q14',false)">D) x = ±√9 = ±3</button>
+      </div>
+      <div class="feedback" id="q14-feedback"></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; Algebra 2, Unit 2 Study Guide</span>
+  <span>Based on <a href="https://www.fishtanklearning.org/curriculum/math/algebra-2/" target="_blank">Fishtank Learning</a> 11th Grade Curriculum</span>
+</footer>
+
+<script>
+let answered = {}, correct = 0, total = 0;
+function checkMC(btn, qId, isCorrect) {
+  if (answered[qId]) return; answered[qId] = true; total++;
+  const allBtns = btn.closest('.choices').querySelectorAll('.choice-btn');
+  allBtns.forEach(b => b.disabled = true);
+  const fb = document.getElementById(qId + '-feedback');
+  if (isCorrect) { btn.classList.add('correct'); fb.textContent = '✓ Correct!'; fb.className = 'feedback correct'; correct++; }
+  else { btn.classList.add('incorrect'); fb.textContent = '✗ Not quite — review the section on the left!'; fb.className = 'feedback incorrect'; allBtns.forEach(b => { if (b.getAttribute('onclick') && b.getAttribute('onclick').includes('true')) b.classList.add('revealed'); }); }
+}
+function checkInput(qId, accepted) {
+  if (answered[qId]) return;
+  const inputEl = document.getElementById(qId + '-input');
+  const fb = document.getElementById(qId + '-feedback');
+  const val = inputEl.value.trim().toLowerCase().replace(/\s/g,'');
+  const norm = accepted.map(a => a.toLowerCase().replace(/\s/g,''));
+  answered[qId] = true; total++;
+  if (norm.includes(val)) { inputEl.classList.add('correct'); fb.textContent = '✓ Correct!'; fb.className = 'feedback correct'; correct++; }
+  else { inputEl.classList.add('incorrect'); fb.textContent = '✗ Correct answer: ' + accepted[0]; fb.className = 'feedback incorrect'; }
+  inputEl.disabled = true;
+}
+</script>
+</body>
+</html>
