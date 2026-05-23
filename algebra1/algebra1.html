@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Algebra 1 — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--cream: #FBF6EC;
+--cream-deeper: #F4ECDC;
+--ink: #2B2520;
+--ink-soft: #6B635C;
+--peach: #FFD0BC;
+--mint: #BFE6D2;
+--lilac: #DDD2F2;
+--butter: #FFE39B;
+--sky: #C2DDF2;
+--coral: #FF6B5A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.blob { position: fixed; border-radius: 50%; filter: blur(60px); opacity: 0.45; z-index: 0; pointer-events: none; }
+.blob-1 { top: -120px; right: -80px; width: 380px; height: 380px; background: var(--peach); animation: float 14s ease-in-out infinite; }
+.blob-2 { top: 400px; left: -160px; width: 420px; height: 420px; background: var(--butter); animation: float 18s ease-in-out infinite reverse; }
+.blob-3 { bottom: -100px; right: -120px; width: 320px; height: 320px; background: var(--mint); animation: float 16s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-40px) scale(1.08); } }
+header { position: sticky; top: 0; z-index: 100; background: rgba(251,246,236,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--cream-deeper); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 600; font-size: 21px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.logo-mark { width: 32px; height: 32px; background: var(--ink); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--butter); font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px; }
+.logo-badge { font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700; color: var(--ink-soft); background: var(--cream-deeper); padding: 3px 10px; border-radius: 999px; margin-left: 2px; }
+nav ul { display: flex; list-style: none; gap: 4px; align-items: center; }
+nav a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 13px; padding: 8px 15px; border-radius: 999px; transition: background 0.2s; }
+nav a:hover { background: var(--cream-deeper); }
+nav a.active { background: var(--peach); }
+.nav-cta { background: var(--ink); color: var(--cream) !important; }
+.nav-cta:hover { background: var(--coral) !important; }
+.hero { position: relative; z-index: 1; padding: 68px 48px 52px; max-width: 860px; margin: 0 auto; text-align: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; background: white; border: 1px solid var(--cream-deeper); padding: 7px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-bottom: 22px; box-shadow: 0 4px 12px rgba(43,37,32,0.04); }
+.eyebrow .dot { width: 8px; height: 8px; background: var(--peach); border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,208,188,0.35); }
+h1 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 500; font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 18px; }
+.hero-sub { font-size: 16px; color: var(--ink-soft); max-width: 520px; margin: 0 auto 28px; line-height: 1.65; }
+.hero-ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
+.btn-primary { background: var(--ink); color: var(--cream); box-shadow: 0 6px 16px rgba(43,37,32,0.13); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(43,37,32,0.2); }
+.btn-ghost { background: white; color: var(--ink); border: 1.5px solid var(--cream-deeper); }
+.btn-ghost:hover { transform: translateY(-2px); background: var(--cream-deeper); }
+.content-wrap { position: relative; z-index: 1; max-width: 1060px; margin: 0 auto; padding: 0 48px 80px; }
+.units-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 32px; }
+.unit-card { background: white; border-radius: 24px; padding: 28px 26px; border: 1.5px solid var(--cream-deeper); text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 10px; transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s; }
+.unit-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(43,37,32,0.09); border-color: transparent; }
+.unit-card:hover .unit-num { opacity: 1; }
+.unit-num { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); opacity: 0.6; transition: opacity 0.2s; }
+.unit-color-bar { width: 36px; height: 4px; border-radius: 2px; margin-bottom: 4px; }
+.unit-card h3 { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; line-height: 1.2; }
+.unit-card p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+.unit-arrow { margin-top: auto; font-size: 18px; color: var(--ink-soft); align-self: flex-end; transition: transform 0.2s; }
+.unit-card:hover .unit-arrow { transform: translateX(4px); }
+.section-label { font-family: 'Fraunces', serif; font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 500; font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.03em; margin-bottom: 4px; }
+.section-sub { color: var(--ink-soft); font-size: 14px; margin-bottom: 0; }
+footer { position: relative; z-index: 1; text-align: center; padding: 32px 48px; color: var(--ink-soft); font-size: 13px; border-top: 1px solid var(--cream-deeper); margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
 
+<header>
+  <a class="logo" href="../index.html">
+    <span class="logo-mark">c</span>crefcalc
+    <span class="logo-badge">study guides</span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="algebra1.html" class="active">Algebra 1</a></li>
+      <li><a href="../algebra2/algebra2.html">Algebra 2</a></li>
+      <li><a href="../geometry/geometry.html">Geometry</a></li>
+      <li><a href="../algebra1/algebra1practice.html" class="nav-cta">Practice</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="eyebrow"><span class="dot"></span>9th Grade · 11 Units</div>
+  <h1>Algebra&nbsp;1</h1>
+  <p class="hero-sub">Master the core language of mathematics — from functions and linearity to quadratics and data. Build the foundation for everything that follows.</p>
+  <div class="hero-ctas">
+    <a href="algebra1-1.html" class="btn btn-primary">Start Unit 1 →</a>
+    <a href="algebra1practice.html" class="btn btn-ghost">Practice Problems</a>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="section-label">All Units</div>
+  <p class="section-sub">Click any unit to open its full study guide with lessons, key ideas, and practice quizzes.</p>
+  <div class="units-grid">
+
+    <a class="unit-card" href="algebra1-1.html">
+      <span class="unit-num">Unit 1</span>
+      <div class="unit-color-bar" style="background:var(--peach)"></div>
+      <h3>Functions, Graphs &amp; Features</h3>
+      <p>Domain &amp; range, function notation, key graph features, and an introduction to nonlinear functions.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-2.html">
+      <span class="unit-num">Unit 2</span>
+      <div class="unit-color-bar" style="background:var(--mint)"></div>
+      <h3>Descriptive Statistics</h3>
+      <p>Displaying and summarizing data with dot plots, histograms, box plots, and measures of center &amp; spread.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-3.html">
+      <span class="unit-num">Unit 3</span>
+      <div class="unit-color-bar" style="background:var(--lilac)"></div>
+      <h3>Linear Expressions &amp; Equations</h3>
+      <p>Slope, intercepts, forms of linear equations, writing lines from data, and solving linear equations.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-4.html">
+      <span class="unit-num">Unit 4</span>
+      <div class="unit-color-bar" style="background:var(--butter)"></div>
+      <h3>Linear Systems &amp; Inequalities</h3>
+      <p>Solving systems by graphing, substitution, and elimination; graphing linear inequalities and systems.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-5.html">
+      <span class="unit-num">Unit 5</span>
+      <div class="unit-color-bar" style="background:var(--sky)"></div>
+      <h3>Functions &amp; Transformations</h3>
+      <p>Function families, transformations (shifts, reflections, stretches), and piecewise-defined functions.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-6.html">
+      <span class="unit-num">Unit 6</span>
+      <div class="unit-color-bar" style="background:var(--peach)"></div>
+      <h3>Exponents &amp; Exponential Functions</h3>
+      <p>Exponent rules, exponential growth &amp; decay, geometric sequences, and comparing growth rates.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-7.html">
+      <span class="unit-num">Unit 7</span>
+      <div class="unit-color-bar" style="background:var(--mint)"></div>
+      <h3>Quadratic Functions</h3>
+      <p>Parabola features, standard &amp; vertex forms, transformations, and modeling with quadratics.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-8.html">
+      <span class="unit-num">Unit 8</span>
+      <div class="unit-color-bar" style="background:var(--lilac)"></div>
+      <h3>Solving Quadratic Equations</h3>
+      <p>Factoring, square roots, completing the square, quadratic formula, and the discriminant.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-9.html">
+      <span class="unit-num">Unit 9</span>
+      <div class="unit-color-bar" style="background:var(--butter)"></div>
+      <h3>Radical Expressions &amp; Equations</h3>
+      <p>Simplifying radicals, rational exponents, radical operations, and solving radical equations.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-10.html">
+      <span class="unit-num">Unit 10</span>
+      <div class="unit-color-bar" style="background:var(--sky)"></div>
+      <h3>Polynomials</h3>
+      <p>Polynomial vocabulary, operations, factoring strategies, and the factor and remainder theorems.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a class="unit-card" href="algebra1-11.html">
+      <span class="unit-num">Unit 11</span>
+      <div class="unit-color-bar" style="background:var(--peach)"></div>
+      <h3>Data Analysis &amp; Probability</h3>
+      <p>Scatterplots, correlation, regression, two-way tables, and foundations of probability.</p>
+      <span class="unit-arrow">→</span>
+    </a>
+
+  </div>
+</div>
+
+<footer>© crefcalc · Algebra 1 Study Guides</footer>
+</body>
+</html>
