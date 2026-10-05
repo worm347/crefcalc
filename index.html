@@ -251,6 +251,7 @@
   .subj-alg2   { grid-column: span 2; background: var(--mint); }
   .subj-geom   { grid-column: span 2; background: var(--lilac); }
   .subj-precal { grid-column: span 3; background: var(--butter); }
+  .subj-ged    { grid-column: span 3; background: var(--sky); }
 
   /* About */
   .about {
@@ -447,7 +448,7 @@
   /* Responsive */
   @media (max-width: 900px) {
     .subject-grid { grid-template-columns: 1fr; }
-    .subj-alg1, .subj-alg2, .subj-geom, .subj-precal { grid-column: span 1; }
+    .subj-alg1, .subj-alg2, .subj-geom, .subj-precal, .subj-ged { grid-column: span 1; }
     .about-grid { grid-template-columns: 1fr; gap: 28px; }
     .booking-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
@@ -544,6 +545,15 @@
           <p>Functions, trigonometry, vectors, sequences, and limits.</p>
         </div>
       </div>
+
+
+      <a href="ged/ged.html" class="subject subj-ged" style="text-decoration:none;color:inherit;cursor:pointer;">
+        <div>
+          <span class="subject-tag">05</span>
+          <h3>GED Math</h3>
+          <p>Numbers, percents, equations, graphs, geometry, and data for the GED test.</p>
+        </div>
+      </a>
     </div>
   </section>
 
