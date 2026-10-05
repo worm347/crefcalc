@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>GED Math · Unit 5 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--cream:#FBF6EC;--cream-deeper:#F4ECDC;--ink:#2B2520;--ink-soft:#6B635C;--peach:#FFD0BC;--mint:#BFE6D2;--lilac:#DDD2F2;--butter:#FFE39B;--sky:#C2DDF2;--coral:#FF6B5A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;z-index:0;pointer-events:none;}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-40px) scale(1.08);}}
+header{position:sticky;top:0;z-index:100;background:rgba(251,246,236,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-deeper);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:600;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+.logo-mark{width:32px;height:32px;background:var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--butter);font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.logo-badge{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ink-soft);background:var(--cream-deeper);padding:3px 10px;border-radius:999px;margin-left:2px;}
+nav ul{display:flex;list-style:none;gap:4px;align-items:center;}nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;transition:background .2s;}nav a:hover{background:var(--cream-deeper);}.nav-cta{background:var(--ink);color:var(--cream)!important;}.nav-cta:hover{background:var(--coral)!important;}
+.hero{position:relative;z-index:1;padding:68px 48px 52px;max-width:860px;margin:0 auto;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:white;border:1px solid var(--cream-deeper);padding:7px 18px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:22px;box-shadow:0 4px 12px rgba(43,37,32,.04);}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;}
+h1{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px;}
+.hero-sub{font-size:16px;color:var(--ink-soft);max-width:500px;margin:0 auto 28px;line-height:1.65;}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-primary{background:var(--ink);color:var(--cream);box-shadow:0 6px 16px rgba(43,37,32,.13);}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(43,37,32,.2);}
+.btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--cream-deeper);}.btn-ghost:hover{transform:translateY(-2px);background:var(--cream-deeper);}
+.content-wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 80px;}
+.section-head{margin:52px 0 28px;}.section-head h2{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(28px,3.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:6px;}.section-head p{color:var(--ink-soft);font-size:15px;}
+.lesson-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;align-items:start;}
+.lesson-card{border-radius:28px;padding:30px 28px;transition:transform .22s,box-shadow .22s;}.lesson-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,37,32,.07);}
+.c-peach{background:var(--peach);}.c-mint{background:var(--mint);}.c-lilac{background:var(--lilac);}.c-butter{background:var(--butter);}.c-sky{background:var(--sky);}
+.lesson-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.55;margin-bottom:12px;display:block;}
+.lesson-card h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px;}
+.lesson-card p{font-size:14px;line-height:1.65;opacity:.85;margin-bottom:8px;}.lesson-card p:last-child{margin-bottom:0;}
+.key-list{background:rgba(255,255,255,.5);border-radius:14px;padding:13px 17px;margin:10px 0;list-style:none;}
+.key-list li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(43,37,32,.07);}.key-list li:last-child{border-bottom:none;}.key-list li strong{font-weight:700;}
+.example-pill{background:rgba(255,255,255,.6);border-radius:12px;padding:11px 15px;font-size:13px;line-height:1.65;margin-top:10px;display:block;}.example-pill strong{font-weight:700;}
+.practice-block{background:white;border:1px solid var(--cream-deeper);border-radius:22px;padding:24px 26px;box-shadow:0 2px 8px rgba(43,37,32,.03);}
+.practice-block-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.practice-block-title::after{content:'';flex:1;height:1px;background:var(--cream-deeper);}
+.question{margin-bottom:18px;}.question:last-child{margin-bottom:0;}
+.q-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:7px;}
+.q-text{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.5;}
+.choices{display:flex;flex-direction:column;gap:7px;}
+.choice-btn{text-align:left;background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--ink);font-family:'Nunito',sans-serif;transition:all .16s;line-height:1.5;}
+.choice-btn:hover:not(:disabled){border-color:var(--ink);background:var(--cream-deeper);}
+.choice-btn.correct{border-color:#5bb089;background:#eef8f2;color:#1a5c35;font-weight:700;}.choice-btn.incorrect{border-color:var(--coral);background:#fff2f0;color:#8b1f13;}.choice-btn.revealed{border-color:#5bb089;background:#eef8f2;color:#1a5c35;}.choice-btn:disabled{cursor:default;}
+.input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.input-row input{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;outline:none;min-width:140px;transition:border-color .16s,background .16s;}
+.input-row input:focus{border-color:var(--coral);background:white;}.input-row input.correct{border-color:#5bb089;background:#eef8f2;}.input-row input.incorrect{border-color:var(--coral);background:#fff2f0;}
+.check-btn{background:var(--ink);color:var(--cream);border:none;border-radius:999px;padding:9px 20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;cursor:pointer;transition:background .2s;}.check-btn:hover{background:var(--coral);}
+.feedback{margin-top:8px;font-size:12.5px;font-weight:700;min-height:18px;}.feedback.correct{color:#256b3c;}.feedback.incorrect{color:#8b1f13;}
+.video-section{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 48px;}
+.video-card{background:var(--ink);border-radius:28px;overflow:hidden;box-shadow:0 10px 32px rgba(43,37,32,.12);}
+.video-card-header{padding:20px 28px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.video-card-header h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:18px;letter-spacing:-.02em;color:var(--cream);}
+.video-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--butter);background:rgba(255,227,155,.12);border:1px solid rgba(255,227,155,.2);padding:4px 12px;border-radius:999px;}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.lesson-divider{height:1px;background:var(--cream-deeper);margin:36px 0;}
+footer{position:relative;z-index:1;border-top:1px solid var(--cream-deeper);padding:32px 48px;max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--ink-soft);font-size:13px;}
+footer a{color:var(--ink);font-weight:700;text-decoration:none;}footer a:hover{color:var(--coral);}
+@media(max-width:760px){.lesson-row{grid-template-columns:1fr;}header{padding:16px 20px;}nav li:not(:last-child){display:none;}.hero,.content-wrap,.video-section{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;}}</style>
+</head>
+<body>
+<div class="blob" style="top:-120px;right:-80px;width:380px;height:380px;background:var(--sky);animation:float 14s ease-in-out infinite;"></div>
+<div class="blob" style="top:400px;left:-160px;width:420px;height:420px;background:var(--lilac);animation:float 18s ease-in-out infinite reverse;"></div>
+<div class="blob" style="bottom:-100px;right:-120px;width:320px;height:320px;background:var(--butter);animation:float 16s ease-in-out infinite;"></div>
+<header>
+  <a href="../index.html" class="logo"><span class="logo-mark">c</span>crefcalc<span class="logo-badge">GED Math · Unit 5</span></a>
+  <nav><ul><li><a href="#topic-a">Topic A: Flat Shapes</a></li><li><a href="#topic-b">Topic B: Solid Shapes</a></li><li><a href="../index.html#book" class="nav-cta">Book free</a></li></ul></nav>
+</header>
+<div class="hero">
+  <div class="eyebrow"><span class="dot" style="background:var(--sky);box-shadow:0 0 0 4px rgba(0,0,0,0.08);"></span> Unit 5 · GED Mathematical Reasoning</div>
+  <h1>Geometry &amp;<br>Measurement.</h1>
+  <p class="hero-sub">Measuring shapes and solids. Most formulas are on the GED formula sheet, so focus on using them.</p>
+  <div class="hero-ctas"><a href="#topic-a" class="btn btn-primary">Start studying</a><a href="ged-4.html" class="btn btn-ghost">← Unit 4</a><a href="ged-6.html" class="btn btn-ghost">Unit 6 →</a></div>
+</div>
+<div class="content-wrap">
+<div class="section-head" id="topic-a"><h2>Topic A: Flat Shapes</h2><p>Perimeter, area, circles, and right triangles.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">01 — Perimeter &amp; Area</span>
+    <h3>Perimeter &amp; Area</h3>
+    <p>Perimeter is the distance around a shape. Area is the space inside it.</p><ul class="key-list"><li><strong>Rectangle:</strong> P = 2l + 2w, A = l × w.</li><li><strong>Triangle:</strong> A = ½ × b × h.</li><li><strong>Parallelogram:</strong> A = b × h. Trapezoid: A = ½ × h × (b₁ + b₂).</li><li><strong>Units:</strong> perimeter is in units (ft), area is in square units (ft²).</li></ul><span class="example-pill"><strong>Example:</strong> A room is 12 ft by 10 ft. Area = 120 ft². Perimeter = 44 ft.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Perimeter &amp; Area</div>
+    <div class="question"><div class="q-label">Q1 · Short Answer</div><p class="q-text">A triangle has base 10 and height 6. What is its area?</p><div class="input-row"><input type="text" id="q1-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q1",["30"])'>Check</button></div><div class="feedback" id="q1-feedback"></div></div><div class="question"><div class="q-label">Q2 · Multiple Choice</div><p class="q-text">A rectangle is 8 m long and 5 m wide. What is its perimeter?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q2',false)">A) 13 m</button><button class="choice-btn" onclick="checkMC(this,'q2',true)">B) 26 m</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">C) 40 m</button><button class="choice-btn" onclick="checkMC(this,'q2',false)">D) 80 m</button></div><div class="feedback" id="q2-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-butter">
+    <span class="lesson-tag">02 — Circles &amp; Right Triangles</span>
+    <h3>Circles &amp; the Pythagorean Theorem</h3>
+    <p>Circles use π (about 3.14). Right triangles use a² + b² = c².</p><ul class="key-list"><li><strong>Circumference:</strong> C = 2πr or C = πd.</li><li><strong>Area of a circle:</strong> A = πr².</li><li><strong>Radius vs diameter:</strong> the diameter is twice the radius.</li><li><strong>Pythagorean theorem:</strong> a² + b² = c², where c is the long side across from the right angle.</li></ul><span class="example-pill"><strong>Example:</strong> Legs 6 and 8: 36 + 64 = 100, so c = √100 = 10.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Circles &amp; the Pythagorean Theorem</div>
+    <div class="question"><div class="q-label">Q3 · Short Answer</div><p class="q-text">A right triangle has legs 5 and 12. How long is the hypotenuse?</p><div class="input-row"><input type="text" id="q3-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q3",["13"])'>Check</button></div><div class="feedback" id="q3-feedback"></div></div><div class="question"><div class="q-label">Q4 · Multiple Choice</div><p class="q-text">A circle has a diameter of 10. What is its area? (use π ≈ 3.14)</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q4',false)">A) 31.4</button><button class="choice-btn" onclick="checkMC(this,'q4',true)">B) 78.5</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">C) 314</button><button class="choice-btn" onclick="checkMC(this,'q4',false)">D) 15.7</button></div><div class="feedback" id="q4-feedback"></div></div>
+  </div>
+</div>
+<div class="section-head" id="topic-b" style="margin-top:60px;"><h2>Topic B: Solid Shapes</h2><p>Volume and surface area of 3D figures.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">03 — Volume</span>
+    <h3>Volume of Solids</h3>
+    <p>Volume is how much a 3D shape can hold. It's measured in cubic units (ft³).</p><ul class="key-list"><li><strong>Rectangular prism (box):</strong> V = l × w × h.</li><li><strong>Cylinder:</strong> V = πr²h.</li><li><strong>Cone:</strong> V = ⅓πr²h. Pyramid: V = ⅓ × base area × h.</li><li><strong>Sphere:</strong> V = ⁴⁄₃πr³.</li></ul><span class="example-pill"><strong>Example:</strong> A box 4 × 3 × 2 holds 24 cubic units.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Volume of Solids</div>
+    <div class="question"><div class="q-label">Q5 · Short Answer</div><p class="q-text">What is the volume of a box that is 5 cm by 4 cm by 3 cm? (just the number)</p><div class="input-row"><input type="text" id="q5-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q5",["60"])'>Check</button></div><div class="feedback" id="q5-feedback"></div></div><div class="question"><div class="q-label">Q6 · Multiple Choice</div><p class="q-text">A cylinder has radius 2 and height 5. What is its volume? (use π ≈ 3.14)</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q6',false)">A) 31.4</button><button class="choice-btn" onclick="checkMC(this,'q6',true)">B) 62.8</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">C) 20</button><button class="choice-btn" onclick="checkMC(this,'q6',false)">D) 125.6</button></div><div class="feedback" id="q6-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-lilac">
+    <span class="lesson-tag">04 — Surface Area</span>
+    <h3>Surface Area</h3>
+    <p>Surface area is the total area of all the outside faces, like the wrapping paper for a gift.</p><ul class="key-list"><li><strong>Rectangular prism:</strong> SA = 2lw + 2lh + 2wh.</li><li><strong>Cube:</strong> SA = 6s².</li><li><strong>Cylinder:</strong> SA = 2πrh + 2πr².</li><li><strong>Tip:</strong> volume = filling it up; surface area = covering it.</li></ul><span class="example-pill"><strong>Example:</strong> A cube with sides 3: SA = 6 × 9 = 54 square units.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Surface Area</div>
+    <div class="question"><div class="q-label">Q7 · Short Answer</div><p class="q-text">What is the surface area of a cube with side length 4?</p><div class="input-row"><input type="text" id="q7-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q7",["96"])'>Check</button></div><div class="feedback" id="q7-feedback"></div></div><div class="question"><div class="q-label">Q8 · Multiple Choice</div><p class="q-text">You want to paint the outside of a box. Which do you need?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q8',false)">A) Volume</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">B) Perimeter</button><button class="choice-btn" onclick="checkMC(this,'q8',true)">C) Surface area</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">D) Circumference</button></div><div class="feedback" id="q8-feedback"></div></div>
+  </div>
+</div>
+</div>
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; GED Math, Unit 5: Geometry &amp; Measurement</span>
+  <span>crefcalc is not affiliated with, endorsed by, or sponsored by GED Testing Service.</span>
+</footer>
+<script>let answered={},correct=0,total=0;
+function checkMC(btn,qId,isCorrect){if(answered[qId])return;answered[qId]=true;total++;const allBtns=btn.closest('.choices').querySelectorAll('.choice-btn');allBtns.forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-feedback');if(isCorrect){btn.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{btn.classList.add('incorrect');fb.textContent='✗ Not quite — review the section on the left!';fb.className='feedback incorrect';allBtns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('true'))b.classList.add('revealed');});}}
+function checkInput(qId,accepted){if(answered[qId])return;const inputEl=document.getElementById(qId+'-input');const fb=document.getElementById(qId+'-feedback');const val=inputEl.value.trim().toLowerCase().replace(/\s/g,'');const norm=accepted.map(a=>a.toLowerCase().replace(/\s/g,''));answered[qId]=true;total++;if(norm.includes(val)){inputEl.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{inputEl.classList.add('incorrect');fb.textContent='✗ Correct answer: '+accepted[0];fb.className='feedback incorrect';}inputEl.disabled=true;}</script>
+</body>
+</html>

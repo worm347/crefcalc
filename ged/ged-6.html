@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>GED Math · Unit 6 Study Guide — crefcalc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--cream:#FBF6EC;--cream-deeper:#F4ECDC;--ink:#2B2520;--ink-soft:#6B635C;--peach:#FFD0BC;--mint:#BFE6D2;--lilac:#DDD2F2;--butter:#FFE39B;--sky:#C2DDF2;--coral:#FF6B5A;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.blob{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;z-index:0;pointer-events:none;}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-40px) scale(1.08);}}
+header{position:sticky;top:0;z-index:100;background:rgba(251,246,236,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-deeper);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:600;font-size:21px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+.logo-mark{width:32px;height:32px;background:var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--butter);font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.logo-badge{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;color:var(--ink-soft);background:var(--cream-deeper);padding:3px 10px;border-radius:999px;margin-left:2px;}
+nav ul{display:flex;list-style:none;gap:4px;align-items:center;}nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;transition:background .2s;}nav a:hover{background:var(--cream-deeper);}.nav-cta{background:var(--ink);color:var(--cream)!important;}.nav-cta:hover{background:var(--coral)!important;}
+.hero{position:relative;z-index:1;padding:68px 48px 52px;max-width:860px;margin:0 auto;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:white;border:1px solid var(--cream-deeper);padding:7px 18px;border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:22px;box-shadow:0 4px 12px rgba(43,37,32,.04);}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;}
+h1{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px;}
+.hero-sub{font-size:16px;color:var(--ink-soft);max-width:500px;margin:0 auto 28px;line-height:1.65;}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .2s,box-shadow .2s,background .2s;}
+.btn-primary{background:var(--ink);color:var(--cream);box-shadow:0 6px 16px rgba(43,37,32,.13);}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(43,37,32,.2);}
+.btn-ghost{background:white;color:var(--ink);border:1.5px solid var(--cream-deeper);}.btn-ghost:hover{transform:translateY(-2px);background:var(--cream-deeper);}
+.content-wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 80px;}
+.section-head{margin:52px 0 28px;}.section-head h2{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:clamp(28px,3.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:6px;}.section-head p{color:var(--ink-soft);font-size:15px;}
+.lesson-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;align-items:start;}
+.lesson-card{border-radius:28px;padding:30px 28px;transition:transform .22s,box-shadow .22s;}.lesson-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,37,32,.07);}
+.c-peach{background:var(--peach);}.c-mint{background:var(--mint);}.c-lilac{background:var(--lilac);}.c-butter{background:var(--butter);}.c-sky{background:var(--sky);}
+.lesson-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.55;margin-bottom:12px;display:block;}
+.lesson-card h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:22px;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px;}
+.lesson-card p{font-size:14px;line-height:1.65;opacity:.85;margin-bottom:8px;}.lesson-card p:last-child{margin-bottom:0;}
+.key-list{background:rgba(255,255,255,.5);border-radius:14px;padding:13px 17px;margin:10px 0;list-style:none;}
+.key-list li{font-size:13.5px;line-height:1.65;padding:5px 0;border-bottom:1px solid rgba(43,37,32,.07);}.key-list li:last-child{border-bottom:none;}.key-list li strong{font-weight:700;}
+.example-pill{background:rgba(255,255,255,.6);border-radius:12px;padding:11px 15px;font-size:13px;line-height:1.65;margin-top:10px;display:block;}.example-pill strong{font-weight:700;}
+.practice-block{background:white;border:1px solid var(--cream-deeper);border-radius:22px;padding:24px 26px;box-shadow:0 2px 8px rgba(43,37,32,.03);}
+.practice-block-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.practice-block-title::after{content:'';flex:1;height:1px;background:var(--cream-deeper);}
+.question{margin-bottom:18px;}.question:last-child{margin-bottom:0;}
+.q-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:7px;}
+.q-text{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.5;}
+.choices{display:flex;flex-direction:column;gap:7px;}
+.choice-btn{text-align:left;background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--ink);font-family:'Nunito',sans-serif;transition:all .16s;line-height:1.5;}
+.choice-btn:hover:not(:disabled){border-color:var(--ink);background:var(--cream-deeper);}
+.choice-btn.correct{border-color:#5bb089;background:#eef8f2;color:#1a5c35;font-weight:700;}.choice-btn.incorrect{border-color:var(--coral);background:#fff2f0;color:#8b1f13;}.choice-btn.revealed{border-color:#5bb089;background:#eef8f2;color:#1a5c35;}.choice-btn:disabled{cursor:default;}
+.input-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.input-row input{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink);background:var(--cream);border:1.5px solid var(--cream-deeper);border-radius:10px;padding:9px 14px;outline:none;min-width:140px;transition:border-color .16s,background .16s;}
+.input-row input:focus{border-color:var(--coral);background:white;}.input-row input.correct{border-color:#5bb089;background:#eef8f2;}.input-row input.incorrect{border-color:var(--coral);background:#fff2f0;}
+.check-btn{background:var(--ink);color:var(--cream);border:none;border-radius:999px;padding:9px 20px;font-size:12px;font-weight:700;font-family:'Nunito',sans-serif;cursor:pointer;transition:background .2s;}.check-btn:hover{background:var(--coral);}
+.feedback{margin-top:8px;font-size:12.5px;font-weight:700;min-height:18px;}.feedback.correct{color:#256b3c;}.feedback.incorrect{color:#8b1f13;}
+.video-section{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 48px 48px;}
+.video-card{background:var(--ink);border-radius:28px;overflow:hidden;box-shadow:0 10px 32px rgba(43,37,32,.12);}
+.video-card-header{padding:20px 28px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.video-card-header h3{font-family:'Fraunces',serif;font-variation-settings:"SOFT" 100,"opsz" 144;font-weight:500;font-size:18px;letter-spacing:-.02em;color:var(--cream);}
+.video-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--butter);background:rgba(255,227,155,.12);border:1px solid rgba(255,227,155,.2);padding:4px 12px;border-radius:999px;}
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.lesson-divider{height:1px;background:var(--cream-deeper);margin:36px 0;}
+footer{position:relative;z-index:1;border-top:1px solid var(--cream-deeper);padding:32px 48px;max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;color:var(--ink-soft);font-size:13px;}
+footer a{color:var(--ink);font-weight:700;text-decoration:none;}footer a:hover{color:var(--coral);}
+@media(max-width:760px){.lesson-row{grid-template-columns:1fr;}header{padding:16px 20px;}nav li:not(:last-child){display:none;}.hero,.content-wrap,.video-section{padding-left:20px;padding-right:20px;}footer{padding:24px 20px;}}</style>
+</head>
+<body>
+<div class="blob" style="top:-120px;right:-80px;width:380px;height:380px;background:var(--peach);animation:float 14s ease-in-out infinite;"></div>
+<div class="blob" style="top:400px;left:-160px;width:420px;height:420px;background:var(--butter);animation:float 18s ease-in-out infinite reverse;"></div>
+<div class="blob" style="bottom:-100px;right:-120px;width:320px;height:320px;background:var(--mint);animation:float 16s ease-in-out infinite;"></div>
+<header>
+  <a href="../index.html" class="logo"><span class="logo-mark">c</span>crefcalc<span class="logo-badge">GED Math · Unit 6</span></a>
+  <nav><ul><li><a href="#topic-a">Topic A: Statistics &amp; Graphs</a></li><li><a href="#topic-b">Topic B: Probability</a></li><li><a href="../index.html#book" class="nav-cta">Book free</a></li></ul></nav>
+</header>
+<div class="hero">
+  <div class="eyebrow"><span class="dot" style="background:var(--peach);box-shadow:0 0 0 4px rgba(0,0,0,0.08);"></span> Unit 6 · GED Mathematical Reasoning</div>
+  <h1>Data &amp;<br>Probability.</h1>
+  <p class="hero-sub">Making sense of numbers in charts, tables, and chance.</p>
+  <div class="hero-ctas"><a href="#topic-a" class="btn btn-primary">Start studying</a><a href="ged-5.html" class="btn btn-ghost">← Unit 5</a><a href="ged.html" class="btn btn-ghost">All GED units</a></div>
+</div>
+<div class="content-wrap">
+<div class="section-head" id="topic-a"><h2>Topic A: Statistics &amp; Graphs</h2><p>Center, spread, and reading data displays.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-peach">
+    <span class="lesson-tag">01 — Mean, Median, Mode &amp; Range</span>
+    <h3>Mean, Median, Mode &amp; Range</h3>
+    <p>These four numbers describe a list of data.</p><ul class="key-list"><li><strong>Mean:</strong> the average. Add them up, divide by how many.</li><li><strong>Median:</strong> the middle number after putting them in order. If two middles, average them.</li><li><strong>Mode:</strong> the number that shows up most.</li><li><strong>Range:</strong> biggest minus smallest.</li></ul><span class="example-pill"><strong>Example:</strong> 3, 5, 5, 8, 9 → mean 6, median 5, mode 5, range 6.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Mean, Median, Mode &amp; Range</div>
+    <div class="question"><div class="q-label">Q1 · Short Answer</div><p class="q-text">Find the mean of 4, 8, 10, 6.</p><div class="input-row"><input type="text" id="q1-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q1",["7"])'>Check</button></div><div class="feedback" id="q1-feedback"></div></div><div class="question"><div class="q-label">Q2 · Short Answer</div><p class="q-text">Find the median of 12, 3, 7, 9, 5.</p><div class="input-row"><input type="text" id="q2-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q2",["7"])'>Check</button></div><div class="feedback" id="q2-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-mint">
+    <span class="lesson-tag">02 — Charts &amp; Graphs</span>
+    <h3>Reading Charts &amp; Graphs</h3>
+    <p>The GED loves bar graphs, line graphs, circle graphs, and tables. Read the title and labels first!</p><ul class="key-list"><li><strong>Bar graph:</strong> compares groups.</li><li><strong>Line graph:</strong> shows change over time.</li><li><strong>Circle (pie) graph:</strong> shows parts of a whole; the parts add to 100%.</li><li><strong>Scatter plot:</strong> shows if two things are related (positive, negative, or no trend).</li></ul><span class="example-pill"><strong>Example:</strong> A pie chart shows 25% of 200 students walk to school. 0.25 × 200 = 50 students.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Reading Charts &amp; Graphs</div>
+    <div class="question"><div class="q-label">Q3 · Multiple Choice</div><p class="q-text">Which graph is best for showing temperature changes over a week?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q3',false)">A) Circle graph</button><button class="choice-btn" onclick="checkMC(this,'q3',true)">B) Line graph</button><button class="choice-btn" onclick="checkMC(this,'q3',false)">C) Bar graph of colors</button><button class="choice-btn" onclick="checkMC(this,'q3',false)">D) Table of names</button></div><div class="feedback" id="q3-feedback"></div></div><div class="question"><div class="q-label">Q4 · Short Answer</div><p class="q-text">A circle graph shows 40% of a $500 budget is rent. How many dollars is rent?</p><div class="input-row"><input type="text" id="q4-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q4",["200","$200"])'>Check</button></div><div class="feedback" id="q4-feedback"></div></div>
+  </div>
+</div>
+<div class="section-head" id="topic-b" style="margin-top:60px;"><h2>Topic B: Probability</h2><p>Chance, counting, and combined events.</p></div>
+<div class="lesson-row">
+  <div class="lesson-card c-sky">
+    <span class="lesson-tag">03 — Simple Probability</span>
+    <h3>Simple Probability</h3>
+    <p>Probability is how likely something is, from 0 (never) to 1 (always).</p><ul class="key-list"><li><strong>Probability:</strong> P = (ways you want) ÷ (total ways).</li><li><strong>As a percent:</strong> 1/4 = 0.25 = 25%.</li><li><strong>Not happening:</strong> P(not A) = 1 − P(A).</li><li><strong>Fair coin:</strong> P(heads) = 1/2. Fair die: P(any one number) = 1/6.</li></ul><span class="example-pill"><strong>Example:</strong> A bag has 3 red and 7 blue marbles. P(red) = 3/10.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Simple Probability</div>
+    <div class="question"><div class="q-label">Q5 · Multiple Choice</div><p class="q-text">You roll a fair die. What is the probability of rolling an even number?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q5',false)">A) 1/6</button><button class="choice-btn" onclick="checkMC(this,'q5',false)">B) 1/3</button><button class="choice-btn" onclick="checkMC(this,'q5',true)">C) 1/2</button><button class="choice-btn" onclick="checkMC(this,'q5',false)">D) 2/3</button></div><div class="feedback" id="q5-feedback"></div></div><div class="question"><div class="q-label">Q6 · Short Answer</div><p class="q-text">The chance of rain is 0.3. What is the chance it does NOT rain? (as a decimal)</p><div class="input-row"><input type="text" id="q6-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q6",["0.7",".7"])'>Check</button></div><div class="feedback" id="q6-feedback"></div></div>
+  </div>
+</div>
+<div class="lesson-divider"></div>
+<div class="lesson-row">
+  <div class="lesson-card c-butter">
+    <span class="lesson-tag">04 — Counting &amp; Combined Events</span>
+    <h3>Counting &amp; Combined Events</h3>
+    <p>When two things happen, multiply to count all the ways.</p><ul class="key-list"><li><strong>Counting principle:</strong> 3 shirts and 4 pants make 3 × 4 = 12 outfits.</li><li><strong>Independent events:</strong> one doesn't change the other. P(A and B) = P(A) × P(B).</li><li><strong>Permutation:</strong> order matters (1st, 2nd, 3rd place).</li><li><strong>Combination:</strong> order doesn't matter (picking a team).</li></ul><span class="example-pill"><strong>Example:</strong> Flip a coin twice. P(two heads) = 1/2 × 1/2 = 1/4.</span>
+  </div>
+  <div class="practice-block">
+    <div class="practice-block-title">Practice — Counting &amp; Combined Events</div>
+    <div class="question"><div class="q-label">Q7 · Short Answer</div><p class="q-text">A café has 4 sandwiches and 3 drinks. How many sandwich-and-drink combos are there?</p><div class="input-row"><input type="text" id="q7-input" placeholder="Answer"/><button class="check-btn" onclick='checkInput("q7",["12"])'>Check</button></div><div class="feedback" id="q7-feedback"></div></div><div class="question"><div class="q-label">Q8 · Multiple Choice</div><p class="q-text">You flip a coin and roll a die. What is P(heads and a 6)?</p><div class="choices"><button class="choice-btn" onclick="checkMC(this,'q8',true)">A) 1/12</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">B) 1/8</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">C) 1/6</button><button class="choice-btn" onclick="checkMC(this,'q8',false)">D) 2/3</button></div><div class="feedback" id="q8-feedback"></div></div>
+  </div>
+</div>
+</div>
+<footer>
+  <span>© 2026 crefcalc &nbsp;·&nbsp; GED Math, Unit 6: Data, Statistics &amp; Probability</span>
+  <span>crefcalc is not affiliated with, endorsed by, or sponsored by GED Testing Service.</span>
+</footer>
+<script>let answered={},correct=0,total=0;
+function checkMC(btn,qId,isCorrect){if(answered[qId])return;answered[qId]=true;total++;const allBtns=btn.closest('.choices').querySelectorAll('.choice-btn');allBtns.forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-feedback');if(isCorrect){btn.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{btn.classList.add('incorrect');fb.textContent='✗ Not quite — review the section on the left!';fb.className='feedback incorrect';allBtns.forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes('true'))b.classList.add('revealed');});}}
+function checkInput(qId,accepted){if(answered[qId])return;const inputEl=document.getElementById(qId+'-input');const fb=document.getElementById(qId+'-feedback');const val=inputEl.value.trim().toLowerCase().replace(/\s/g,'');const norm=accepted.map(a=>a.toLowerCase().replace(/\s/g,''));answered[qId]=true;total++;if(norm.includes(val)){inputEl.classList.add('correct');fb.textContent='✓ Correct!';fb.className='feedback correct';correct++;}else{inputEl.classList.add('incorrect');fb.textContent='✗ Correct answer: '+accepted[0];fb.className='feedback incorrect';}inputEl.disabled=true;}</script>
+</body>
+</html>
