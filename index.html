@@ -251,7 +251,6 @@
   .subj-alg2   { grid-column: span 2; background: var(--mint); }
   .subj-geom   { grid-column: span 2; background: var(--lilac); }
   .subj-precal { grid-column: span 3; background: var(--butter); }
-  .subj-apcal  { grid-column: span 3; background: var(--sky); }
 
   /* About */
   .about {
@@ -448,7 +447,7 @@
   /* Responsive */
   @media (max-width: 900px) {
     .subject-grid { grid-template-columns: 1fr; }
-    .subj-alg1, .subj-alg2, .subj-geom, .subj-precal, .subj-apcal { grid-column: span 1; }
+    .subj-alg1, .subj-alg2, .subj-geom, .subj-precal { grid-column: span 1; }
     .about-grid { grid-template-columns: 1fr; gap: 28px; }
     .booking-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
@@ -550,40 +549,6 @@
           <p>Functions, trigonometry, vectors, sequences, and limits.</p>
         </div>
       </div>
-
-      <div class="subject subj-apcal">
-        <div>
-          <span class="subject-tag">05</span>
-          <h3>AP Calculus (AB &amp; BC)</h3>
-          <p>Limits, derivatives, integrals, and series.</p>
-          <p class="ap-note">"AP" is used here only to identify the course. crefcalc is not affiliated with the College Board.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <div class="section-head">
-      <h2>About</h2>
-      <p>A few things to know for non-Schoolhouse sessions.</p>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-item">
-        <div class="about-num num-a">1</div>
-        <h4>One-on-one</h4>
-        <p>Every session is just you and me — no groups, no recordings.</p>
-      </div>
-      <div class="about-item">
-        <div class="about-num num-b">2</div>
-        <h4>At your pace</h4>
-        <p>If something doesn't click, we'll stay on it until it does.</p>
-      </div>
-      <div class="about-item">
-        <div class="about-num num-c">3</div>
-        <h4>Around your class</h4>
-        <p>Bring your homework, notes, or test prep. We'll work from there.</p>
-      </div>
     </div>
   </section>
 
@@ -643,8 +608,6 @@
               <option>Algebra 2</option>
               <option>Geometry</option>
               <option>Precalculus</option>
-              <option>AP Calculus AB</option>
-              <option>AP Calculus BC</option>
               <option>Not sure</option>
             </select>
           </label>
@@ -678,7 +641,6 @@
           <li><a href="#subjects">Algebra 2</a></li>
           <li><a href="#subjects">Geometry</a></li>
           <li><a href="#subjects">Precalculus</a></li>
-          <li><a href="#subjects">AP Calculus</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -692,8 +654,7 @@
     </div>
 
     <div class="disclaimer">
-      <strong>Note on AP®:</strong> crefcalc is an independent tutoring effort and is <strong>not affiliated with, endorsed by, or sponsored by the College Board</strong>. References to "AP Calculus" and "AP" are used solely to identify the course curriculum being tutored. AP® and Advanced Placement® are trademarks of the College Board.
-    </div>
+      <strong>Note on GED®:</strong> crefcalc is an independent tutoring effort and is <strong>not affiliated with, endorsed by, or sponsored by GED Testing Service</strong>. References to "GED" are used solely to identify the course curriculum being tutored.
 
     <div class="footer-bottom">
       <span>© 2026 crefcalc</span>
