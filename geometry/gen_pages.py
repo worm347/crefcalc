@@ -146,7 +146,7 @@ def build_page(filename, subject, unit_num, grade, unit_title, h1_html, hero_sub
 </div>
 <div class="video-section">
   <div class="video-card"><div class="video-card-header"><h3>Unit {unit_num} — Lesson Video</h3><span class="video-tag">Placeholder</span></div>
-  <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Unit {unit_num}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+  <div class="video-wrapper"><iframe   title="Unit {unit_num}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
 </div>
 <div class="content-wrap">
 {sections_html}
